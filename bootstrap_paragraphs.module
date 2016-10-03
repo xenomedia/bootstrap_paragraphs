@@ -1,0 +1,8 @@
+<?php
+
+/**
+ * Implements hook_theme_registry_alter
+ */
+function bootstrap_paragraphs_theme_registry_alter(&$theme_registry) {
+  $theme_registry['sitemap']['path'] = drupal_get_path('module', 'bootstrap_paragraphs') . '/templates';
+}
