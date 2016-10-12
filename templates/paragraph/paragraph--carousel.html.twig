@@ -135,6 +135,8 @@ set classes = [
 'paragraph',
 'paragraph--type--' ~ paragraph.bundle|clean_class,
 view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+'carousel',
+'slide',
 ]
 %}
 
@@ -155,23 +157,22 @@ view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
 
 {# Prints Carousel template. #}
 {{ content|without('field_slide_content','field_slide_interval', 'field_width', 'field_background') }}
-<div{{ attributes.addClass(classes).setAttribute('id', paragraph_id) }}data-ride="carousel" data-interval="{{ slide_interval_classes }}">
+<div{{ attributes.addClass(classes).setAttribute('id', paragraph_id).setAttribute('data-interval', slide_interval_classes).setAttribute('data-ride', 'carousel') }}>
   <ol class="carousel-indicators">
-    {% for key, item in content.field_slide_content if key|first != '#' %}
-      <li class="{% if loop.first %}active{% endif %}" data-slide-to="{{ key }}" data-target="#myCarousel-{{ paragraph.id.value }}"></li>
+    {% for key, item in content.field_sl if key|first != '#' %}
+      <li class="{% if loop.first %}active{% endif %}" data-slide-to="{{ key }}" data-target="#{{ paragraph_id }}"></li>
     {% endfor %}
   </ol>
   <div class="carousel-inner" role="listbox">
-    {% for key, item in content.field_slide_content if key|first != '#' %}
-      <div class="paragraph--type--carousel__slide-{{ key + 1 }} item{% if loop.first %} active{% endif %}">{{ item }}</div>
+    {% for key, item in content.field_sl if key|first != '#' %}
+      <div class="paragraph--layout-slideshow__slide-{{ key + 1 }} item{% if loop.first %} active{% endif %}">{{ item }}</div>
     {% endfor %}
   </div>
-  <a class="left carousel-control" href="#myCarousel-{{ paragraph.id.value }}" role="button" data-slide="prev">
+  <a class="left carousel-control" href="#{{ paragraph_id }}" role="button" data-slide="prev">
     <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
     <span class="sr-only">Previous</span>
   </a>
-  <a class="right carousel-control" href="#myCarousel-{{ paragraph.id.value }}" role="button" data-slide="next">
+  <a class="right carousel-control" href="#{{ paragraph_id }}" role="button" data-slide="next">
     <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
   </a>
-</div>
