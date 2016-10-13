@@ -1,7 +1,0 @@
-langcode: en
-status: true
-dependencies: {  }
-name: Unrestricted
-format: unrestricted
-weight: 0
-filters: {  }
