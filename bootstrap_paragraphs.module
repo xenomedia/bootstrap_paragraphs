@@ -5,22 +5,24 @@
  */
 
 /**
- * Implements hook_theme_registry_alter().
+ * Implements hook_theme().
  */
-function bootstrap_paragraphs_theme_registry_alter(&$theme_registry) {
-  $module_path = drupal_get_path('module', 'bootstrap_paragraphs');
-
-  // Use the templates in the boostrap_paragraphs module.
-  $theme_registry['paragraph__default'] = $theme_registry['paragraph'];
-  $theme_registry['paragraph__default']['path'] = $module_path . '/templates/paragraph';
-  $theme_registry['paragraph__default']['template'] = 'paragraph--default';
-  $theme_registry['paragraph__accordion'] = $theme_registry['paragraph__default'];
-  $theme_registry['paragraph__accordion']['template'] = 'paragraph--accordion';
-  $theme_registry['paragraph__carousel'] = $theme_registry['paragraph__default'];
-  $theme_registry['paragraph__carousel']['template'] = 'paragraph--carousel';
-  $theme_registry['paragraph__modal'] = $theme_registry['paragraph__default'];
-  $theme_registry['paragraph__modal']['template'] = 'paragraph--modal';
-  $theme_registry['field__paragraph__field_column_content'] = $theme_registry['field'];
-  $theme_registry['field__paragraph__field_column_content']['path'] = $module_path . '/templates/field';
-  $theme_registry['field__paragraph__field_column_content']['template'] = 'field--paragraph--field-column-content';
+function bootstrap_paragraphs_theme($existing, $type, $theme, $path) {
+  return [
+    'paragraph__default' => [
+      'base hook' => 'paragraph',
+    ],
+    'paragraph__accordion' => [
+      'base hook' => 'paragraph',
+    ],
+    'paragraph__carousel' => [
+      'base hook' => 'paragraph',
+    ],
+    'paragraph__modal' => [
+      'base hook' => 'paragraph',
+    ],
+    'field__paragraph__field_column_content' => [
+      'base hook' => 'paragraph',
+    ],
+  ];
 }
