@@ -3,7 +3,13 @@ status: true
 dependencies:
   config:
     - field.storage.paragraph.field_slide_content
+    - paragraphs.paragraphs_type.blank
     - paragraphs.paragraphs_type.carousel
+    - paragraphs.paragraphs_type.columns
+    - paragraphs.paragraphs_type.contact
+    - paragraphs.paragraphs_type.image
+    - paragraphs.paragraphs_type.simple
+    - paragraphs.paragraphs_type.view
   module:
     - entity_reference_revisions
 id: paragraph.carousel.field_slide_content
@@ -19,27 +25,39 @@ default_value_callback: ''
 settings:
   handler: 'default:paragraph'
   handler_settings:
-    target_bundles: null
+    target_bundles:
+      simple: simple
+      image: image
+      blank: blank
+      contact: contact
+      view: view
+      columns: columns
     target_bundles_drag_drop:
-      carousel:
-        weight: 8
-        enabled: false
-      blank:
-        weight: 9
-        enabled: false
-      columns:
-        weight: 10
-        enabled: false
-      contact:
-        weight: 11
-        enabled: false
-      image:
-        weight: 12
-        enabled: false
       simple:
-        weight: 13
-        enabled: false
+        enabled: true
+        weight: -19
+      image:
+        enabled: true
+        weight: -18
+      blank:
+        enabled: true
+        weight: -17
+      contact:
+        enabled: true
+        weight: -16
       view:
-        weight: 14
+        enabled: true
+        weight: -15
+      columns:
+        enabled: true
+        weight: -14
+      carousel:
+        weight: -13
+        enabled: false
+      accordion_section:
+        weight: -12
+        enabled: false
+      accordion:
+        weight: -11
         enabled: false
 field_type: entity_reference_revisions
