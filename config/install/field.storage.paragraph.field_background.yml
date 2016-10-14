@@ -166,6 +166,24 @@ settings:
     -
       value: paragraph--color--transparent
       label: Transparent
+    -
+      value: 'paragraph--color paragraph--color--primary'
+      label: 'Brand Primary Color'
+    -
+      value: 'paragraph--color paragraph--color--secondary'
+      label: 'Brand Secondary Color'
+    -
+      value: 'paragraph--color paragraph--color--success'
+      label: 'Brand Success Color'
+    -
+      value: 'paragraph--color paragraph--color--info'
+      label: 'Brand Info Color'
+    -
+      value: 'paragraph--color paragraph--color--warning'
+      label: 'Brand Warning Color'
+    -
+      value: 'paragraph--color paragraph--color--danger'
+      label: 'Brand Danger Color'
   allowed_values_function: ''
 module: options
 locked: false

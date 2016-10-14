@@ -27,39 +27,39 @@ settings:
   handler: 'default:paragraph'
   handler_settings:
     target_bundles:
-      blank: blank
-      carousel: carousel
-      columns: columns
-      contact: contact
-      image: image
       simple: simple
+      image: image
+      blank: blank
+      contact: contact
       view: view
+      columns: columns
+      carousel: carousel
     target_bundles_drag_drop:
-      accordion_section:
-        weight: 10
-        enabled: false
-      accordion:
-        weight: 11
-        enabled: false
-      blank:
-        enabled: true
-        weight: 12
-      carousel:
-        enabled: true
-        weight: 13
-      columns:
-        enabled: true
-        weight: 14
-      contact:
-        enabled: true
-        weight: 15
-      image:
-        enabled: true
-        weight: 16
       simple:
         enabled: true
-        weight: 17
+        weight: -19
+      image:
+        enabled: true
+        weight: -18
+      blank:
+        enabled: true
+        weight: -17
+      contact:
+        enabled: true
+        weight: -16
       view:
         enabled: true
-        weight: 18
+        weight: -15
+      columns:
+        enabled: true
+        weight: -14
+      carousel:
+        enabled: true
+        weight: -13
+      accordion:
+        weight: -12
+        enabled: false
+      accordion_section:
+        weight: -11
+        enabled: false
 field_type: entity_reference_revisions

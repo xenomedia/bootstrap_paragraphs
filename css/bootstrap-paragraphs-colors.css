@@ -207,3 +207,13 @@
 .paragraph--color--transparent {
   background: transparent;
 }
+
+/* Override these in your site's CSS file for complete customization. */
+.paragraph--color--primary,
+.paragraph--color--secondary,
+.paragraph--color--success,
+.paragraph--color--info,
+.paragraph--color--warning,
+.paragraph--color--danger {
+  background: transparent;
+}
