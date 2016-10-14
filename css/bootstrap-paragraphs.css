@@ -220,16 +220,15 @@
 /* -------------------------------------------------------------------------- */
 /* Here we add Colors.                                                        */
 /* -------------------------------------------------------------------------- */
+/* Add display so color shows */
+.paragraph.paragraph--color {
+  display: inline-block;
+}
+
 /* Adds bottom padding to fill in color. */
 .paragraph.paragraph--color section {
   padding-bottom: 30px;
 }
-/* If two of the same colors are in a row, this removes the padding so there
-   isn't twice as much padding as normal. */
-.paragraph.paragraph--color + .paragraph.paragraph--color > section {
-  padding-top: 0;
-}
-/* Import additional style sheet with color classes. */
 /* -------------------------------------------------------------------------- */
 /* Lets Nest paragraphs in Columns and Slideshows.                            */
 /* -------------------------------------------------------------------------- */
@@ -257,245 +256,245 @@
   padding-right: 0;
 }
 /* Columns Modifiers inside of Columns Element  */
-.paragraph.paragraph--type--columns__6col,
-.paragraph.paragraph--type--columns__5col {
+.paragraph--type--columns__6col,
+.paragraph--type--columns__5col {
   position: relative;
   min-height: 1px;
   padding-left: 15px;
   padding-right: 15px;
 }
 @media (min-width: 768px) {
-  .paragraph.paragraph--type--columns__6col,
-  .paragraph.paragraph--type--columns__5col {
+  .paragraph--type--columns__6col,
+  .paragraph--type--columns__5col {
     float: left;
     width: 16.66666667%;
   }
 }
-.paragraph.paragraph--type--columns__4col {
+.paragraph--type--columns__4col {
   position: relative;
   min-height: 1px;
   padding-left: 15px;
   padding-right: 15px;
 }
 @media (min-width: 768px) {
-  .paragraph.paragraph--type--columns__4col {
+  .paragraph--type--columns__4col {
     float: left;
     width: 25%;
   }
 }
-.paragraph.paragraph--type--columns__3col {
+.paragraph--type--columns__3col {
   position: relative;
   min-height: 1px;
   padding-left: 15px;
   padding-right: 15px;
 }
 @media (min-width: 768px) {
-  .paragraph.paragraph--type--columns__3col {
+  .paragraph--type--columns__3col {
     float: left;
     width: 33.33333333%;
   }
 }
-.paragraph.paragraph--type--columns__2col {
+.paragraph--type--columns__2col {
   position: relative;
   min-height: 1px;
   padding-left: 15px;
   padding-right: 15px;
 }
 @media (min-width: 768px) {
-  .paragraph.paragraph--type--columns__2col {
+  .paragraph--type--columns__2col {
     float: left;
     width: 50%;
   }
 }
-.paragraph.paragraph--type--columns__1col {
+.paragraph--type--columns__1col {
   position: relative;
   min-height: 1px;
   padding-left: 15px;
   padding-right: 15px;
 }
 @media (min-width: 768px) {
-  .paragraph.paragraph--type--columns__1col {
+  .paragraph--type--columns__1col {
     float: left;
     width: 100%;
   }
 }
 /* These allow us to change the width on a single paragraph in a Multicolumn. */
-.paragraph.paragraph--type--columns__1col .paragraph.paragraph--width--tiny > section {
+.paragraph--type--columns__1col .paragraph.paragraph--width--tiny > section {
   position: relative;
   min-height: 1px;
   padding-left: 15px;
   padding-right: 15px;
 }
 @media (min-width: 768px) {
-  .paragraph.paragraph--type--columns__1col .paragraph.paragraph--width--tiny > section {
+  .paragraph--type--columns__1col .paragraph.paragraph--width--tiny > section {
     float: left;
     width: 33.33333333%;
   }
 }
 @media (min-width: 768px) {
-  .paragraph.paragraph--type--columns__1col .paragraph.paragraph--width--tiny > section {
+  .paragraph--type--columns__1col .paragraph.paragraph--width--tiny > section {
     margin-left: 33.33333333%;
   }
 }
 @media (min-width: 992px) {
-  .paragraph.paragraph--type--columns__1col .paragraph.paragraph--width--tiny > section {
+  .paragraph--type--columns__1col .paragraph.paragraph--width--tiny > section {
     float: left;
     width: 33.33333333%;
   }
 }
 @media (min-width: 992px) {
-  .paragraph.paragraph--type--columns__1col .paragraph.paragraph--width--tiny > section {
+  .paragraph--type--columns__1col .paragraph.paragraph--width--tiny > section {
     margin-left: 33.33333333%;
   }
 }
 @media (min-width: 1200px) {
-  .paragraph.paragraph--type--columns__1col .paragraph.paragraph--width--tiny > section {
+  .paragraph--type--columns__1col .paragraph.paragraph--width--tiny > section {
     float: left;
     width: 33.33333333%;
   }
 }
 @media (min-width: 1200px) {
-  .paragraph.paragraph--type--columns__1col .paragraph.paragraph--width--tiny > section {
+  .paragraph--type--columns__1col .paragraph.paragraph--width--tiny > section {
     margin-left: 33.33333333%;
   }
 }
-.paragraph.paragraph--type--columns__1col .paragraph.paragraph--width--narrow > section {
+.paragraph--type--columns__1col .paragraph.paragraph--width--narrow > section {
   position: relative;
   min-height: 1px;
   padding-left: 15px;
   padding-right: 15px;
 }
 @media (min-width: 768px) {
-  .paragraph.paragraph--type--columns__1col .paragraph.paragraph--width--narrow > section {
+  .paragraph--type--columns__1col .paragraph.paragraph--width--narrow > section {
     float: left;
     width: 50%;
   }
 }
 @media (min-width: 768px) {
-  .paragraph.paragraph--type--columns__1col .paragraph.paragraph--width--narrow > section {
+  .paragraph--type--columns__1col .paragraph.paragraph--width--narrow > section {
     margin-left: 25%;
   }
 }
 @media (min-width: 992px) {
-  .paragraph.paragraph--type--columns__1col .paragraph.paragraph--width--narrow > section {
+  .paragraph--type--columns__1col .paragraph.paragraph--width--narrow > section {
     float: left;
     width: 50%;
   }
 }
 @media (min-width: 992px) {
-  .paragraph.paragraph--type--columns__1col .paragraph.paragraph--width--narrow > section {
+  .paragraph--type--columns__1col .paragraph.paragraph--width--narrow > section {
     margin-left: 25%;
   }
 }
 @media (min-width: 1200px) {
-  .paragraph.paragraph--type--columns__1col .paragraph.paragraph--width--narrow > section {
+  .paragraph--type--columns__1col .paragraph.paragraph--width--narrow > section {
     float: left;
     width: 50%;
   }
 }
 @media (min-width: 1200px) {
-  .paragraph.paragraph--type--columns__1col .paragraph.paragraph--width--narrow > section {
+  .paragraph--type--columns__1col .paragraph.paragraph--width--narrow > section {
     margin-left: 25%;
   }
 }
-.paragraph.paragraph--type--columns__1col .paragraph.paragraph--width--medium > section {
+.paragraph--type--columns__1col .paragraph.paragraph--width--medium > section {
   position: relative;
   min-height: 1px;
   padding-left: 15px;
   padding-right: 15px;
 }
 @media (min-width: 768px) {
-  .paragraph.paragraph--type--columns__1col .paragraph.paragraph--width--medium > section {
+  .paragraph--type--columns__1col .paragraph.paragraph--width--medium > section {
     float: left;
     width: 66.66666667%;
   }
 }
 @media (min-width: 768px) {
-  .paragraph.paragraph--type--columns__1col .paragraph.paragraph--width--medium > section {
+  .paragraph--type--columns__1col .paragraph.paragraph--width--medium > section {
     margin-left: 16.66666667%;
   }
 }
 @media (min-width: 992px) {
-  .paragraph.paragraph--type--columns__1col .paragraph.paragraph--width--medium > section {
+  .paragraph--type--columns__1col .paragraph.paragraph--width--medium > section {
     float: left;
     width: 66.66666667%;
   }
 }
 @media (min-width: 992px) {
-  .paragraph.paragraph--type--columns__1col .paragraph.paragraph--width--medium > section {
+  .paragraph--type--columns__1col .paragraph.paragraph--width--medium > section {
     margin-left: 16.66666667%;
   }
 }
 @media (min-width: 1200px) {
-  .paragraph.paragraph--type--columns__1col .paragraph.paragraph--width--medium > section {
+  .paragraph--type--columns__1col .paragraph.paragraph--width--medium > section {
     float: left;
     width: 66.66666667%;
   }
 }
 @media (min-width: 1200px) {
-  .paragraph.paragraph--type--columns__1col .paragraph.paragraph--width--medium > section {
+  .paragraph--type--columns__1col .paragraph.paragraph--width--medium > section {
     margin-left: 16.66666667%;
   }
 }
-.paragraph.paragraph--type--columns__1col .paragraph.paragraph--width--wide > section {
+.paragraph--type--columns__1col .paragraph.paragraph--width--wide > section {
   position: relative;
   min-height: 1px;
   padding-left: 15px;
   padding-right: 15px;
 }
 @media (min-width: 768px) {
-  .paragraph.paragraph--type--columns__1col .paragraph.paragraph--width--wide > section {
+  .paragraph--type--columns__1col .paragraph.paragraph--width--wide > section {
     float: left;
     width: 83.33333333%;
   }
 }
 @media (min-width: 768px) {
-  .paragraph.paragraph--type--columns__1col .paragraph.paragraph--width--wide > section {
+  .paragraph--type--columns__1col .paragraph.paragraph--width--wide > section {
     margin-left: 8.33333333%;
   }
 }
 @media (min-width: 992px) {
-  .paragraph.paragraph--type--columns__1col .paragraph.paragraph--width--wide > section {
+  .paragraph--type--columns__1col .paragraph.paragraph--width--wide > section {
     float: left;
     width: 83.33333333%;
   }
 }
 @media (min-width: 992px) {
-  .paragraph.paragraph--type--columns__1col .paragraph.paragraph--width--wide > section {
+  .paragraph--type--columns__1col .paragraph.paragraph--width--wide > section {
     margin-left: 8.33333333%;
   }
 }
 @media (min-width: 1200px) {
-  .paragraph.paragraph--type--columns__1col .paragraph.paragraph--width--wide > section {
+  .paragraph--type--columns__1col .paragraph.paragraph--width--wide > section {
     float: left;
     width: 83.33333333%;
   }
 }
 @media (min-width: 1200px) {
-  .paragraph.paragraph--type--columns__1col .paragraph.paragraph--width--wide > section {
+  .paragraph--type--columns__1col .paragraph.paragraph--width--wide > section {
     margin-left: 8.33333333%;
   }
 }
-.paragraph.paragraph--type--columns__1col .paragraph.paragraph--width--full > section {
+.paragraph--type--columns__1col .paragraph.paragraph--width--full > section {
   position: relative;
   min-height: 1px;
   padding-left: 15px;
   padding-right: 15px;
 }
 @media (min-width: 768px) {
-  .paragraph.paragraph--type--columns__1col .paragraph.paragraph--width--full > section {
+  .paragraph--type--columns__1col .paragraph.paragraph--width--full > section {
     float: left;
     width: 100%;
   }
 }
 @media (min-width: 992px) {
-  .paragraph.paragraph--type--columns__1col .paragraph.paragraph--width--full > section {
+  .paragraph--type--columns__1col .paragraph.paragraph--width--full > section {
     float: left;
     width: 100%;
   }
 }
 @media (min-width: 1200px) {
-  .paragraph.paragraph--type--columns__1col .paragraph.paragraph--width--full > section {
+  .paragraph--type--columns__1col .paragraph.paragraph--width--full > section {
     float: left;
     width: 100%;
   }

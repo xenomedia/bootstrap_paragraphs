@@ -88,22 +88,15 @@
 /* Here we add Colors.                                                        */
 /* -------------------------------------------------------------------------- */
 
+/* Add display so color shows */
+.paragraph.paragraph--color {
+  display: inline-block;
+}
+
 /* Adds bottom padding to fill in color. */
 .paragraph.paragraph--color section {
   padding-bottom: @jumbotron-padding;
 }
-
-/* If two of the same colors are in a row, this removes the padding so there
-   isn't twice as much padding as normal. */
-.paragraph.paragraph--color + .paragraph.paragraph--color {
-
-  > section {
-    padding-top: 0;
-  }
-
-}
-
-/* Import additional style sheet with color classes. */
 
 /* -------------------------------------------------------------------------- */
 /* Lets Nest paragraphs in Columns and Slideshows.                            */
@@ -138,29 +131,29 @@
 }
 
 /* Columns Modifiers inside of Columns Element  */
-.paragraph.paragraph--type--columns__6col,
-.paragraph.paragraph--type--columns__5col {
+.paragraph--type--columns__6col,
+.paragraph--type--columns__5col {
   .make-sm-column(2);
 }
 
-.paragraph.paragraph--type--columns__4col {
+.paragraph--type--columns__4col {
   .make-sm-column(3);
 }
 
-.paragraph.paragraph--type--columns__3col {
+.paragraph--type--columns__3col {
   .make-sm-column(4);
 }
 
-.paragraph.paragraph--type--columns__2col {
+.paragraph--type--columns__2col {
   .make-sm-column(6);
 }
 
-.paragraph.paragraph--type--columns__1col {
+.paragraph--type--columns__1col {
   .make-sm-column(12);
 }
 
 /* These allow us to change the width on a single paragraph in a Multicolumn. */
-.paragraph.paragraph--type--columns__1col .paragraph.paragraph--width--tiny > section {
+.paragraph--type--columns__1col .paragraph.paragraph--width--tiny > section {
   .make-sm-column(4);
   .make-sm-column-offset(4);
   .make-md-column(4);
@@ -169,7 +162,7 @@
   .make-lg-column-offset(4);
 }
 
-.paragraph.paragraph--type--columns__1col .paragraph.paragraph--width--narrow > section {
+.paragraph--type--columns__1col .paragraph.paragraph--width--narrow > section {
   .make-sm-column(6);
   .make-sm-column-offset(3);
   .make-md-column(6);
@@ -178,7 +171,7 @@
   .make-lg-column-offset(3);
 }
 
-.paragraph.paragraph--type--columns__1col .paragraph.paragraph--width--medium > section {
+.paragraph--type--columns__1col .paragraph.paragraph--width--medium > section {
   .make-sm-column(8);
   .make-sm-column-offset(2);
   .make-md-column(8);
@@ -187,7 +180,7 @@
   .make-lg-column-offset(2);
 }
 
-.paragraph.paragraph--type--columns__1col .paragraph.paragraph--width--wide > section {
+.paragraph--type--columns__1col .paragraph.paragraph--width--wide > section {
   .make-sm-column(10);
   .make-sm-column-offset(1);
   .make-md-column(10);
@@ -196,7 +189,7 @@
   .make-lg-column-offset(1);
 }
 
-.paragraph.paragraph--type--columns__1col .paragraph.paragraph--width--full > section {
+.paragraph--type--columns__1col .paragraph.paragraph--width--full > section {
   .make-sm-column(12);
   .make-md-column(12);
   .make-lg-column(12);

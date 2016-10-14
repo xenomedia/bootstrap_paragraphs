@@ -161,13 +161,13 @@ view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
 {{ content|without('field_slide_content','field_slide_interval', 'field_width', 'field_background') }}
 <div{{ attributes.addClass(classes).setAttribute('id', paragraph_id).setAttribute('data-interval', slide_interval_classes).setAttribute('data-ride', 'carousel') }}>
   <ol class="carousel-indicators">
-    {% for key, item in content.field_sl if key|first != '#' %}
+    {% for key, item in content.field_slide_content if key|first != '#' %}
       <li class="{% if loop.first %}active{% endif %}" data-slide-to="{{ key }}" data-target="#{{ paragraph_id }}"></li>
     {% endfor %}
   </ol>
   <div class="carousel-inner" role="listbox">
-    {% for key, item in content.field_sl if key|first != '#' %}
-      <div class="paragraph--layout-slideshow__slide-{{ key + 1 }} item{% if loop.first %} active{% endif %}">{{ item }}</div>
+    {% for key, item in content.field_slide_content if key|first != '#' %}
+      <div class="paragraph--layout-slideshow__slide-{{ key + 1 }} item carousel-item{% if loop.first %} active{% endif %}">{{ item }}</div>
     {% endfor %}
   </div>
   <a class="left carousel-control" href="#{{ paragraph_id }}" role="button" data-slide="prev">
@@ -178,3 +178,4 @@ view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
     <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
   </a>
+</div>
