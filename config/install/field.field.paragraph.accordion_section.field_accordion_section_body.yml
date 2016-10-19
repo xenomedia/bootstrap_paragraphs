@@ -5,7 +5,7 @@ dependencies:
     - field.storage.paragraph.field_accordion_section_body
     - paragraphs.paragraphs_type.accordion_section
     - paragraphs.paragraphs_type.blank
-    - paragraphs.paragraphs_type.carousel
+    - paragraphs.paragraphs_type.block
     - paragraphs.paragraphs_type.columns
     - paragraphs.paragraphs_type.contact
     - paragraphs.paragraphs_type.image
@@ -33,33 +33,36 @@ settings:
       contact: contact
       view: view
       columns: columns
-      carousel: carousel
+      block: block
     target_bundles_drag_drop:
       simple:
         enabled: true
-        weight: -19
+        weight: -21
       image:
         enabled: true
-        weight: -18
+        weight: -20
       blank:
         enabled: true
-        weight: -17
+        weight: -19
       contact:
         enabled: true
-        weight: -16
+        weight: -18
       view:
         enabled: true
-        weight: -15
+        weight: -17
       columns:
         enabled: true
-        weight: -14
-      carousel:
+        weight: -16
+      block:
         enabled: true
-        weight: -13
+        weight: -15
+      carousel:
+        weight: -14
+        enabled: false
       accordion:
-        weight: -12
+        weight: -13
         enabled: false
       accordion_section:
-        weight: -11
+        weight: -12
         enabled: false
 field_type: entity_reference_revisions
