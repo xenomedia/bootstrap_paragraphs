@@ -29,6 +29,10 @@
 .paragraph:last-of-type {
   padding-bottom: 30px;
 }
+.paragraph--type--columns .paragraph:last-of-type,
+.paragraph--type--carousel .paragraph:last-of-type {
+  padding-bottom: 0;
+}
 /* -------------------------------------------------------------------------- */
 /* Here we add Widths.                                                        */
 /* -------------------------------------------------------------------------- */
