@@ -18,10 +18,28 @@ function bootstrap_paragraphs_theme($existing, $type, $theme, $path) {
     'paragraph__carousel' => [
       'base hook' => 'paragraph',
     ],
+    'paragraph__tabs' => [
+      'base hook' => 'paragraph',
+    ],
+    'paragraph__columns_three_uneven' => [
+      'base hook' => 'paragraph',
+    ],
+    'paragraph__columns_two_uneven' => [
+      'base hook' => 'paragraph',
+    ],
     'paragraph__modal' => [
       'base hook' => 'paragraph',
     ],
+    'field__entity_reference_revisions' => [
+      'base hook' => 'paragraph',
+    ],
     'field__paragraph__field_column_content' => [
+      'base hook' => 'paragraph',
+    ],
+    'field__paragraph__field_column_content_2' => [
+      'base hook' => 'paragraph',
+    ],
+    'field__paragraph__field_column_content_3' => [
       'base hook' => 'paragraph',
     ],
   ];

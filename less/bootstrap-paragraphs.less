@@ -1,17 +1,202 @@
 /* -----------------------------------------------------------------------------
 
+  Bootstrap 3 Variables and Mixins Needed
+  Can be quickly compiled to CSS at http://less2css.org/
+
+----------------------------------------------------------------------------- */
+//** Padding between columns. Gets divided in half for the left and right.
+@grid-gutter-width:         30px;
+
+@jumbotron-padding:         30px;
+
+// Creates a wrapper for a series of columns
+.make-row(@gutter: @grid-gutter-width) {
+  margin-left:  ceil((@gutter / -2));
+  margin-right: floor((@gutter / -2));
+  &:extend(.clearfix all);
+}
+
+//== Media queries breakpoints
+//
+//## Define the breakpoints at which your layout will change, adapting to different screen sizes.
+
+// Extra small screen / phone
+//** Deprecated `@screen-xs` as of v3.0.1
+@screen-xs:                  480px;
+//** Deprecated `@screen-xs-min` as of v3.2.0
+@screen-xs-min:              @screen-xs;
+//** Deprecated `@screen-phone` as of v3.0.1
+@screen-phone:               @screen-xs-min;
+
+// Small screen / tablet
+//** Deprecated `@screen-sm` as of v3.0.1
+@screen-sm:                  768px;
+@screen-sm-min:              @screen-sm;
+//** Deprecated `@screen-tablet` as of v3.0.1
+@screen-tablet:              @screen-sm-min;
+
+// Medium screen / desktop
+//** Deprecated `@screen-md` as of v3.0.1
+@screen-md:                  992px;
+@screen-md-min:              @screen-md;
+//** Deprecated `@screen-desktop` as of v3.0.1
+@screen-desktop:             @screen-md-min;
+
+// Large screen / wide desktop
+//** Deprecated `@screen-lg` as of v3.0.1
+@screen-lg:                  1200px;
+@screen-lg-min:              @screen-lg;
+//** Deprecated `@screen-lg-desktop` as of v3.0.1
+@screen-lg-desktop:          @screen-lg-min;
+
+// So media queries don't overlap when required, provide a maximum
+@screen-xs-max:              (@screen-sm-min - 1);
+@screen-sm-max:              (@screen-md-min - 1);
+@screen-md-max:              (@screen-lg-min - 1);
+
+//== Grid system
+//
+//## Define your custom responsive grid.
+
+//** Number of columns in the grid.
+@grid-columns:              12;
+//** Padding between columns. Gets divided in half for the left and right.
+@grid-gutter-width:         30px;
+// Navbar collapse
+//** Point at which the navbar becomes uncollapsed.
+@grid-float-breakpoint:     @screen-sm-min;
+//** Point at which the navbar begins collapsing.
+@grid-float-breakpoint-max: (@grid-float-breakpoint - 1);
+
+// Generate the extra small columns
+.make-xs-column(@columns; @gutter: @grid-gutter-width) {
+  position: relative;
+  float: left;
+  width: percentage((@columns / @grid-columns));
+  min-height: 1px;
+  padding-left:  (@gutter / 2);
+  padding-right: (@gutter / 2);
+}
+.make-xs-column-offset(@columns) {
+  margin-left: percentage((@columns / @grid-columns));
+}
+.make-xs-column-push(@columns) {
+  left: percentage((@columns / @grid-columns));
+}
+.make-xs-column-pull(@columns) {
+  right: percentage((@columns / @grid-columns));
+}
+
+// Generate the small columns
+.make-sm-column(@columns; @gutter: @grid-gutter-width) {
+  position: relative;
+  min-height: 1px;
+  padding-left:  (@gutter / 2);
+  padding-right: (@gutter / 2);
+
+  @media (min-width: @screen-sm-min) {
+    float: left;
+    width: percentage((@columns / @grid-columns));
+  }
+}
+.make-sm-column-offset(@columns) {
+  @media (min-width: @screen-sm-min) {
+    margin-left: percentage((@columns / @grid-columns));
+  }
+}
+.make-sm-column-push(@columns) {
+  @media (min-width: @screen-sm-min) {
+    left: percentage((@columns / @grid-columns));
+  }
+}
+.make-sm-column-pull(@columns) {
+  @media (min-width: @screen-sm-min) {
+    right: percentage((@columns / @grid-columns));
+  }
+}
+
+// Generate the medium columns
+.make-md-column(@columns; @gutter: @grid-gutter-width) {
+  position: relative;
+  min-height: 1px;
+  padding-left:  (@gutter / 2);
+  padding-right: (@gutter / 2);
+
+  @media (min-width: @screen-md-min) {
+    float: left;
+    width: percentage((@columns / @grid-columns));
+  }
+}
+.make-md-column-offset(@columns) {
+  @media (min-width: @screen-md-min) {
+    margin-left: percentage((@columns / @grid-columns));
+  }
+}
+.make-md-column-push(@columns) {
+  @media (min-width: @screen-md-min) {
+    left: percentage((@columns / @grid-columns));
+  }
+}
+.make-md-column-pull(@columns) {
+  @media (min-width: @screen-md-min) {
+    right: percentage((@columns / @grid-columns));
+  }
+}
+
+// Generate the large columns
+.make-lg-column(@columns; @gutter: @grid-gutter-width) {
+  position: relative;
+  min-height: 1px;
+  padding-left:  (@gutter / 2);
+  padding-right: (@gutter / 2);
+
+  @media (min-width: @screen-lg-min) {
+    float: left;
+    width: percentage((@columns / @grid-columns));
+  }
+}
+.make-lg-column-offset(@columns) {
+  @media (min-width: @screen-lg-min) {
+    margin-left: percentage((@columns / @grid-columns));
+  }
+}
+.make-lg-column-push(@columns) {
+  @media (min-width: @screen-lg-min) {
+    left: percentage((@columns / @grid-columns));
+  }
+}
+.make-lg-column-pull(@columns) {
+  @media (min-width: @screen-lg-min) {
+    right: percentage((@columns / @grid-columns));
+  }
+}
+
+/* -----------------------------------------------------------------------------
+
   Paragraph Section CSS.
 
-  The following classes are available if the different Paragraph types
-  need their own individual styling.
+  Table of Contents:
+    Base Paragraph Styling
+    Widths
+    Colors
+    Nesting
+    Paragraph Types
 
-  .paragraph.paragraph--type--blank {}
-  .paragraph.paragraph--type--carousel {} -- Is used below
-  .paragraph.paragraph--type--columns {} -- Is used below
-  .paragraph.paragraph--type--contact {}
-  .paragraph.paragraph--type--image {}
-  .paragraph.paragraph--type--simple {}
-  .paragraph.paragraph--type--view {}
+      The following classes are available if the different Paragraph types
+      need their own individual styling.
+
+      .paragraph.paragraph--type--accordion {} -- Is used below
+      .paragraph.paragraph--type--blank {}
+      .paragraph.paragraph--type--carousel {} -- Is used below
+      .paragraph.paragraph--type--columns {} -- Is used below
+      .paragraph.paragraph--type--columns-three-uneven {} -- Is used below
+      .paragraph.paragraph--type--columns-two-uneven {} -- Is used below
+      .paragraph.paragraph--type--contact {}
+      .paragraph.paragraph--type--image {}
+      .paragraph.paragraph--type--modal {} -- Is used below
+      .paragraph.paragraph--type--simple {}
+      .paragraph.paragraph--type--tabs {} -- Is used below
+      .paragraph.paragraph--type--view {}
 
 ----------------------------------------------------------------------------- */
 
@@ -26,16 +211,22 @@
 }
 
 .paragraph > section {
-  padding-top: @jumbotron-padding;
-}
-
-.paragraph:last-of-type {
+  .make-sm-column(12);
+  .make-md-column(12);
+  .make-lg-column(12);
   padding-bottom: @jumbotron-padding;
 }
 
-.paragraph--type--columns .paragraph:last-of-type,
-.paragraph--type--carousel .paragraph:last-of-type {
-  padding-bottom: 0;
+.paragraph:last-of-type > section {
+  padding-top: @jumbotron-padding;
+}
+
+.paragraph--type--carousel .paragraph:last-of-type > section,
+.paragraph--type--columns .paragraph:last-of-type > section,
+.paragraph--type--columns-three-uneven .paragraph:last-of-type > section,
+.paragraph--type--columns-two-uneven .paragraph:last-of-type > section,
+.paragraph--type--tabs .paragraph:last-of-type > section {
+  padding-top: 0;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -95,16 +286,17 @@
 
 /* Add display so color shows */
 .paragraph.paragraph--color {
-  display: inline-block;
+  display: table;
+  width: 100%;
 }
 
-/* Adds bottom padding to fill in color. */
-.paragraph.paragraph--color section {
-  padding-bottom: @jumbotron-padding;
+/* Adds padding to fill in color. */
+.paragraph.paragraph--color > section {
+  padding-top: @jumbotron-padding;
 }
 
 /* -------------------------------------------------------------------------- */
-/* Lets Nest paragraphs in Columns and Slideshows.                            */
+/* Nesting paragraphs in Accordions, Columns, and Slideshows.                 */
 /* -------------------------------------------------------------------------- */
 
 /* Resets Base Paragraph Styling for Nested Paragraphs. */
@@ -118,42 +310,78 @@
 .paragraph > section .paragraph > section .paragraph > section {
   float: none;
   margin-left: 0;
-  padding: 0;
+  padding-left: 0;
+  padding-right: 0;
   width: auto;
 }
 
 /* -------------------------------------------------------------------------- */
-/* Here we can customize the different types of Paragraphs.                   */
+/* Here we can customize the different Paragraph types.                       */
 /* -------------------------------------------------------------------------- */
 
-/* Columns Paragraph. */
-/* .paragraph.paragraph--type--columns */
+/* Accordion Paragraph. */
+/* paragraph--accordion.html.twig */
+/* Adds margin and padding to paragraphs in accordion Section bodies. */
+.panel-collapse {
 
+  .paragraph {
+    margin-left: 15px;
+    margin-right: 15px;
+
+    > section {
+      padding-bottom: 15px;
+      padding-top: 15px;
+    }
+  }
+
+  .paragraph:last-of-type > section {
+    padding-bottom: 15px;
+  }
+
+  .paragraph + .paragraph,
+  .paragraph + .paragraph + .paragraph {
+    > section {
+      padding-bottom: 30px;
+    }
+  }
+}
+
+/* Carousel Paragraph. */
+/* paragraph--carousel.html.twig */
+/* Adds minimum height and top padding on a paragraph in a carousel */
+.paragraph.paragraph--type--carousel > .carousel-inner > .item > .paragraph > section {
+  padding-top: @jumbotron-padding;
+  min-height: 420px;
+}
+
+/* Columns Paragraph. */
+/* .field--paragraph--field-column-content.html.twig */
 /* Removes Padding on Columns (Padding is on columns inside). */
-.paragraph.paragraph--type--columns > section {
-  padding-left: 0;
-  padding-right: 0;
+.paragraph.paragraph--type--columns > section,
+.paragraph.paragraph--type--columns-two-uneven > section,
+.paragraph.paragraph--type--columns-three-uneven > section {
+  padding: 0;
 }
 
 /* Columns Modifiers inside of Columns Element  */
-.paragraph--type--columns__6col,
-.paragraph--type--columns__5col {
+.paragraph.paragraph--type--columns .paragraph--type--columns__6col,
+.paragraph.paragraph--type--columns .paragraph--type--columns__5col {
   .make-sm-column(2);
 }
 
-.paragraph--type--columns__4col {
+.paragraph.paragraph--type--columns .paragraph--type--columns__4col {
   .make-sm-column(3);
 }
 
-.paragraph--type--columns__3col {
+.paragraph.paragraph--type--columns .paragraph--type--columns__3col {
   .make-sm-column(4);
 }
 
-.paragraph--type--columns__2col {
+.paragraph.paragraph--type--columns .paragraph--type--columns__2col {
   .make-sm-column(6);
 }
 
-.paragraph--type--columns__1col {
+.paragraph.paragraph--type--columns .paragraph--type--columns__1col {
   .make-sm-column(12);
 }
 
@@ -200,11 +428,164 @@
   .make-lg-column(12);
 }
 
-/* Columns Paragraph. */
-/* .paragraph.paragraph--type--carousel */
+/* Two Uneven Columns Paragraph. */
+/* .paragraph--columns-two-uneven.html.twig */
+.paragraph--type--columns-two-uneven {
 
-/* Adds minimum height and top padding on a paragraph in a carousel */
-.paragraph.paragraph--type--carousel > .carousel-inner > .item > .paragraph > section {
-    min-height: 420px;
-    padding-top: @jumbotron-padding;
+  &.paragraph--style--75-25 {
+    .paragraph--type--columns__2col:nth-of-type(1) {
+      .make-sm-column(9);
+    }
+    .paragraph--type--columns__2col:nth-of-type(2) {
+      .make-sm-column(3);
+    }
+  }
+
+  &.paragraph--style--66-33 {
+    .paragraph--type--columns__2col:nth-of-type(1) {
+      .make-sm-column(8);
+    }
+    .paragraph--type--columns__2col:nth-of-type(2) {
+      .make-sm-column(4);
+    }
+  }
+
+  &.paragraph--style--25-75 {
+    .paragraph--type--columns__2col:nth-of-type(1) {
+      .make-sm-column(4);
+    }
+    .paragraph--type--columns__2col:nth-of-type(2) {
+      .make-sm-column(8);
+    }
+  }
+
+  &.paragraph--style--33-66 {
+    .paragraph--type--columns__2col:nth-of-type(1) {
+      .make-sm-column(4);
+    }
+    .paragraph--type--columns__2col:nth-of-type(2) {
+      .make-sm-column(8);
+    }
+  }
+}
+
+/* Three Uneven Columns Paragraph. */
+/* .paragraph--columns-three-uneven.html.twig */
+.paragraph--type--columns-three-uneven {
+
+  &.paragraph--style--25-50-25 {
+    .paragraph--type--columns__3col:nth-of-type(1) {
+      .make-sm-column(3);
+    }
+    .paragraph--type--columns__3col:nth-of-type(2) {
+      .make-sm-column(6);
+    }
+    .paragraph--type--columns__3col:nth-of-type(3) {
+      .make-sm-column(3);
+    }
+  }
+
+  &.paragraph--style--50-25-25 {
+    .paragraph--type--columns__3col:nth-of-type(1) {
+      .make-sm-column(6);
+    }
+    .paragraph--type--columns__3col:nth-of-type(2) {
+      .make-sm-column(3);
+    }
+    .paragraph--type--columns__3col:nth-of-type(3) {
+      .make-sm-column(3);
+    }
+  }
+
+  &.paragraph--style--25-25-50 {
+    .paragraph--type--columns__3col:nth-of-type(1) {
+      .make-sm-column(3);
+    }
+    .paragraph--type--columns__3col:nth-of-type(2) {
+      .make-sm-column(3);
+    }
+    .paragraph--type--columns__3col:nth-of-type(3) {
+      .make-sm-column(6);
+    }
+  }
+
+  &.paragraph--style--16-66-16 {
+    .paragraph--type--columns__3col:nth-of-type(1) {
+      .make-sm-column(2);
+    }
+    .paragraph--type--columns__3col:nth-of-type(2) {
+      .make-sm-column(8);
+    }
+    .paragraph--type--columns__3col:nth-of-type(3) {
+      .make-sm-column(2);
+    }
+  }
+
+  &.paragraph--style--66-16-16 {
+    .paragraph--type--columns__3col:nth-of-type(1) {
+      .make-sm-column(8);
+    }
+    .paragraph--type--columns__3col:nth-of-type(2) {
+      .make-sm-column(2);
+    }
+    .paragraph--type--columns__3col:nth-of-type(3) {
+      .make-sm-column(2);
+    }
+  }
+
+  &.paragraph--style--16-16-66 {
+    .paragraph--type--columns__3col:nth-of-type(1) {
+      .make-sm-column(2);
+    }
+    .paragraph--type--columns__3col:nth-of-type(2) {
+      .make-sm-column(2);
+    }
+    .paragraph--type--columns__3col:nth-of-type(3) {
+      .make-sm-column(8);
+    }
+  }
+}
+
+/* Modal Paragraph. */
+/* .paragraph--modal.html.twig */
+.paragraph--type--modal {
+  .btn.btn-modal {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.modal {
+
+  .modal-header {
+    padding: 15px 30px;
+  }
+
+  .modal-body,
+  .modal-footer {
+    padding: 15px 30px 0 30px;
+  }
+
+  .modal-title {
+    font-weight: bold;
+  }
+
+  .modal-footer {
+    text-align: left;
+  }
+
+  .modal-body .paragraph,
+  .modal-footer .paragraph {
+    display: table;
+    width: 100%;
+  }
+}
+
+/* Tabs Paragraph. */
+/* .paragraph--tabs.html.twig */
+.paragraph.paragraph--type--tabs {
+  .tab-content .paragraph > section {
+    padding-top: 15px;
+  }
 }

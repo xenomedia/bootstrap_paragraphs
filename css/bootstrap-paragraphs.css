@@ -1,17 +1,35 @@
 /* -----------------------------------------------------------------------------
 
+  Bootstrap 3 Variables and Mixins Needed
+  Can be quickly compiled to CSS at http://less2css.org/
+
+----------------------------------------------------------------------------- */
+/* -----------------------------------------------------------------------------
+
   Paragraph Section CSS.
 
-  The following classes are available if the different Paragraph types
-  need their own individual styling.
+  Table of Contents:
+    Base Paragraph Styling
+    Widths
+    Colors
+    Nesting
+    Paragraph Types
 
-  .paragraph.paragraph--type--blank {}
-  .paragraph.paragraph--type--carousel {} -- Is used below
-  .paragraph.paragraph--type--columns {} -- Is used below
-  .paragraph.paragraph--type--contact {}
-  .paragraph.paragraph--type--image {}
-  .paragraph.paragraph--type--simple {}
-  .paragraph.paragraph--type--view {}
+      The following classes are available if the different Paragraph types
+      need their own individual styling.
+
+      .paragraph.paragraph--type--accordion {} -- Is used below
+      .paragraph.paragraph--type--blank {}
+      .paragraph.paragraph--type--carousel {} -- Is used below
+      .paragraph.paragraph--type--columns {} -- Is used below
+      .paragraph.paragraph--type--columns-three-uneven {} -- Is used below
+      .paragraph.paragraph--type--columns-two-uneven {} -- Is used below
+      .paragraph.paragraph--type--contact {}
+      .paragraph.paragraph--type--image {}
+      .paragraph.paragraph--type--modal {} -- Is used below
+      .paragraph.paragraph--type--simple {}
+      .paragraph.paragraph--type--tabs {} -- Is used below
+      .paragraph.paragraph--type--view {}
 
 ----------------------------------------------------------------------------- */
 /* -------------------------------------------------------------------------- */
@@ -24,14 +42,39 @@
   margin-right: 0;
 }
 .paragraph > section {
-  padding-top: 30px;
-}
-.paragraph:last-of-type {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
   padding-bottom: 30px;
 }
-.paragraph--type--columns .paragraph:last-of-type,
-.paragraph--type--carousel .paragraph:last-of-type {
-  padding-bottom: 0;
+@media (min-width: 768px) {
+  .paragraph > section {
+    float: left;
+    width: 100%;
+  }
+}
+@media (min-width: 992px) {
+  .paragraph > section {
+    float: left;
+    width: 100%;
+  }
+}
+@media (min-width: 1200px) {
+  .paragraph > section {
+    float: left;
+    width: 100%;
+  }
+}
+.paragraph:last-of-type > section {
+  padding-top: 30px;
+}
+.paragraph--type--carousel .paragraph:last-of-type > section,
+.paragraph--type--columns .paragraph:last-of-type > section,
+.paragraph--type--columns-three-uneven .paragraph:last-of-type > section,
+.paragraph--type--columns-two-uneven .paragraph:last-of-type > section,
+.paragraph--type--tabs .paragraph:last-of-type > section {
+  padding-top: 0;
 }
 /* -------------------------------------------------------------------------- */
 /* Here we add Widths.                                                        */
@@ -226,15 +269,15 @@
 /* -------------------------------------------------------------------------- */
 /* Add display so color shows */
 .paragraph.paragraph--color {
-  display: inline-block;
+  display: table;
+  width: 100%;
 }
-
-/* Adds bottom padding to fill in color. */
-.paragraph.paragraph--color section {
-  padding-bottom: 30px;
+/* Adds padding to fill in color. */
+.paragraph.paragraph--color > section {
+  padding-top: 30px;
 }
 /* -------------------------------------------------------------------------- */
-/* Lets Nest paragraphs in Columns and Slideshows.                            */
+/* Nesting paragraphs in Accordions, Columns, and Slideshows.                 */
 /* -------------------------------------------------------------------------- */
 /* Resets Base Paragraph Styling for Nested Paragraphs. */
 .paragraph .paragraph,
@@ -246,78 +289,105 @@
 .paragraph > section .paragraph > section .paragraph > section {
   float: none;
   margin-left: 0;
-  padding: 0;
+  padding-left: 0;
+  padding-right: 0;
   width: auto;
 }
 /* -------------------------------------------------------------------------- */
-/* Here we can customize the different types of Paragraphs.                   */
+/* Here we can customize the different Paragraph types.                       */
 /* -------------------------------------------------------------------------- */
+/* Accordion Paragraph. */
+/* paragraph--accordion.html.twig */
+/* Adds margin and padding to paragraphs in accordion Section bodies. */
+.panel-collapse .paragraph {
+  margin-left: 15px;
+  margin-right: 15px;
+}
+.panel-collapse .paragraph > section {
+  padding-bottom: 15px;
+  padding-top: 15px;
+}
+.panel-collapse .paragraph:last-of-type > section {
+  padding-bottom: 15px;
+}
+.panel-collapse .paragraph + .paragraph > section,
+.panel-collapse .paragraph + .paragraph + .paragraph > section {
+  padding-bottom: 30px;
+}
+/* Carousel Paragraph. */
+/* paragraph--carousel.html.twig */
+/* Adds minimum height and top padding on a paragraph in a carousel */
+.paragraph.paragraph--type--carousel > .carousel-inner > .item > .paragraph > section {
+  padding-top: 30px;
+  min-height: 420px;
+}
 /* Columns Paragraph. */
-/* .paragraph.paragraph--type--columns */
+/* .field--paragraph--field-column-content.html.twig */
 /* Removes Padding on Columns (Padding is on columns inside). */
-.paragraph.paragraph--type--columns > section {
-  padding-left: 0;
-  padding-right: 0;
+.paragraph.paragraph--type--columns > section,
+.paragraph.paragraph--type--columns-two-uneven > section,
+.paragraph.paragraph--type--columns-three-uneven > section {
+  padding: 0;
 }
 /* Columns Modifiers inside of Columns Element  */
-.paragraph--type--columns__6col,
-.paragraph--type--columns__5col {
+.paragraph.paragraph--type--columns .paragraph--type--columns__6col,
+.paragraph.paragraph--type--columns .paragraph--type--columns__5col {
   position: relative;
   min-height: 1px;
   padding-left: 15px;
   padding-right: 15px;
 }
 @media (min-width: 768px) {
-  .paragraph--type--columns__6col,
-  .paragraph--type--columns__5col {
+  .paragraph.paragraph--type--columns .paragraph--type--columns__6col,
+  .paragraph.paragraph--type--columns .paragraph--type--columns__5col {
     float: left;
     width: 16.66666667%;
   }
 }
-.paragraph--type--columns__4col {
+.paragraph.paragraph--type--columns .paragraph--type--columns__4col {
   position: relative;
   min-height: 1px;
   padding-left: 15px;
   padding-right: 15px;
 }
 @media (min-width: 768px) {
-  .paragraph--type--columns__4col {
+  .paragraph.paragraph--type--columns .paragraph--type--columns__4col {
     float: left;
     width: 25%;
   }
 }
-.paragraph--type--columns__3col {
+.paragraph.paragraph--type--columns .paragraph--type--columns__3col {
   position: relative;
   min-height: 1px;
   padding-left: 15px;
   padding-right: 15px;
 }
 @media (min-width: 768px) {
-  .paragraph--type--columns__3col {
+  .paragraph.paragraph--type--columns .paragraph--type--columns__3col {
     float: left;
     width: 33.33333333%;
   }
 }
-.paragraph--type--columns__2col {
+.paragraph.paragraph--type--columns .paragraph--type--columns__2col {
   position: relative;
   min-height: 1px;
   padding-left: 15px;
   padding-right: 15px;
 }
 @media (min-width: 768px) {
-  .paragraph--type--columns__2col {
+  .paragraph.paragraph--type--columns .paragraph--type--columns__2col {
     float: left;
     width: 50%;
   }
 }
-.paragraph--type--columns__1col {
+.paragraph.paragraph--type--columns .paragraph--type--columns__1col {
   position: relative;
   min-height: 1px;
   padding-left: 15px;
   padding-right: 15px;
 }
 @media (min-width: 768px) {
-  .paragraph--type--columns__1col {
+  .paragraph.paragraph--type--columns .paragraph--type--columns__1col {
     float: left;
     width: 100%;
   }
@@ -503,10 +573,349 @@
     width: 100%;
   }
 }
-/* Columns Paragraph. */
-/* .paragraph.paragraph--type--carousel */
-/* Adds minimum height and top padding on a paragraph in a carousel */
-.paragraph.paragraph--type--carousel > .carousel-inner > .item > .paragraph > section {
-  min-height: 420px;
-  padding-top: 30px;
+/* Two Uneven Columns Paragraph. */
+/* .paragraph--columns-two-uneven.html.twig */
+.paragraph--type--columns-two-uneven.paragraph--style--75-25 .paragraph--type--columns__2col:nth-of-type(1) {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media (min-width: 768px) {
+  .paragraph--type--columns-two-uneven.paragraph--style--75-25 .paragraph--type--columns__2col:nth-of-type(1) {
+    float: left;
+    width: 75%;
+  }
+}
+.paragraph--type--columns-two-uneven.paragraph--style--75-25 .paragraph--type--columns__2col:nth-of-type(2) {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media (min-width: 768px) {
+  .paragraph--type--columns-two-uneven.paragraph--style--75-25 .paragraph--type--columns__2col:nth-of-type(2) {
+    float: left;
+    width: 25%;
+  }
+}
+.paragraph--type--columns-two-uneven.paragraph--style--66-33 .paragraph--type--columns__2col:nth-of-type(1) {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media (min-width: 768px) {
+  .paragraph--type--columns-two-uneven.paragraph--style--66-33 .paragraph--type--columns__2col:nth-of-type(1) {
+    float: left;
+    width: 66.66666667%;
+  }
+}
+.paragraph--type--columns-two-uneven.paragraph--style--66-33 .paragraph--type--columns__2col:nth-of-type(2) {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media (min-width: 768px) {
+  .paragraph--type--columns-two-uneven.paragraph--style--66-33 .paragraph--type--columns__2col:nth-of-type(2) {
+    float: left;
+    width: 33.33333333%;
+  }
+}
+.paragraph--type--columns-two-uneven.paragraph--style--25-75 .paragraph--type--columns__2col:nth-of-type(1) {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media (min-width: 768px) {
+  .paragraph--type--columns-two-uneven.paragraph--style--25-75 .paragraph--type--columns__2col:nth-of-type(1) {
+    float: left;
+    width: 33.33333333%;
+  }
+}
+.paragraph--type--columns-two-uneven.paragraph--style--25-75 .paragraph--type--columns__2col:nth-of-type(2) {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media (min-width: 768px) {
+  .paragraph--type--columns-two-uneven.paragraph--style--25-75 .paragraph--type--columns__2col:nth-of-type(2) {
+    float: left;
+    width: 66.66666667%;
+  }
+}
+.paragraph--type--columns-two-uneven.paragraph--style--33-66 .paragraph--type--columns__2col:nth-of-type(1) {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media (min-width: 768px) {
+  .paragraph--type--columns-two-uneven.paragraph--style--33-66 .paragraph--type--columns__2col:nth-of-type(1) {
+    float: left;
+    width: 33.33333333%;
+  }
+}
+.paragraph--type--columns-two-uneven.paragraph--style--33-66 .paragraph--type--columns__2col:nth-of-type(2) {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media (min-width: 768px) {
+  .paragraph--type--columns-two-uneven.paragraph--style--33-66 .paragraph--type--columns__2col:nth-of-type(2) {
+    float: left;
+    width: 66.66666667%;
+  }
+}
+/* Three Uneven Columns Paragraph. */
+/* .paragraph--columns-three-uneven.html.twig */
+.paragraph--type--columns-three-uneven.paragraph--style--25-50-25 .paragraph--type--columns__3col:nth-of-type(1) {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media (min-width: 768px) {
+  .paragraph--type--columns-three-uneven.paragraph--style--25-50-25 .paragraph--type--columns__3col:nth-of-type(1) {
+    float: left;
+    width: 25%;
+  }
+}
+.paragraph--type--columns-three-uneven.paragraph--style--25-50-25 .paragraph--type--columns__3col:nth-of-type(2) {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media (min-width: 768px) {
+  .paragraph--type--columns-three-uneven.paragraph--style--25-50-25 .paragraph--type--columns__3col:nth-of-type(2) {
+    float: left;
+    width: 50%;
+  }
+}
+.paragraph--type--columns-three-uneven.paragraph--style--25-50-25 .paragraph--type--columns__3col:nth-of-type(3) {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media (min-width: 768px) {
+  .paragraph--type--columns-three-uneven.paragraph--style--25-50-25 .paragraph--type--columns__3col:nth-of-type(3) {
+    float: left;
+    width: 25%;
+  }
+}
+.paragraph--type--columns-three-uneven.paragraph--style--50-25-25 .paragraph--type--columns__3col:nth-of-type(1) {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media (min-width: 768px) {
+  .paragraph--type--columns-three-uneven.paragraph--style--50-25-25 .paragraph--type--columns__3col:nth-of-type(1) {
+    float: left;
+    width: 50%;
+  }
+}
+.paragraph--type--columns-three-uneven.paragraph--style--50-25-25 .paragraph--type--columns__3col:nth-of-type(2) {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media (min-width: 768px) {
+  .paragraph--type--columns-three-uneven.paragraph--style--50-25-25 .paragraph--type--columns__3col:nth-of-type(2) {
+    float: left;
+    width: 25%;
+  }
+}
+.paragraph--type--columns-three-uneven.paragraph--style--50-25-25 .paragraph--type--columns__3col:nth-of-type(3) {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media (min-width: 768px) {
+  .paragraph--type--columns-three-uneven.paragraph--style--50-25-25 .paragraph--type--columns__3col:nth-of-type(3) {
+    float: left;
+    width: 25%;
+  }
+}
+.paragraph--type--columns-three-uneven.paragraph--style--25-25-50 .paragraph--type--columns__3col:nth-of-type(1) {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media (min-width: 768px) {
+  .paragraph--type--columns-three-uneven.paragraph--style--25-25-50 .paragraph--type--columns__3col:nth-of-type(1) {
+    float: left;
+    width: 25%;
+  }
+}
+.paragraph--type--columns-three-uneven.paragraph--style--25-25-50 .paragraph--type--columns__3col:nth-of-type(2) {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media (min-width: 768px) {
+  .paragraph--type--columns-three-uneven.paragraph--style--25-25-50 .paragraph--type--columns__3col:nth-of-type(2) {
+    float: left;
+    width: 25%;
+  }
+}
+.paragraph--type--columns-three-uneven.paragraph--style--25-25-50 .paragraph--type--columns__3col:nth-of-type(3) {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media (min-width: 768px) {
+  .paragraph--type--columns-three-uneven.paragraph--style--25-25-50 .paragraph--type--columns__3col:nth-of-type(3) {
+    float: left;
+    width: 50%;
+  }
+}
+.paragraph--type--columns-three-uneven.paragraph--style--16-66-16 .paragraph--type--columns__3col:nth-of-type(1) {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media (min-width: 768px) {
+  .paragraph--type--columns-three-uneven.paragraph--style--16-66-16 .paragraph--type--columns__3col:nth-of-type(1) {
+    float: left;
+    width: 16.66666667%;
+  }
+}
+.paragraph--type--columns-three-uneven.paragraph--style--16-66-16 .paragraph--type--columns__3col:nth-of-type(2) {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media (min-width: 768px) {
+  .paragraph--type--columns-three-uneven.paragraph--style--16-66-16 .paragraph--type--columns__3col:nth-of-type(2) {
+    float: left;
+    width: 66.66666667%;
+  }
+}
+.paragraph--type--columns-three-uneven.paragraph--style--16-66-16 .paragraph--type--columns__3col:nth-of-type(3) {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media (min-width: 768px) {
+  .paragraph--type--columns-three-uneven.paragraph--style--16-66-16 .paragraph--type--columns__3col:nth-of-type(3) {
+    float: left;
+    width: 16.66666667%;
+  }
+}
+.paragraph--type--columns-three-uneven.paragraph--style--66-16-16 .paragraph--type--columns__3col:nth-of-type(1) {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media (min-width: 768px) {
+  .paragraph--type--columns-three-uneven.paragraph--style--66-16-16 .paragraph--type--columns__3col:nth-of-type(1) {
+    float: left;
+    width: 66.66666667%;
+  }
+}
+.paragraph--type--columns-three-uneven.paragraph--style--66-16-16 .paragraph--type--columns__3col:nth-of-type(2) {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media (min-width: 768px) {
+  .paragraph--type--columns-three-uneven.paragraph--style--66-16-16 .paragraph--type--columns__3col:nth-of-type(2) {
+    float: left;
+    width: 16.66666667%;
+  }
+}
+.paragraph--type--columns-three-uneven.paragraph--style--66-16-16 .paragraph--type--columns__3col:nth-of-type(3) {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media (min-width: 768px) {
+  .paragraph--type--columns-three-uneven.paragraph--style--66-16-16 .paragraph--type--columns__3col:nth-of-type(3) {
+    float: left;
+    width: 16.66666667%;
+  }
+}
+.paragraph--type--columns-three-uneven.paragraph--style--16-16-66 .paragraph--type--columns__3col:nth-of-type(1) {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media (min-width: 768px) {
+  .paragraph--type--columns-three-uneven.paragraph--style--16-16-66 .paragraph--type--columns__3col:nth-of-type(1) {
+    float: left;
+    width: 16.66666667%;
+  }
+}
+.paragraph--type--columns-three-uneven.paragraph--style--16-16-66 .paragraph--type--columns__3col:nth-of-type(2) {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media (min-width: 768px) {
+  .paragraph--type--columns-three-uneven.paragraph--style--16-16-66 .paragraph--type--columns__3col:nth-of-type(2) {
+    float: left;
+    width: 16.66666667%;
+  }
+}
+.paragraph--type--columns-three-uneven.paragraph--style--16-16-66 .paragraph--type--columns__3col:nth-of-type(3) {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media (min-width: 768px) {
+  .paragraph--type--columns-three-uneven.paragraph--style--16-16-66 .paragraph--type--columns__3col:nth-of-type(3) {
+    float: left;
+    width: 66.66666667%;
+  }
+}
+/* Modal Paragraph. */
+/* .paragraph--modal.html.twig */
+.paragraph--type--modal .btn.btn-modal {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.modal .modal-header {
+  padding: 15px 30px;
+}
+.modal .modal-body,
+.modal .modal-footer {
+  padding: 15px 30px 0 30px;
+}
+.modal .modal-title {
+  font-weight: bold;
+}
+.modal .modal-footer {
+  text-align: left;
+}
+.modal .modal-body .paragraph,
+.modal .modal-footer .paragraph {
+  display: table;
+  width: 100%;
+}
+/* Tabs Paragraph. */
+/* .paragraph--tabs.html.twig */
+.paragraph.paragraph--type--tabs .tab-content .paragraph > section {
+  padding-top: 15px;
 }

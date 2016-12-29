@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_column_style_3
+    - paragraphs.paragraphs_type.columns_three_uneven
+  module:
+    - options
+id: paragraph.columns_three_uneven.field_column_style_3
+field_name: field_column_style_3
+entity_type: paragraph
+bundle: columns_three_uneven
+label: 'Column Style'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: paragraph--style--25-50-25
+default_value_callback: ''
+settings: {  }
+field_type: list_string

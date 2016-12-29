@@ -145,6 +145,32 @@ view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
 {% set paragraph_id = 'accordion-' ~ paragraph.id.value %}
 
 {# Prints Accordion template. #}
-<div{{ attributes.addClass(classes).setAttribute('id', paragraph_id) }}role="tablist" aria-multiselectable="true">
-  {{ content|without('field_width', 'field_background') }}
+<div{{ attributes.addClass(classes).setAttribute('id', paragraph_id) }} role="tablist" aria-multiselectable="true">
+  <section>
+    <div class="card panel panel-default">
+      {# Loop through all of the accordion sections. #}
+      {% for key, item in content.field_accordion_section if key|first != '#' %}
+        <div class="card-header panel-heading" role="tab" id="heading-{{ key + 1 }}">
+          <div class="panel-title">
+            <a data-toggle="collapse" data-parent="{{ paragraph_id }}" href="#collapse-{{ key + 1 }}" aria-expanded="true" aria-controls="collapse-{{ key + 1 }}">
+              {# Print the accordion section title. #}
+              {{ item['#paragraph'].field_accordion_section_title.value }}
+            </a>
+          </div>
+        </div>
+        <div id="collapse-{{ key + 1 }}" class="card-block panel-collapse collapse" role="tabpanel" aria-labelledby="heading-{{ key + 1 }}">
+          {# Loop through all of the accordion section bodies. #}
+          {% for body_key, body_item in item['#paragraph'].field_accordion_section_body %}
+            {# Use the same render array as item and set the '#paragraph'. #}
+            {% set section_body = item %}
+            {% set section_body = section_body|merge({'#paragraph': section_body['#paragraph'].field_accordion_section_body[body_key].entity}) %}
+            {# Remove the cache keys so it doesn't repeat the first value. #}
+            {% set section_body = section_body|merge({'#cache': {}}) %}
+            {# Print the compiled section body. #}
+            {{ section_body }}
+          {% endfor %}
+        </div>
+      {% endfor %}
+    </div>
+  </section>
 </div>

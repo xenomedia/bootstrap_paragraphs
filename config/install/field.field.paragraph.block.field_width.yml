@@ -14,9 +14,7 @@ label: Width
 description: ''
 required: false
 translatable: true
-default_value:
-  -
-    value: paragraph--width--medium
+default_value: {  }
 default_value_callback: ''
 settings: {  }
 field_type: list_string
