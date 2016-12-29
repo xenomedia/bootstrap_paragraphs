@@ -50,21 +50,21 @@ Each Paragraph has width and background color options. Included are over 50 back
 **Requirements:**
 
   * Contact
-  * [[https://www.drupal.org/project/contact_formatter|Contact Formatter]]
-  * [[https://www.drupal.org/project/entity_reference_revisions|Entity Reference Revisions]]
+  * [Contact Formatter](https://www.drupal.org/project/contact_formatter)
+  * [Entity Reference Revisions](https://www.drupal.org/project/entity_reference_revisions)
   * Field
   * File
   * Filter
   * Image
   * Options
-  * [[https://www.drupal.org/project/paragraphs|Paragraphs]]
+  * [Paragraphs](https://www.drupal.org/project/paragraphs)
   * System
   * Text
   * User
   * Views
-  * [[https://www.drupal.org/project/viewsreference|Views Reference Field]]
+  * [Views Reference Field](https://www.drupal.org/project/viewsreference)
   * Bootstrap framework's CSS and JS included in your theme
 
 **Supporting Organizations:**
 
-  * [[http://www.xenomedia.com|Xeno Media, Inc.]]
+  * [Xeno Media, Inc.](http://www.xenomedia.com)
