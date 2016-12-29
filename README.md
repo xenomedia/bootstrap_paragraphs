@@ -42,7 +42,8 @@ Each Paragraph has width and background color options. Included are over 50 back
   * On the Simple and Blank bundles, click Manage fields and choose which Text formats to use.  We recommend a *Full HTML* for the Simple, and a *Full HTML - No Editor* for the Blank.
   * Go to your content type and add a new field to type Entity revisions, Paragraphs.
   * Allow unlimited so creators can add more that one Paragraph to the node.
-  * On the field edit screen, you can add instructions, and choose which bundles you want to allow for this field.  Leave blank to allow all.
+  * On the field edit screen, you can add instructions, and choose which bundles you want to allow for this field. Check all but Accordion Section and Tab Section. Those should only be used inside Accordions and Tabs.
+  * Arrange them as you see fit. I prefer Simple, Image, and Blank at the top, then the rest in Alphabetical order. Click Save Settings.
   * Adjust your form display, placing the field where you want it.
   * Add the field into the Manage display tab.
   * Start creating content!
@@ -68,3 +69,4 @@ Each Paragraph has width and background color options. Included are over 50 back
 **Supporting Organizations:**
 
   * [Xeno Media, Inc.](http://www.xenomedia.com)
+  * [Zoomdata, Inc.](http://www.zoomdata.com)
