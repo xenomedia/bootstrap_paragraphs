@@ -1,11 +1,5 @@
 /* -----------------------------------------------------------------------------
 
-  Bootstrap 3 Variables and Mixins Needed
-  Can be quickly compiled to CSS at http://less2css.org/
-
------------------------------------------------------------------------------ */
-/* -----------------------------------------------------------------------------
-
   Paragraph Section CSS.
 
   Table of Contents:
@@ -80,186 +74,218 @@
 /* Here we add Widths.                                                        */
 /* -------------------------------------------------------------------------- */
 /* Adds Width Element -- Tiny. */
-.paragraph.paragraph--width--tiny > section {
+.paragraph.paragraph--width--tiny > section,
+.paragraph.paragraph--width--tiny.paragraph--type--carousel > .carousel-inner {
   position: relative;
   min-height: 1px;
   padding-left: 15px;
   padding-right: 15px;
 }
 @media (min-width: 768px) {
-  .paragraph.paragraph--width--tiny > section {
+  .paragraph.paragraph--width--tiny > section,
+  .paragraph.paragraph--width--tiny.paragraph--type--carousel > .carousel-inner {
     float: left;
     width: 33.33333333%;
   }
 }
 @media (min-width: 768px) {
-  .paragraph.paragraph--width--tiny > section {
+  .paragraph.paragraph--width--tiny > section,
+  .paragraph.paragraph--width--tiny.paragraph--type--carousel > .carousel-inner {
     margin-left: 33.33333333%;
   }
 }
 @media (min-width: 992px) {
-  .paragraph.paragraph--width--tiny > section {
+  .paragraph.paragraph--width--tiny > section,
+  .paragraph.paragraph--width--tiny.paragraph--type--carousel > .carousel-inner {
     float: left;
     width: 33.33333333%;
   }
 }
 @media (min-width: 992px) {
-  .paragraph.paragraph--width--tiny > section {
+  .paragraph.paragraph--width--tiny > section,
+  .paragraph.paragraph--width--tiny.paragraph--type--carousel > .carousel-inner {
     margin-left: 33.33333333%;
   }
 }
 @media (min-width: 1200px) {
-  .paragraph.paragraph--width--tiny > section {
+  .paragraph.paragraph--width--tiny > section,
+  .paragraph.paragraph--width--tiny.paragraph--type--carousel > .carousel-inner {
     float: left;
     width: 33.33333333%;
   }
 }
 @media (min-width: 1200px) {
-  .paragraph.paragraph--width--tiny > section {
+  .paragraph.paragraph--width--tiny > section,
+  .paragraph.paragraph--width--tiny.paragraph--type--carousel > .carousel-inner {
     margin-left: 33.33333333%;
   }
 }
 /* Adds Width Element -- Narrow. */
-.paragraph.paragraph--width--narrow > section {
+.paragraph.paragraph--width--narrow > section,
+.paragraph.paragraph--width--narrow.paragraph--type--carousel > .carousel-inner {
   position: relative;
   min-height: 1px;
   padding-left: 15px;
   padding-right: 15px;
 }
 @media (min-width: 768px) {
-  .paragraph.paragraph--width--narrow > section {
+  .paragraph.paragraph--width--narrow > section,
+  .paragraph.paragraph--width--narrow.paragraph--type--carousel > .carousel-inner {
     float: left;
     width: 50%;
   }
 }
 @media (min-width: 768px) {
-  .paragraph.paragraph--width--narrow > section {
+  .paragraph.paragraph--width--narrow > section,
+  .paragraph.paragraph--width--narrow.paragraph--type--carousel > .carousel-inner {
     margin-left: 25%;
   }
 }
 @media (min-width: 992px) {
-  .paragraph.paragraph--width--narrow > section {
+  .paragraph.paragraph--width--narrow > section,
+  .paragraph.paragraph--width--narrow.paragraph--type--carousel > .carousel-inner {
     float: left;
     width: 50%;
   }
 }
 @media (min-width: 992px) {
-  .paragraph.paragraph--width--narrow > section {
+  .paragraph.paragraph--width--narrow > section,
+  .paragraph.paragraph--width--narrow.paragraph--type--carousel > .carousel-inner {
     margin-left: 25%;
   }
 }
 @media (min-width: 1200px) {
-  .paragraph.paragraph--width--narrow > section {
+  .paragraph.paragraph--width--narrow > section,
+  .paragraph.paragraph--width--narrow.paragraph--type--carousel > .carousel-inner {
     float: left;
     width: 50%;
   }
 }
 @media (min-width: 1200px) {
-  .paragraph.paragraph--width--narrow > section {
+  .paragraph.paragraph--width--narrow > section,
+  .paragraph.paragraph--width--narrow.paragraph--type--carousel > .carousel-inner {
     margin-left: 25%;
   }
 }
 /* Adds Width Element -- Medium. */
-.paragraph.paragraph--width--medium > section {
+.paragraph.paragraph--width--medium > section,
+.paragraph.paragraph--width--medium.paragraph--type--carousel > .carousel-inner {
   position: relative;
   min-height: 1px;
   padding-left: 15px;
   padding-right: 15px;
 }
 @media (min-width: 768px) {
-  .paragraph.paragraph--width--medium > section {
+  .paragraph.paragraph--width--medium > section,
+  .paragraph.paragraph--width--medium.paragraph--type--carousel > .carousel-inner {
     float: left;
     width: 66.66666667%;
   }
 }
 @media (min-width: 768px) {
-  .paragraph.paragraph--width--medium > section {
+  .paragraph.paragraph--width--medium > section,
+  .paragraph.paragraph--width--medium.paragraph--type--carousel > .carousel-inner {
     margin-left: 16.66666667%;
   }
 }
 @media (min-width: 992px) {
-  .paragraph.paragraph--width--medium > section {
+  .paragraph.paragraph--width--medium > section,
+  .paragraph.paragraph--width--medium.paragraph--type--carousel > .carousel-inner {
     float: left;
     width: 66.66666667%;
   }
 }
 @media (min-width: 992px) {
-  .paragraph.paragraph--width--medium > section {
+  .paragraph.paragraph--width--medium > section,
+  .paragraph.paragraph--width--medium.paragraph--type--carousel > .carousel-inner {
     margin-left: 16.66666667%;
   }
 }
 @media (min-width: 1200px) {
-  .paragraph.paragraph--width--medium > section {
+  .paragraph.paragraph--width--medium > section,
+  .paragraph.paragraph--width--medium.paragraph--type--carousel > .carousel-inner {
     float: left;
     width: 66.66666667%;
   }
 }
 @media (min-width: 1200px) {
-  .paragraph.paragraph--width--medium > section {
+  .paragraph.paragraph--width--medium > section,
+  .paragraph.paragraph--width--medium.paragraph--type--carousel > .carousel-inner {
     margin-left: 16.66666667%;
   }
 }
 /* Adds Width Element -- Wide. */
-.paragraph.paragraph--width--wide > section {
+.paragraph.paragraph--width--wide > section,
+.paragraph.paragraph--width--wide.paragraph--type--carousel > .carousel-inner {
   position: relative;
   min-height: 1px;
   padding-left: 15px;
   padding-right: 15px;
 }
 @media (min-width: 768px) {
-  .paragraph.paragraph--width--wide > section {
+  .paragraph.paragraph--width--wide > section,
+  .paragraph.paragraph--width--wide.paragraph--type--carousel > .carousel-inner {
     float: left;
     width: 83.33333333%;
   }
 }
 @media (min-width: 768px) {
-  .paragraph.paragraph--width--wide > section {
+  .paragraph.paragraph--width--wide > section,
+  .paragraph.paragraph--width--wide.paragraph--type--carousel > .carousel-inner {
     margin-left: 8.33333333%;
   }
 }
 @media (min-width: 992px) {
-  .paragraph.paragraph--width--wide > section {
+  .paragraph.paragraph--width--wide > section,
+  .paragraph.paragraph--width--wide.paragraph--type--carousel > .carousel-inner {
     float: left;
     width: 83.33333333%;
   }
 }
 @media (min-width: 992px) {
-  .paragraph.paragraph--width--wide > section {
+  .paragraph.paragraph--width--wide > section,
+  .paragraph.paragraph--width--wide.paragraph--type--carousel > .carousel-inner {
     margin-left: 8.33333333%;
   }
 }
 @media (min-width: 1200px) {
-  .paragraph.paragraph--width--wide > section {
+  .paragraph.paragraph--width--wide > section,
+  .paragraph.paragraph--width--wide.paragraph--type--carousel > .carousel-inner {
     float: left;
     width: 83.33333333%;
   }
 }
 @media (min-width: 1200px) {
-  .paragraph.paragraph--width--wide > section {
+  .paragraph.paragraph--width--wide > section,
+  .paragraph.paragraph--width--wide.paragraph--type--carousel > .carousel-inner {
     margin-left: 8.33333333%;
   }
 }
 /* Adds Width Element -- Full. */
-.paragraph.paragraph--width--full > section {
+.paragraph.paragraph--width--full > section,
+.paragraph.paragraph--width--full.paragraph--type--carousel > .carousel-inner {
   position: relative;
   min-height: 1px;
   padding-left: 15px;
   padding-right: 15px;
 }
 @media (min-width: 768px) {
-  .paragraph.paragraph--width--full > section {
+  .paragraph.paragraph--width--full > section,
+  .paragraph.paragraph--width--full.paragraph--type--carousel > .carousel-inner {
     float: left;
     width: 100%;
   }
 }
 @media (min-width: 992px) {
-  .paragraph.paragraph--width--full > section {
+  .paragraph.paragraph--width--full > section,
+  .paragraph.paragraph--width--full.paragraph--type--carousel > .carousel-inner {
     float: left;
     width: 100%;
   }
 }
 @media (min-width: 1200px) {
-  .paragraph.paragraph--width--full > section {
+  .paragraph.paragraph--width--full > section,
+  .paragraph.paragraph--width--full.paragraph--type--carousel > .carousel-inner {
     float: left;
     width: 100%;
   }
