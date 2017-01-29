@@ -4,11 +4,15 @@ dependencies:
   config:
     - field.field.paragraph.image.field_background
     - field.field.paragraph.image.field_image
+    - field.field.paragraph.image.field_link
     - field.field.paragraph.image.field_width
     - paragraphs.paragraphs_type.image
   module:
     - image
+    - link
     - options
+_core:
+  default_config_hash: qBq-B1dQSPPKB5o7JpVKGDfUWlxrAf2GYlUu94vTnuQ
 id: paragraph.image.default
 targetEntityType: paragraph
 bundle: image
@@ -28,6 +32,17 @@ content:
       image_link: ''
     third_party_settings: {  }
     type: image
+  field_link:
+    weight: 3
+    label: hidden
+    settings:
+      trim_length: null
+      url_only: false
+      url_plain: false
+      rel: '0'
+      target: '0'
+    third_party_settings: {  }
+    type: link_separate
   field_width:
     weight: 1
     label: hidden
