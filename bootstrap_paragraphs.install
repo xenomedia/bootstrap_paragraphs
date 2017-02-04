@@ -1,0 +1,73 @@
+<?php
+
+/**
+ * @file
+ * Install, uninstall and update hooks for Boostrap Paragraphs module.
+ */
+
+use Symfony\Component\Yaml\Yaml;
+
+/**
+ * Makes image linkable.
+ */
+function bootstrap_paragraphs_update_8001() {
+  // The link module was added as a dependency. Making sure it is enabled prior
+  // to the update.
+  if (!\Drupal::moduleHandler()->moduleExists('link')) {
+    throw new \Drupal\Core\Utility\UpdateException("The Link module is now a dependency of the Bootstrap Paragraphs module. Please install the module and try update again.");
+  }
+  else {
+    $bs_path = drupal_get_path('module', 'bootstrap_paragraphs');
+    $configs['field.field.paragraph.image.field_link'] = $bs_path . '/config/install/field.field.paragraph.image.field_link.yml';
+    $configs['field.storage.paragraph.field_link'] = $bs_path . '/config/install/field.storage.paragraph.field_link.yml';
+    foreach ($configs as $name => $config_path) {
+      $data = Yaml::parse($config_path);
+      $config = \Drupal::configFactory()->getEditable($name);
+      $config->setData($data)->save(TRUE);
+    }
+
+    $config = \Drupal::configFactory()->getEditable('core.entity_form_display.paragraph.image.default');
+
+    // Add dependencies.
+    $dependencies = $config->get('dependencies');
+    $dependencies['config'][] = 'field.field.paragraph.image.field_link';
+    $dependencies['module'][] = 'link';
+    $config->set('dependencies', $dependencies);
+
+    // Add Field Link.
+    $config->set('content.field_link', [
+      'weight' => 3,
+      'settings' => [
+        'placeholder_url' => '',
+        'placeholder_title' => '',
+      ],
+      'third_party_settings' => [],
+      'type' => 'link_default',
+    ]);
+    $config->save(TRUE);
+
+    $config = \Drupal::configFactory()->getEditable('core.entity_view_display.paragraph.image.default');
+
+    // Add dependencies.
+    $dependencies = $config->get('dependencies');
+    $dependencies['config'][] = 'field.field.paragraph.image.field_link';
+    $dependencies['module'][] = 'link';
+    $config->set('dependencies', $dependencies);
+
+    // Add Field Link.
+    $config->set('content.field_link', [
+      'weight' => 3,
+      'label' => 'hidden',
+      'settings' => [
+        'trim_length' => NULL,
+        'url_only' => FALSE,
+        'url_plain' => FALSE,
+        'rel' => '0',
+        'target' => '0',
+      ],
+      'third_party_settings' => [],
+      'type' => 'link_default',
+    ]);
+    $config->save(TRUE);
+  }
+}
