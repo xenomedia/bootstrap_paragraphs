@@ -11,6 +11,7 @@ dependencies:
   - file
   - filter
   - image
+  - link
   - options
   - paragraphs
   - system

@@ -27,6 +27,9 @@ function bootstrap_paragraphs_theme($existing, $type, $theme, $path) {
     'paragraph__columns_two_uneven' => [
       'base hook' => 'paragraph',
     ],
+    'paragraph__image' => [
+      'base hook' => 'paragraph',
+    ],
     'paragraph__modal' => [
       'base hook' => 'paragraph',
     ],
@@ -40,6 +43,9 @@ function bootstrap_paragraphs_theme($existing, $type, $theme, $path) {
       'base hook' => 'paragraph',
     ],
     'field__paragraph__field_column_content_3' => [
+      'base hook' => 'paragraph',
+    ],
+    'field__paragraph__field_image__image' => [
       'base hook' => 'paragraph',
     ],
   ];
