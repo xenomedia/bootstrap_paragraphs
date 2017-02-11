@@ -6,6 +6,8 @@
  */
 
 use Symfony\Component\Yaml\Yaml;
+use Drupal\field\Entity\FieldStorageConfig;
+use Drupal\field\Entity\FieldConfig;
 
 /**
  * Makes image linkable.
@@ -18,12 +20,15 @@ function bootstrap_paragraphs_update_8001() {
   }
   else {
     $bs_path = drupal_get_path('module', 'bootstrap_paragraphs');
-    $configs['field.field.paragraph.image.field_link'] = $bs_path . '/config/install/field.field.paragraph.image.field_link.yml';
-    $configs['field.storage.paragraph.field_link'] = $bs_path . '/config/install/field.storage.paragraph.field_link.yml';
-    foreach ($configs as $name => $config_path) {
-      $data = Yaml::parse($config_path);
-      $config = \Drupal::configFactory()->getEditable($name);
-      $config->setData($data)->save(TRUE);
+
+    // Create field.
+    $field_storage_yml = Yaml::parse(file_get_contents($bs_path . '/config/install/field.storage.paragraph.field_link.yml'));
+    if (!FieldStorageConfig::loadByName($field_storage_yml['entity_type'], $field_storage_yml['field_name'])) {
+      FieldStorageConfig::create($field_storage_yml)->save();
+    }
+    $field_storage_yml = Yaml::parse(file_get_contents($bs_path . '/config/install/field.field.paragraph.image.field_link.yml'));
+    if (!FieldConfig::loadByName($field_storage_yml['entity_type'], $field_storage_yml['bundle'], $field_storage_yml['field_name'])) {
+      FieldConfig::create($field_storage_yml)->save();
     }
 
     $config = \Drupal::configFactory()->getEditable('core.entity_form_display.paragraph.image.default');
