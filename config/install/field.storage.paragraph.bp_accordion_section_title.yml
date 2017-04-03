@@ -7,7 +7,7 @@ dependencies:
 id: paragraph.bp_accordion_section_title
 field_name: bp_accordion_section_title
 entity_type: paragraph
-type: text_long
+type: string
 settings: {  }
 module: text
 locked: false
