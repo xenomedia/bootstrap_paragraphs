@@ -24,9 +24,10 @@ content:
   field_accordion_section_title:
     weight: 0
     label: hidden
-    settings: {  }
+    settings:
+      link_to_entity: false
     third_party_settings: {  }
-    type: text_default
+    type: string
 hidden:
   created: true
   uid: true
