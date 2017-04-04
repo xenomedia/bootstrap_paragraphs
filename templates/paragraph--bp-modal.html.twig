@@ -41,8 +41,8 @@
 
 {# Renders Width field. #}
 {# Sets class name from values in database. #}
-{% if content.field_width|render %}
-  {% set layout_width = content.field_width['#items'].getString() %}
+{% if content.bp_width|render %}
+  {% set layout_width = content.bp_width['#items'].getString() %}
   {% set layout_width_classes = [
     'paragraph--width--tiny' == layout_width ? 'paragraph--width--tiny',
     'paragraph--width--narrow' == layout_width ? 'paragraph--width--narrow',
@@ -55,8 +55,8 @@
 
 {# Renders Background field. #}
 {# Sets class name from values in database. #}
-{% if content.field_background|render %}
-  {% set layout_background = content.field_background['#items'].getString() %}
+{% if content.bp_background|render %}
+  {% set layout_background = content.bp_background['#items'].getString() %}
   {% set layout_background_classes = [
     'paragraph--color paragraph--color--rgba-black-slight' == layout_background ? 'paragraph--color paragraph--color--rgba-black-slight',
     'paragraph--color paragraph--color--rgba-black-light' == layout_background ? 'paragraph--color paragraph--color--rgba-black-light',
@@ -130,13 +130,13 @@ view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
 %}
 
 {# Merges Width field with classes. #}
-{% set width_field = content.field_width|render %}
+{% set width_field = content.bp_width|render %}
 {% if width_field %}
   {% set classes = classes|merge(layout_width_classes) %}
 {% endif %}
 
 {# Merges Background field with classes. #}
-{% set background_field = content.field_background|render %}
+{% set background_field = content.bp_background|render %}
 {% if background_field %}
   {% set classes = classes|merge(layout_background_classes) %}
 {% endif %}
@@ -149,7 +149,7 @@ view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
   <section>
     {# Button trigger modal #}
     <button type="button" class="btn btn-primary btn-lg btn-modal" data-toggle="modal" data-target="#{{ paragraph_id }}">
-      {{ content.field_modal_button_text }}
+      {{ content.bp_modal_button_text }}
     </button>
   </section>
 </div>
@@ -162,22 +162,22 @@ view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-        {% if content.field_modal_title|render %}
+        {% if content.bp_modal_title|render %}
           <div class="modal-title" id="{{ paragraph_id }}-label">
-            {{ content.field_modal_title }}
+            {{ content.bp_modal_title }}
           </div>
         {% endif %}
       </div>
-      {% if content.field_modal_body|render %}
+      {% if content.bp_modal_body|render %}
         <div class="modal-body">
-          {% for key, item in content.field_modal_body if key|first != '#' %}
+          {% for key, item in content.bp_modal_body if key|first != '#' %}
             {{ item }}
           {% endfor %}
         </div>
       {% endif %}
-      {% if content.field_modal_footer|render %}
+      {% if content.bp_modal_footer|render %}
         <div class="modal-footer">
-          {% for key, item in content.field_modal_footer if key|first != '#' %}
+          {% for key, item in content.bp_modal_footer if key|first != '#' %}
             {{ item }}
           {% endfor %}
         </div>

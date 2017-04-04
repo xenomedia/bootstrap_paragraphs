@@ -41,8 +41,8 @@
 
 {# Renders Width field. #}
 {# Sets class name from values in database. #}
-{% if content.field_width|render %}
-  {% set layout_width = content.field_width['#items'].getString() %}
+{% if content.bp_width|render %}
+  {% set layout_width = content.bp_width['#items'].getString() %}
   {% set layout_width_classes = [
     'paragraph--width--tiny' == layout_width ? 'paragraph--width--tiny',
     'paragraph--width--narrow' == layout_width ? 'paragraph--width--narrow',
@@ -55,8 +55,8 @@
 
 {# Renders Background field. #}
 {# Sets class name from values in database. #}
-{% if content.field_background|render %}
-  {% set layout_background = content.field_background['#items'].getString() %}
+{% if content.bp_background|render %}
+  {% set layout_background = content.bp_background['#items'].getString() %}
   {% set layout_background_classes = [
     'paragraph--color paragraph--color--rgba-black-slight' == layout_background ? 'paragraph--color paragraph--color--rgba-black-slight',
     'paragraph--color paragraph--color--rgba-black-light' == layout_background ? 'paragraph--color paragraph--color--rgba-black-light',
@@ -130,13 +130,13 @@ view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
 %}
 
 {# Merges Width field with classes. #}
-{% set width_field = content.field_width|render %}
+{% set width_field = content.bp_width|render %}
 {% if width_field %}
   {% set classes = classes|merge(layout_width_classes) %}
 {% endif %}
 
 {# Merges Background field with classes. #}
-{% set background_field = content.field_background|render %}
+{% set background_field = content.bp_background|render %}
 {% if background_field %}
   {% set classes = classes|merge(layout_background_classes) %}
 {% endif %}
@@ -149,21 +149,21 @@ view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
   <section>
     <div class="card panel panel-default">
       {# Loop through all of the accordion sections. #}
-      {% for key, item in content.field_accordion_section if key|first != '#' %}
+      {% for key, item in content.bp_accordion_section if key|first != '#' %}
         <div class="card-header panel-heading" role="tab" id="heading-{{ key + 1 }}">
           <div class="panel-title">
             <a data-toggle="collapse" data-parent="{{ paragraph_id }}" href="#collapse-{{ key + 1 }}" aria-expanded="true" aria-controls="collapse-{{ key + 1 }}">
               {# Print the accordion section title. #}
-              {{ item['#paragraph'].field_accordion_section_title.value }}
+              {{ item['#paragraph'].bp_accordion_section_title.value }}
             </a>
           </div>
         </div>
         <div id="collapse-{{ key + 1 }}" class="card-block panel-collapse collapse" role="tabpanel" aria-labelledby="heading-{{ key + 1 }}">
           {# Loop through all of the accordion section bodies. #}
-          {% for body_key, body_item in item['#paragraph'].field_accordion_section_body %}
+          {% for body_key, body_item in item['#paragraph'].bp_accordion_section_body %}
             {# Use the same render array as item and set the '#paragraph'. #}
             {% set section_body = item %}
-            {% set section_body = section_body|merge({'#paragraph': section_body['#paragraph'].field_accordion_section_body[body_key].entity}) %}
+            {% set section_body = section_body|merge({'#paragraph': section_body['#paragraph'].bp_accordion_section_body[body_key].entity}) %}
             {# Remove the cache keys so it doesn't repeat the first value. #}
             {% set section_body = section_body|merge({'#cache': {}}) %}
             {# Print the compiled section body. #}

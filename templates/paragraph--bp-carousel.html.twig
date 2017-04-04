@@ -41,8 +41,8 @@
 
 {# Renders Width field. #}
 {# Sets class name from values in database. #}
-{% if content.field_width|render %}
-  {% set layout_width = content.field_width['#items'].getString() %}
+{% if content.bp_width|render %}
+  {% set layout_width = content.bp_width['#items'].getString() %}
   {% set layout_width_classes = [
     'paragraph--width--tiny' == layout_width ? 'paragraph--width--tiny',
     'paragraph--width--narrow' == layout_width ? 'paragraph--width--narrow',
@@ -55,8 +55,8 @@
 
 {# Renders Background field. #}
 {# Sets class name from values in database. #}
-{% if content.field_background|render %}
-  {% set layout_background = content.field_background['#items'].getString() %}
+{% if content.bp_background|render %}
+  {% set layout_background = content.bp_background['#items'].getString() %}
   {% set layout_background_classes = [
     'paragraph--color paragraph--color--rgba-black-slight' == layout_background ? 'paragraph--color paragraph--color--rgba-black-slight',
     'paragraph--color paragraph--color--rgba-black-light' == layout_background ? 'paragraph--color paragraph--color--rgba-black-light',
@@ -122,8 +122,8 @@
 
 {# Renders Slide Interval field. #}
 {# Converts database values to classes supplied by template. #}
-{% if content.field_slide_interval|render %}
-  {% set slide_interval = content.field_slide_interval['#items'].getString() %}
+{% if content.bp_slide_interval|render %}
+  {% set slide_interval = content.bp_slide_interval['#items'].getString() %}
   {% set slide_interval_classes = [
     'false' == slide_interval ? 'false',
     '1000' == slide_interval ? '1000',
@@ -149,13 +149,13 @@ view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
 %}
 
 {# Merges Width field with classes. #}
-{% set width_field = content.field_width|render %}
+{% set width_field = content.bp_width|render %}
 {% if width_field %}
   {% set classes = classes|merge(layout_width_classes) %}
 {% endif %}
 
 {# Merges Background field with classes. #}
-{% set background_field = content.field_background|render %}
+{% set background_field = content.bp_background|render %}
 {% if background_field %}
   {% set classes = classes|merge(layout_background_classes) %}
 {% endif %}
@@ -164,15 +164,15 @@ view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
 {% set paragraph_id = 'myCarousel-' ~ paragraph.id.value %}
 
 {# Prints Carousel template. #}
-{{ content|without('field_slide_content','field_slide_interval', 'field_width', 'field_background') }}
+{{ content|without('bp_slide_content','bp_slide_interval', 'bp_width', 'bp_background') }}
 <div{{ attributes.addClass(classes).setAttribute('id', paragraph_id).setAttribute('data-interval', slide_interval_classes).setAttribute('data-ride', 'carousel') }}>
   <ol class="carousel-indicators">
-    {% for key, item in content.field_slide_content if key|first != '#' %}
+    {% for key, item in content.bp_slide_content if key|first != '#' %}
       <li class="{% if loop.first %}active{% endif %}" data-slide-to="{{ key }}" data-target="#{{ paragraph_id }}"></li>
     {% endfor %}
   </ol>
   <div class="carousel-inner" role="listbox">
-    {% for key, item in content.field_slide_content if key|first != '#' %}
+    {% for key, item in content.bp_slide_content if key|first != '#' %}
       <div class="paragraph--layout-slideshow__slide-{{ key + 1 }} item carousel-item{% if loop.first %} active{% endif %}">{{ item }}</div>
     {% endfor %}
   </div>

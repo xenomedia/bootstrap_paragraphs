@@ -41,8 +41,8 @@
 
 {# Renders Width field. #}
 {# Sets class name from values in database. #}
-{% if content.field_width|render %}
-  {% set layout_width = content.field_width['#items'].getString() %}
+{% if content.bp_width|render %}
+  {% set layout_width = content.bp_width['#items'].getString() %}
   {% set layout_width_classes = [
     'paragraph--width--tiny' == layout_width ? 'paragraph--width--tiny',
     'paragraph--width--narrow' == layout_width ? 'paragraph--width--narrow',
@@ -55,8 +55,8 @@
 
 {# Renders Background field. #}
 {# Sets class name from values in database. #}
-{% if content.field_background|render %}
-  {% set layout_background = content.field_background['#items'].getString() %}
+{% if content.bp_background|render %}
+  {% set layout_background = content.bp_background['#items'].getString() %}
   {% set layout_background_classes = [
     'paragraph--color paragraph--color--rgba-black-slight' == layout_background ? 'paragraph--color paragraph--color--rgba-black-slight',
     'paragraph--color paragraph--color--rgba-black-light' == layout_background ? 'paragraph--color paragraph--color--rgba-black-light',
@@ -122,8 +122,8 @@
 
 {# Renders Column Style field. #}
 {# Sets class name from values in database. #}
-{% if content.field_column_style_3|render %}
-  {% set column_style_3 = content.field_column_style_3['#items'].getString() %}
+{% if content.bp_column_style_3|render %}
+  {% set column_style_3 = content.bp_column_style_3['#items'].getString() %}
   {% set column_style_3_classes = [
     'paragraph--style--25-50-25' == column_style_3 ? 'paragraph--style--25-50-25',
     'paragraph--style--50-25-25' == column_style_3 ? 'paragraph--style--50-25-25',
@@ -145,19 +145,19 @@ view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
 %}
 
 {# Merges Width field with classes. #}
-{% set width_field = content.field_width|render %}
+{% set width_field = content.bp_width|render %}
 {% if width_field %}
   {% set classes = classes|merge(layout_width_classes) %}
 {% endif %}
 
 {# Merges Background field with classes. #}
-{% set background_field = content.field_background|render %}
+{% set background_field = content.bp_background|render %}
 {% if background_field %}
   {% set classes = classes|merge(layout_background_classes) %}
 {% endif %}
 
 {# Merges Column Style field with classes. #}
-{% set column_style_field = content.field_column_style_3|render %}
+{% set column_style_field = content.bp_column_style_3|render %}
 {% if column_style_field %}
   {% set classes = classes|merge(column_style_3_classes) %}
 {% endif %}
@@ -165,6 +165,6 @@ view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
 {# Prints div with classes, and content without Width and Background. #}
 <div{{ attributes.addClass(classes) }}>
   <section>
-    {{ content|without('field_width', 'field_background', 'field_column_style_3') }}
+    {{ content|without('bp_width', 'bp_background', 'bp_column_style_3') }}
   </section>
 </div>

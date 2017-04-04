@@ -178,25 +178,25 @@
   Table of Contents:
     Base Paragraph Styling
     Widths
-    Colors
     Nesting
     Paragraph Types
+    Colors
 
       The following classes are available if the different Paragraph types
       need their own individual styling.
 
-      .paragraph.paragraph--type--accordion {} -- Is used below
-      .paragraph.paragraph--type--blank {}
-      .paragraph.paragraph--type--carousel {} -- Is used below
-      .paragraph.paragraph--type--columns {} -- Is used below
-      .paragraph.paragraph--type--columns-three-uneven {} -- Is used below
-      .paragraph.paragraph--type--columns-two-uneven {} -- Is used below
-      .paragraph.paragraph--type--contact {}
-      .paragraph.paragraph--type--image {}
-      .paragraph.paragraph--type--modal {} -- Is used below
-      .paragraph.paragraph--type--simple {}
-      .paragraph.paragraph--type--tabs {} -- Is used below
-      .paragraph.paragraph--type--view {}
+      .paragraph.paragraph--type--bp-accordion {} -- Is used below
+      .paragraph.paragraph--type--bp-blank {}
+      .paragraph.paragraph--type--bp-carousel {} -- Is used below
+      .paragraph.paragraph--type--bp-columns {} -- Is used below
+      .paragraph.paragraph--type--bp-columns-three-uneven {} -- Is used below
+      .paragraph.paragraph--type--bp-columns-two-uneven {} -- Is used below
+      .paragraph.paragraph--type--bp-contact {}
+      .paragraph.paragraph--type--bp-image {}
+      .paragraph.paragraph--type--bp-modal {} -- Is used below
+      .paragraph.paragraph--type--bp-simple {}
+      .paragraph.paragraph--type--bp-tabs {} -- Is used below
+      .paragraph.paragraph--type--bp-view {}
 
 ----------------------------------------------------------------------------- */
 
@@ -217,15 +217,11 @@
   padding-bottom: @jumbotron-padding;
 }
 
-.paragraph:last-of-type > section {
-  padding-top: @jumbotron-padding;
-}
-
-.paragraph--type--carousel .paragraph:last-of-type > section,
-.paragraph--type--columns .paragraph:last-of-type > section,
-.paragraph--type--columns-three-uneven .paragraph:last-of-type > section,
-.paragraph--type--columns-two-uneven .paragraph:last-of-type > section,
-.paragraph--type--tabs .paragraph:last-of-type > section {
+.paragraph--type--bp-carousel .paragraph:last-of-type > section,
+.paragraph--type--bp-columns .paragraph:last-of-type > section,
+.paragraph--type--bp-columns-three-uneven .paragraph:last-of-type > section,
+.paragraph--type--bp-columns-two-uneven .paragraph:last-of-type > section,
+.paragraph--type--bp-tabs .paragraph:last-of-type > section {
   padding-top: 0;
 }
 
@@ -246,7 +242,7 @@
 
 /* Adds Width Element -- Narrow. */
 .paragraph.paragraph--width--narrow > section,
-.paragraph.paragraph--width--narrow.paragraph--type--carousel > .carousel-inner {
+.paragraph.paragraph--width--narrow.paragraph--type--bp-carousel > .carousel-inner {
   .make-sm-column(6);
   .make-sm-column-offset(3);
   .make-md-column(6);
@@ -257,7 +253,7 @@
 
 /* Adds Width Element -- Medium. */
 .paragraph.paragraph--width--medium > section,
-.paragraph.paragraph--width--medium.paragraph--type--carousel > .carousel-inner {
+.paragraph.paragraph--width--medium.paragraph--type--bp-carousel > .carousel-inner {
   .make-sm-column(8);
   .make-sm-column-offset(2);
   .make-md-column(8);
@@ -268,7 +264,7 @@
 
 /* Adds Width Element -- Wide. */
 .paragraph.paragraph--width--wide > section,
-.paragraph.paragraph--width--wide.paragraph--type--carousel > .carousel-inner {
+.paragraph.paragraph--width--wide.paragraph--type--bp-carousel > .carousel-inner {
   .make-sm-column(10);
   .make-sm-column-offset(1);
   .make-md-column(10);
@@ -279,25 +275,10 @@
 
 /* Adds Width Element -- Full. */
 .paragraph.paragraph--width--full > section ,
-.paragraph.paragraph--width--full.paragraph--type--carousel > .carousel-inner {
+.paragraph.paragraph--width--full.paragraph--type--bp-carousel > .carousel-inner {
   .make-sm-column(12);
   .make-md-column(12);
   .make-lg-column(12);
-}
-
-/* -------------------------------------------------------------------------- */
-/* Here we add Colors.                                                        */
-/* -------------------------------------------------------------------------- */
-
-/* Add display so color shows */
-.paragraph.paragraph--color {
-  display: table;
-  width: 100%;
-}
-
-/* Adds padding to fill in color. */
-.paragraph.paragraph--color > section {
-  padding-top: @jumbotron-padding;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -354,7 +335,7 @@
 /* Carousel Paragraph. */
 /* paragraph--carousel.html.twig */
 /* Adds minimum height and top padding on a paragraph in a carousel */
-.paragraph.paragraph--type--carousel > .carousel-inner > .item > .paragraph > section {
+.paragraph.paragraph--type--bp-carousel > .carousel-inner > .item > .paragraph > section {
   padding-top: @jumbotron-padding;
   min-height: 420px;
 }
@@ -362,31 +343,31 @@
 /* Columns Paragraph. */
 /* .field--paragraph--field-column-content.html.twig */
 /* Removes Padding on Columns (Padding is on columns inside). */
-.paragraph.paragraph--type--columns > section,
-.paragraph.paragraph--type--columns-two-uneven > section,
-.paragraph.paragraph--type--columns-three-uneven > section {
+.paragraph.paragraph--type--bp-columns > section,
+.paragraph.paragraph--type--bp-columns-two-uneven > section,
+.paragraph.paragraph--type--bp-columns-three-uneven > section {
   padding: 0;
 }
 
 /* Columns Modifiers inside of Columns Element  */
-.paragraph.paragraph--type--columns .paragraph--type--columns__6col,
-.paragraph.paragraph--type--columns .paragraph--type--columns__5col {
+.paragraph.paragraph--type--bp-columns .paragraph--type--columns__6col,
+.paragraph.paragraph--type--bp-columns .paragraph--type--columns__5col {
   .make-sm-column(2);
 }
 
-.paragraph.paragraph--type--columns .paragraph--type--columns__4col {
+.paragraph.paragraph--type--bp-columns .paragraph--type--columns__4col {
   .make-sm-column(3);
 }
 
-.paragraph.paragraph--type--columns .paragraph--type--columns__3col {
+.paragraph.paragraph--type--bp-columns .paragraph--type--columns__3col {
   .make-sm-column(4);
 }
 
-.paragraph.paragraph--type--columns .paragraph--type--columns__2col {
+.paragraph.paragraph--type--bp-columns .paragraph--type--columns__2col {
   .make-sm-column(6);
 }
 
-.paragraph.paragraph--type--columns .paragraph--type--columns__1col {
+.paragraph.paragraph--type--bp-columns .paragraph--type--columns__1col {
   .make-sm-column(12);
 }
 
@@ -435,7 +416,7 @@
 
 /* Two Uneven Columns Paragraph. */
 /* .paragraph--columns-two-uneven.html.twig */
-.paragraph--type--columns-two-uneven {
+.paragraph--type--bp-columns-two-uneven {
 
   &.paragraph--style--75-25 {
     .paragraph--type--columns__2col:nth-of-type(1) {
@@ -476,7 +457,7 @@
 
 /* Three Uneven Columns Paragraph. */
 /* .paragraph--columns-three-uneven.html.twig */
-.paragraph--type--columns-three-uneven {
+.paragraph--type--bp-columns-three-uneven {
 
   &.paragraph--style--25-50-25 {
     .paragraph--type--columns__3col:nth-of-type(1) {
@@ -553,7 +534,7 @@
 
 /* Modal Paragraph. */
 /* .paragraph--modal.html.twig */
-.paragraph--type--modal {
+.paragraph--type--bp-modal {
   .btn.btn-modal {
     display: block;
     margin-left: auto;
@@ -589,8 +570,28 @@
 
 /* Tabs Paragraph. */
 /* .paragraph--tabs.html.twig */
-.paragraph.paragraph--type--tabs {
+.paragraph.paragraph--type--bp-tabs {
   .tab-content .paragraph > section {
     padding-top: 15px;
   }
+}
+
+/* -------------------------------------------------------------------------- */
+/* Here we add Colors.                                                        */
+/* -------------------------------------------------------------------------- */
+
+/* Add display so color shows */
+.paragraph.paragraph--color {
+  display: table;
+  width: 100%;
+}
+
+/* Adds padding to fill in color. */
+.paragraph.paragraph--color > section {
+  padding-top: @jumbotron-padding;
+}
+
+/* Fills color on colorless section after color section. */
+.paragraph.paragraph--color + .paragraph > section {
+  padding-top: @jumbotron-padding;
 }
