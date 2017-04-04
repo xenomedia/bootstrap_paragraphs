@@ -4,6 +4,6 @@ bootstrap-paragraphs:
       css/bootstrap-paragraphs.css:
         minified: false
       css/bootstrap-paragraphs-colors.css:
-      minified: false
+        minified: false
   dependencies:
     - core/jquery
