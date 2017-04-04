@@ -143,7 +143,7 @@ view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
 
 {# Prints div with classes, and content without Width and Background. #}
 <div{{ attributes.addClass(classes) }}>
-  <section>
+  <div class="paragraph__column">
     {% if content.bp_link|render is not empty %}
       <a href="{{ content.bp_link.0['#url'] }}">
     {% endif %}
@@ -151,5 +151,5 @@ view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
     {% if content.bp_link|render is not empty %}
       </a>
     {% endif %}
-  </section>
+  </div>
 </div>

@@ -210,19 +210,19 @@
   margin-right: 0;
 }
 
-.paragraph > section {
+.paragraph > .paragraph__column {
   .make-sm-column(12);
   .make-md-column(12);
   .make-lg-column(12);
   padding-bottom: @jumbotron-padding;
 }
 
-.paragraph--type--bp-carousel .paragraph:last-of-type > section,
-.paragraph--type--bp-columns .paragraph:last-of-type > section,
-.paragraph--type--bp-columns-three-uneven .paragraph:last-of-type > section,
-.paragraph--type--bp-columns-two-uneven .paragraph:last-of-type > section,
-.paragraph--type--bp-tabs .paragraph:last-of-type > section {
-  padding-top: 0;
+.paragraph--type--bp-carousel .paragraph:last-of-type > .paragraph__column,
+.paragraph--type--bp-columns .paragraph:last-of-type > .paragraph__column,
+.paragraph--type--bp-columns-three-uneven .paragraph:last-of-type > .paragraph__column,
+.paragraph--type--bp-columns-two-uneven .paragraph:last-of-type > .paragraph__column,
+.paragraph--type--bp-tabs .paragraph:last-of-type > .paragraph__column {
+  padding-bottom: 0;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -230,7 +230,7 @@
 /* -------------------------------------------------------------------------- */
 
 /* Adds Width Element -- Tiny. */
-.paragraph.paragraph--width--tiny > section,
+.paragraph.paragraph--width--tiny > .paragraph__column,
 .paragraph.paragraph--width--tiny.paragraph--type--carousel > .carousel-inner {
   .make-sm-column(4);
   .make-sm-column-offset(4);
@@ -241,7 +241,7 @@
 }
 
 /* Adds Width Element -- Narrow. */
-.paragraph.paragraph--width--narrow > section,
+.paragraph.paragraph--width--narrow > .paragraph__column,
 .paragraph.paragraph--width--narrow.paragraph--type--bp-carousel > .carousel-inner {
   .make-sm-column(6);
   .make-sm-column-offset(3);
@@ -252,7 +252,7 @@
 }
 
 /* Adds Width Element -- Medium. */
-.paragraph.paragraph--width--medium > section,
+.paragraph.paragraph--width--medium > .paragraph__column,
 .paragraph.paragraph--width--medium.paragraph--type--bp-carousel > .carousel-inner {
   .make-sm-column(8);
   .make-sm-column-offset(2);
@@ -263,7 +263,7 @@
 }
 
 /* Adds Width Element -- Wide. */
-.paragraph.paragraph--width--wide > section,
+.paragraph.paragraph--width--wide > .paragraph__column,
 .paragraph.paragraph--width--wide.paragraph--type--bp-carousel > .carousel-inner {
   .make-sm-column(10);
   .make-sm-column-offset(1);
@@ -274,7 +274,7 @@
 }
 
 /* Adds Width Element -- Full. */
-.paragraph.paragraph--width--full > section ,
+.paragraph.paragraph--width--full > .paragraph__column ,
 .paragraph.paragraph--width--full.paragraph--type--bp-carousel > .carousel-inner {
   .make-sm-column(12);
   .make-md-column(12);
@@ -292,8 +292,8 @@
   margin-right: 0;
 }
 
-.paragraph > section .paragraph > section,
-.paragraph > section .paragraph > section .paragraph > section {
+.paragraph > .paragraph__column .paragraph > .paragraph__column,
+.paragraph > .paragraph__column .paragraph > .paragraph__column .paragraph > .paragraph__column {
   float: none;
   margin-left: 0;
   padding-left: 0;
@@ -306,7 +306,7 @@
 /* -------------------------------------------------------------------------- */
 
 /* Accordion Paragraph. */
-/* paragraph--accordion.html.twig */
+/* paragraph--bp-accordion.html.twig */
 /* Adds margin and padding to paragraphs in accordion Section bodies. */
 .panel-collapse {
 
@@ -314,65 +314,65 @@
     margin-left: 15px;
     margin-right: 15px;
 
-    > section {
+    > .paragraph__column {
       padding-bottom: 15px;
       padding-top: 15px;
     }
   }
 
-  .paragraph:last-of-type > section {
+  .paragraph:last-of-type > .paragraph__column {
     padding-bottom: 15px;
   }
 
   .paragraph + .paragraph,
   .paragraph + .paragraph + .paragraph {
-    > section {
+    > .paragraph__column {
       padding-bottom: 30px;
     }
   }
 }
 
 /* Carousel Paragraph. */
-/* paragraph--carousel.html.twig */
+/* paragraph--bp-carousel.html.twig */
 /* Adds minimum height and top padding on a paragraph in a carousel */
-.paragraph.paragraph--type--bp-carousel > .carousel-inner > .item > .paragraph > section {
+.paragraph.paragraph--type--bp-carousel > .carousel-inner > .item > .paragraph > .paragraph__column {
   padding-top: @jumbotron-padding;
   min-height: 420px;
 }
 
 /* Columns Paragraph. */
-/* .field--paragraph--field-column-content.html.twig */
+/* .field--paragraph--bp-column-content.html.twig */
 /* Removes Padding on Columns (Padding is on columns inside). */
-.paragraph.paragraph--type--bp-columns > section,
-.paragraph.paragraph--type--bp-columns-two-uneven > section,
-.paragraph.paragraph--type--bp-columns-three-uneven > section {
+.paragraph.paragraph--type--bp-columns > .paragraph__column,
+.paragraph.paragraph--type--bp-columns-two-uneven > .paragraph__column,
+.paragraph.paragraph--type--bp-columns-three-uneven > .paragraph__column {
   padding: 0;
 }
 
 /* Columns Modifiers inside of Columns Element  */
-.paragraph.paragraph--type--bp-columns .paragraph--type--columns__6col,
-.paragraph.paragraph--type--bp-columns .paragraph--type--columns__5col {
+.paragraph.paragraph--type--bp-columns .paragraph--type--bp-columns__6col,
+.paragraph.paragraph--type--bp-columns .paragraph--type--bp-columns__5col {
   .make-sm-column(2);
 }
 
-.paragraph.paragraph--type--bp-columns .paragraph--type--columns__4col {
+.paragraph.paragraph--type--bp-columns .paragraph--type--bp-columns__4col {
   .make-sm-column(3);
 }
 
-.paragraph.paragraph--type--bp-columns .paragraph--type--columns__3col {
+.paragraph.paragraph--type--bp-columns .paragraph--type--bp-columns__3col {
   .make-sm-column(4);
 }
 
-.paragraph.paragraph--type--bp-columns .paragraph--type--columns__2col {
+.paragraph.paragraph--type--bp-columns .paragraph--type--bp-columns__2col {
   .make-sm-column(6);
 }
 
-.paragraph.paragraph--type--bp-columns .paragraph--type--columns__1col {
+.paragraph.paragraph--type--bp-columns .paragraph--type--bp-columns__1col {
   .make-sm-column(12);
 }
 
 /* These allow us to change the width on a single paragraph in a Multicolumn. */
-.paragraph--type--columns__1col .paragraph.paragraph--width--tiny > section {
+.paragraph--type--bp-columns__1col .paragraph.paragraph--width--tiny > .paragraph__column {
   .make-sm-column(4);
   .make-sm-column-offset(4);
   .make-md-column(4);
@@ -381,7 +381,7 @@
   .make-lg-column-offset(4);
 }
 
-.paragraph--type--columns__1col .paragraph.paragraph--width--narrow > section {
+.paragraph--type--bp-columns__1col .paragraph.paragraph--width--narrow > .paragraph__column {
   .make-sm-column(6);
   .make-sm-column-offset(3);
   .make-md-column(6);
@@ -390,7 +390,7 @@
   .make-lg-column-offset(3);
 }
 
-.paragraph--type--columns__1col .paragraph.paragraph--width--medium > section {
+.paragraph--type--bp-columns__1col .paragraph.paragraph--width--medium > .paragraph__column {
   .make-sm-column(8);
   .make-sm-column-offset(2);
   .make-md-column(8);
@@ -399,7 +399,7 @@
   .make-lg-column-offset(2);
 }
 
-.paragraph--type--columns__1col .paragraph.paragraph--width--wide > section {
+.paragraph--type--bp-columns__1col .paragraph.paragraph--width--wide > .paragraph__column {
   .make-sm-column(10);
   .make-sm-column-offset(1);
   .make-md-column(10);
@@ -408,132 +408,132 @@
   .make-lg-column-offset(1);
 }
 
-.paragraph--type--columns__1col .paragraph.paragraph--width--full > section {
+.paragraph--type--bp-columns__1col .paragraph.paragraph--width--full > .paragraph__column {
   .make-sm-column(12);
   .make-md-column(12);
   .make-lg-column(12);
 }
 
 /* Two Uneven Columns Paragraph. */
-/* .paragraph--columns-two-uneven.html.twig */
+/* .paragraph--bp-columns-two-uneven.html.twig */
 .paragraph--type--bp-columns-two-uneven {
 
   &.paragraph--style--75-25 {
-    .paragraph--type--columns__2col:nth-of-type(1) {
+    .paragraph--type--bp-columns__2col:nth-of-type(1) {
       .make-sm-column(9);
     }
-    .paragraph--type--columns__2col:nth-of-type(2) {
+    .paragraph--type--bp-columns__2col:nth-of-type(2) {
       .make-sm-column(3);
     }
   }
 
   &.paragraph--style--66-33 {
-    .paragraph--type--columns__2col:nth-of-type(1) {
+    .paragraph--type--bp-columns__2col:nth-of-type(1) {
       .make-sm-column(8);
     }
-    .paragraph--type--columns__2col:nth-of-type(2) {
+    .paragraph--type--bp-columns__2col:nth-of-type(2) {
       .make-sm-column(4);
     }
   }
 
   &.paragraph--style--25-75 {
-    .paragraph--type--columns__2col:nth-of-type(1) {
+    .paragraph--type--bp-columns__2col:nth-of-type(1) {
       .make-sm-column(3);
     }
-    .paragraph--type--columns__2col:nth-of-type(2) {
+    .paragraph--type--bp-columns__2col:nth-of-type(2) {
       .make-sm-column(9);
     }
   }
 
   &.paragraph--style--33-66 {
-    .paragraph--type--columns__2col:nth-of-type(1) {
+    .paragraph--type--bp-columns__2col:nth-of-type(1) {
       .make-sm-column(4);
     }
-    .paragraph--type--columns__2col:nth-of-type(2) {
+    .paragraph--type--bp-columns__2col:nth-of-type(2) {
       .make-sm-column(8);
     }
   }
 }
 
 /* Three Uneven Columns Paragraph. */
-/* .paragraph--columns-three-uneven.html.twig */
+/* .paragraph--bp-columns-three-uneven.html.twig */
 .paragraph--type--bp-columns-three-uneven {
 
   &.paragraph--style--25-50-25 {
-    .paragraph--type--columns__3col:nth-of-type(1) {
+    .paragraph--type--bp-columns__3col:nth-of-type(1) {
       .make-sm-column(3);
     }
-    .paragraph--type--columns__3col:nth-of-type(2) {
+    .paragraph--type--bp-columns__3col:nth-of-type(2) {
       .make-sm-column(6);
     }
-    .paragraph--type--columns__3col:nth-of-type(3) {
+    .paragraph--type--bp-columns__3col:nth-of-type(3) {
       .make-sm-column(3);
     }
   }
 
   &.paragraph--style--50-25-25 {
-    .paragraph--type--columns__3col:nth-of-type(1) {
+    .paragraph--type--bp-columns__3col:nth-of-type(1) {
       .make-sm-column(6);
     }
-    .paragraph--type--columns__3col:nth-of-type(2) {
+    .paragraph--type--bp-columns__3col:nth-of-type(2) {
       .make-sm-column(3);
     }
-    .paragraph--type--columns__3col:nth-of-type(3) {
+    .paragraph--type--bp-columns__3col:nth-of-type(3) {
       .make-sm-column(3);
     }
   }
 
   &.paragraph--style--25-25-50 {
-    .paragraph--type--columns__3col:nth-of-type(1) {
+    .paragraph--type--bp-columns__3col:nth-of-type(1) {
       .make-sm-column(3);
     }
-    .paragraph--type--columns__3col:nth-of-type(2) {
+    .paragraph--type--bp-columns__3col:nth-of-type(2) {
       .make-sm-column(3);
     }
-    .paragraph--type--columns__3col:nth-of-type(3) {
+    .paragraph--type--bp-columns__3col:nth-of-type(3) {
       .make-sm-column(6);
     }
   }
 
   &.paragraph--style--16-66-16 {
-    .paragraph--type--columns__3col:nth-of-type(1) {
+    .paragraph--type--bp-columns__3col:nth-of-type(1) {
       .make-sm-column(2);
     }
-    .paragraph--type--columns__3col:nth-of-type(2) {
+    .paragraph--type--bp-columns__3col:nth-of-type(2) {
       .make-sm-column(8);
     }
-    .paragraph--type--columns__3col:nth-of-type(3) {
+    .paragraph--type--bp-columns__3col:nth-of-type(3) {
       .make-sm-column(2);
     }
   }
 
   &.paragraph--style--66-16-16 {
-    .paragraph--type--columns__3col:nth-of-type(1) {
+    .paragraph--type--bp-columns__3col:nth-of-type(1) {
       .make-sm-column(8);
     }
-    .paragraph--type--columns__3col:nth-of-type(2) {
+    .paragraph--type--bp-columns__3col:nth-of-type(2) {
       .make-sm-column(2);
     }
-    .paragraph--type--columns__3col:nth-of-type(3) {
+    .paragraph--type--bp-columns__3col:nth-of-type(3) {
       .make-sm-column(2);
     }
   }
 
   &.paragraph--style--16-16-66 {
-    .paragraph--type--columns__3col:nth-of-type(1) {
+    .paragraph--type--bp-columns__3col:nth-of-type(1) {
       .make-sm-column(2);
     }
-    .paragraph--type--columns__3col:nth-of-type(2) {
+    .paragraph--type--bp-columns__3col:nth-of-type(2) {
       .make-sm-column(2);
     }
-    .paragraph--type--columns__3col:nth-of-type(3) {
+    .paragraph--type--bp-columns__3col:nth-of-type(3) {
       .make-sm-column(8);
     }
   }
 }
 
 /* Modal Paragraph. */
-/* .paragraph--modal.html.twig */
+/* .paragraph--bp-modal.html.twig */
 .paragraph--type--bp-modal {
   .btn.btn-modal {
     display: block;
@@ -569,9 +569,9 @@
 }
 
 /* Tabs Paragraph. */
-/* .paragraph--tabs.html.twig */
+/* .paragraph--bp-tabs.html.twig */
 .paragraph.paragraph--type--bp-tabs {
-  .tab-content .paragraph > section {
+  .tab-content .paragraph > .paragraph__column {
     padding-top: 15px;
   }
 }
@@ -587,11 +587,12 @@
 }
 
 /* Adds padding to fill in color. */
-.paragraph.paragraph--color > section {
+.paragraph.paragraph--color > .paragraph__column {
   padding-top: @jumbotron-padding;
+  padding-bottom: @jumbotron-padding;
 }
 
-/* Fills color on colorless section after color section. */
-.paragraph.paragraph--color + .paragraph > section {
+/* Fills color on colorless .paragraph__column after color .paragraph__column. */
+.paragraph.paragraph--color + .paragraph > .paragraph__column {
   padding-top: @jumbotron-padding;
 }

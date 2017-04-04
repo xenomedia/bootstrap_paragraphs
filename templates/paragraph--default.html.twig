@@ -143,7 +143,7 @@ view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
 
 {# Prints div with classes, and content without Width and Background. #}
 <div{{ attributes.addClass(classes) }}>
-  <section>
+  <div class="paragraph__column">
     {{ content|without('bp_width', 'bp_background') }}
-  </section>
+  </div>
 </div>

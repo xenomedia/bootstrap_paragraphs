@@ -146,12 +146,12 @@ view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
 
 {# Prints div with classes, and button to trigger the modal. #}
 <div{{ attributes.addClass(classes) }}>
-  <section>
+  <div class="paragraph__column">
     {# Button trigger modal #}
     <button type="button" class="btn btn-primary btn-lg btn-modal" data-toggle="modal" data-target="#{{ paragraph_id }}">
       {{ content.bp_modal_button_text }}
     </button>
-  </section>
+  </div>
 </div>
 
 {# Modal markup with modal title, and loops for modal body and modal footer. #}

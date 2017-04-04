@@ -146,7 +146,7 @@ view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
 
 {# Prints Tabs template. #}
 <div{{ attributes.addClass(classes).setAttribute('id', paragraph_id) }} role="tablist" aria-multiselectable="true">
-  <section>
+  <div class="paragraph__column">
     <ul class="nav nav-tabs" role="tablist">
       {# Loops through the tab sections to print the tab section titles. #}
       {% for key, item in content.bp_tab_section if key|first != '#' %}
@@ -169,5 +169,5 @@ view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
         </div>
       {% endfor %}
     </div>
-  </section>
+  </div>
 </div>
