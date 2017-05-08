@@ -19,7 +19,7 @@
       .paragraph.paragraph--type--bp-columns-three-uneven {} -- Is used below
       .paragraph.paragraph--type--bp-columns-two-uneven {} -- Is used below
       .paragraph.paragraph--type--bp-contact {}
-      .paragraph.paragraph--type--bp-image {}
+      .paragraph.paragraph--type--bp-image {} -- Is used below
       .paragraph.paragraph--type--bp-modal {} -- Is used below
       .paragraph.paragraph--type--bp-simple {}
       .paragraph.paragraph--type--bp-tabs {} -- Is used below
@@ -899,6 +899,12 @@
     float: left;
     width: 66.66666667%;
   }
+}
+/* Image Paragraph. */
+/* .paragraph--bp-image.html.twig */
+.paragraph--type--bp-image.paragraph--width--full .paragraph__column {
+  padding-left: 0;
+  padding-right: 0;
 }
 /* Modal Paragraph. */
 /* .paragraph--bp-modal.html.twig */
