@@ -147,6 +147,7 @@ view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
 {# Prints Accordion template. #}
 <div{{ attributes.addClass(classes).setAttribute('id', paragraph_id) }} role="tablist" aria-multiselectable="true">
   <div class="paragraph__column">
+    {{ title_suffix }}
     <div class="card panel panel-default">
       {# Loop through all of the accordion sections. #}
       {% for key, item in content.bp_accordion_section if key|first != '#' %}
