@@ -350,9 +350,20 @@
 }
 
 /* Columns Modifiers inside of Columns Element  */
-.paragraph.paragraph--type--bp-columns .paragraph--type--bp-columns__6col,
-.paragraph.paragraph--type--bp-columns .paragraph--type--bp-columns__5col {
+.paragraph.paragraph--type--bp-columns .paragraph--type--bp-columns__6col {
   .make-sm-column(2);
+}
+
+.paragraph.paragraph--type--bp-columns .paragraph--type--bp-columns__5col {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+
+  @media (min-width: 768px) {
+    float: left;
+    width: 20%;
+  }
 }
 
 .paragraph.paragraph--type--bp-columns .paragraph--type--bp-columns__4col {

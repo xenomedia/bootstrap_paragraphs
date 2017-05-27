@@ -341,7 +341,18 @@
   padding: 0;
 }
 /* Columns Modifiers inside of Columns Element  */
-.paragraph.paragraph--type--bp-columns .paragraph--type--bp-columns__6col,
+.paragraph.paragraph--type--bp-columns .paragraph--type--bp-columns__6col {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media (min-width: 768px) {
+  .paragraph.paragraph--type--bp-columns .paragraph--type--bp-columns__6col {
+    float: left;
+    width: 16.66666667%;
+  }
+}
 .paragraph.paragraph--type--bp-columns .paragraph--type--bp-columns__5col {
   position: relative;
   min-height: 1px;
@@ -349,10 +360,9 @@
   padding-right: 15px;
 }
 @media (min-width: 768px) {
-  .paragraph.paragraph--type--bp-columns .paragraph--type--bp-columns__6col,
   .paragraph.paragraph--type--bp-columns .paragraph--type--bp-columns__5col {
     float: left;
-    width: 16.66666667%;
+    width: 20%;
   }
 }
 .paragraph.paragraph--type--bp-columns .paragraph--type--bp-columns__4col {
