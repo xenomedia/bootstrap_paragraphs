@@ -164,7 +164,8 @@ view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
           {% for body_key, body_item in item['#paragraph'].bp_accordion_section_body %}
             {# Use the same render array as item and set the '#paragraph'. #}
             {% set section_body = item %}
-            {% set section_body = section_body|merge({'#paragraph': section_body['#paragraph'].bp_accordion_section_body[body_key].entity}) %}
+            {# Load the entity for the current translation #}
+            {% set section_body = section_body|merge({'#paragraph': section_body['#paragraph'].bp_accordion_section_body[body_key].entity.getTranslation(section_body['#paragraph'].langcode[0].value)}) %}
             {# Remove the cache keys so it doesn't repeat the first value. #}
             {% set section_body = section_body|merge({'#cache': {}}) %}
             {# Print the compiled section body. #}
