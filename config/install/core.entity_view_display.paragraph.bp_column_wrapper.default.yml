@@ -11,10 +11,10 @@ targetEntityType: paragraph
 bundle: bp_column_wrapper
 mode: default
 content:
-  field_column_content_w:
+  bp_column_content_w:
     type: entity_reference_revisions_entity_view
     weight: 0
-    label: above
+    label: hidden
     settings:
       view_mode: default
       link: ''

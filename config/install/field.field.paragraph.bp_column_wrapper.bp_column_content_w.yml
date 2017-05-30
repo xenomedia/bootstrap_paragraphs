@@ -22,7 +22,7 @@ dependencies:
 id: paragraph.bp_column_wrapper.bp_column_content_w
 field_name: bp_column_content_w
 entity_type: paragraph
-bundle: column_wrapper
+bundle: bp_column_wrapper
 label: 'Column Content'
 description: ''
 required: false
@@ -92,10 +92,7 @@ settings:
       bp_view:
         enabled: true
         weight: -21
-      column_wrapper:
+      bp_column_wrapper:
         weight: -20
-        enabled: false
-      xeno_hero:
-        weight: -19
         enabled: false
 field_type: entity_reference_revisions

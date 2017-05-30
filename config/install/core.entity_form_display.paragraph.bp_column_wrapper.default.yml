@@ -11,13 +11,13 @@ targetEntityType: paragraph
 bundle: bp_column_wrapper
 mode: default
 content:
-  field_column_content_w:
+  bp_column_content_w:
     type: entity_reference_paragraphs
     weight: 0
     settings:
       title: Paragraph
       title_plural: Paragraphs
-      edit_mode: open
+      edit_mode: closed
       add_mode: dropdown
       form_display_mode: default
     third_party_settings: {  }
