@@ -334,10 +334,10 @@
 
 /* Carousel Paragraph. */
 /* paragraph--bp-carousel.html.twig */
-/* Adds minimum height and top padding on a paragraph in a carousel */
-.paragraph.paragraph--type--bp-carousel > .carousel-inner > .item > .paragraph > .paragraph__column {
-  padding-top: @jumbotron-padding;
-  min-height: 420px;
+/* Removes padding-left/padding-right added by column widths. */
+.paragraph.paragraph--type--bp-carousel > .carousel-inner {
+  padding-left: 0;
+  padding-right: 0;
 }
 
 /* Columns Paragraph. */
