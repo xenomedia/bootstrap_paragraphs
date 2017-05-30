@@ -335,7 +335,11 @@
 /* Carousel Paragraph. */
 /* paragraph--bp-carousel.html.twig */
 /* Removes padding-left/padding-right added by column widths. */
-.paragraph.paragraph--type--bp-carousel > .carousel-inner {
+.paragraph.paragraph--width--tiny.paragraph--type--bp-carousel > .carousel-inner,
+.paragraph.paragraph--width--narrow.paragraph--type--bp-carousel > .carousel-inner,
+.paragraph.paragraph--width--medium.paragraph--type--bp-carousel > .carousel-inner,
+.paragraph.paragraph--width--wide.paragraph--type--bp-carousel > .carousel-inner,
+.paragraph.paragraph--width--full.paragraph--type--bp-carousel > .carousel-inner {
   padding-left: 0;
   padding-right: 0;
 }
