@@ -5,17 +5,45 @@
  * Install, uninstall and update hooks for Boostrap Paragraphs module.
  */
 
+use Drupal\Core\Config\FileStorage;
+use Drupal\field\Entity\FieldConfig;
+use Drupal\field\Entity\FieldStorageConfig;
+use Symfony\Component\Yaml\Yaml;
+
+/**
+ * Reads in new configuration.
+ *
+ * @param string $config_name
+ *   Configuration name.
+ * @param string $bp_path
+ *   Base path.
+ */
+function boostrap_paragraphs_read_in_new_config($config_name, $bp_path) {
+  /** @var \Drupal\Core\Config\StorageInterface $active_storage */
+  $active_storage = \Drupal::service('config.storage');
+  $active_storage->write($config_name, Yaml::parse(file_get_contents($bp_path . '/config/install/' . $config_name . '.yml')));
+}
+
 /**
  * Adds Column Wrapper paragraphs bundle.
  */
 function bootstrap_paragraphs_update_8201() {
+  $bp_path = drupal_get_path('module', 'bootstrap_paragraphs');
 
-  use Drupal\Core\Config\FileStorage;
+  boostrap_paragraphs_read_in_new_config('paragraphs.paragraphs_type.bp_column_wrapper', $bp_path);
 
-  /* where $path is the absolute path to the my_config.foo.yml file */
-  $path = '/config/install/paragraphs.paragraphs_type.bp_column_wrapper.yml';
-  $source = new FileStorage($path);
-  /** @var \Drupal\Core\Config\StorageInterface $active_storage */
-  $active_storage = \Drupal::service('config.storage');
-  $active_storage->write($name, $source->read($name));
+  // Create field.
+  $field_storage_yml = Yaml::parse(file_get_contents($bp_path . '/config/install/field.storage.paragraph.bp_column_content_w.yml'));
+  if (!FieldStorageConfig::loadByName($field_storage_yml['entity_type'], $field_storage_yml['field_name'])) {
+    FieldStorageConfig::create($field_storage_yml)->save();
+  }
+  $field_yml = Yaml::parse(file_get_contents($bp_path . '/config/install/field.field.paragraph.bp_column_wrapper.bp_column_content_w.yml'));
+  if (!FieldConfig::loadByName($field_yml['entity_type'], $field_yml['bundle'], $field_yml['field_name'])) {
+    FieldConfig::create($field_yml)->save();
+  }
+
+  boostrap_paragraphs_read_in_new_config('core.entity_view_display.paragraph.bp_column_wrapper.default', $bp_path);
+  boostrap_paragraphs_read_in_new_config('core.entity_form_display.paragraph.bp_column_wrapper.default', $bp_path);
+
+  return (string) t("Column Wrapper paragraphs bundle installed successfully.  If you would like to use this bundle, enable it in the Column Content fields of the three Columns Paragraphs bundles.");
 }
