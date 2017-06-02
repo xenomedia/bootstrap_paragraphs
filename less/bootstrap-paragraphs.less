@@ -308,26 +308,29 @@
 /* Accordion Paragraph. */
 /* paragraph--bp-accordion.html.twig */
 /* Adds margin and padding to paragraphs in accordion Section bodies. */
-.panel-collapse {
 
-  .paragraph {
-    margin-left: 15px;
-    margin-right: 15px;
+.paragraph.paragraph--type--bp-accordion {
+  .panel-collapse {
 
-    > .paragraph__column {
-      padding-bottom: 15px;
-      padding-top: 15px;
+    .paragraph {
+      margin-left: 15px;
+      margin-right: 15px;
+
+      > .paragraph__column {
+        padding-bottom: 15px;
+        padding-top: 15px;
+      }
     }
-  }
 
-  .paragraph:last-of-type > .paragraph__column {
-    padding-bottom: 15px;
-  }
+    .paragraph:last-of-type > .paragraph__column {
+      padding-bottom: 15px;
+    }
 
-  .paragraph + .paragraph,
-  .paragraph + .paragraph + .paragraph {
-    > .paragraph__column {
-      padding-bottom: 30px;
+    .paragraph + .paragraph,
+    .paragraph + .paragraph + .paragraph {
+      > .paragraph__column {
+        padding-bottom: 30px;
+      }
     }
   }
 }
