@@ -288,7 +288,7 @@
   }
 }
 /* -------------------------------------------------------------------------- */
-/* Nesting paragraphs in Accordions, Columns, and Slideshows.                 */
+/* Nesting paragraphs helpers.                                                */
 /* -------------------------------------------------------------------------- */
 /* Resets Base Paragraph Styling for Nested Paragraphs. */
 .paragraph .paragraph,
@@ -310,11 +310,12 @@
 /* Accordion Paragraph. */
 /* paragraph--bp-accordion.html.twig */
 /* Adds margin and padding to paragraphs in accordion Section bodies. */
-.paragraph.paragraph--type--bp-accordion .panel-collapse .paragraph {
+.paragraph.paragraph--type--bp-accordion .panel-collapse > .paragraph {
+  display: inline-block;
   margin-left: 15px;
   margin-right: 15px;
 }
-.paragraph.paragraph--type--bp-accordion .panel-collapse .paragraph > .paragraph__column {
+.paragraph.paragraph--type--bp-accordion .panel-collapse > .paragraph > .paragraph__column {
   padding-bottom: 15px;
   padding-top: 15px;
 }
