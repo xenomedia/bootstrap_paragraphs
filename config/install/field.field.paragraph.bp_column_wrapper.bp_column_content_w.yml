@@ -2,7 +2,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.paragraph.field_column_content_w
+    - field.storage.paragraph.bp_column_content_w
     - paragraphs.paragraphs_type.bp_accordion
     - paragraphs.paragraphs_type.bp_blank
     - paragraphs.paragraphs_type.bp_block
