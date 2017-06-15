@@ -30,8 +30,7 @@
 /* Base Paragraph Styling.                                                    */
 /* -------------------------------------------------------------------------- */
 .paragraph {
-  margin-left: -15px;
-  margin-right: -15px;
+  display: table;
   margin-left: 0;
   margin-right: 0;
 }
