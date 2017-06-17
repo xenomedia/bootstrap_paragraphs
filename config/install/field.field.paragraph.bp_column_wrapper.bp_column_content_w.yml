@@ -23,7 +23,7 @@ id: paragraph.bp_column_wrapper.bp_column_content_w
 field_name: bp_column_content_w
 entity_type: paragraph
 bundle: bp_column_wrapper
-label: 'Column Content'
+label: 'Column Wrapper Content'
 description: ''
 required: false
 translatable: false
