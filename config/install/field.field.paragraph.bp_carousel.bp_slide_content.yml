@@ -7,6 +7,7 @@ dependencies:
     - paragraphs.paragraphs_type.bp_blank
     - paragraphs.paragraphs_type.bp_block
     - paragraphs.paragraphs_type.bp_carousel
+    - paragraphs.paragraphs_type.bp_column_wrapper
     - paragraphs.paragraphs_type.bp_columns
     - paragraphs.paragraphs_type.bp_columns_three_uneven
     - paragraphs.paragraphs_type.bp_columns_two_uneven
@@ -36,6 +37,7 @@ settings:
       bp_image: bp_image
       bp_blank: bp_blank
       bp_accordion: bp_accordion
+      bp_column_wrapper: bp_column_wrapper
       bp_columns: bp_columns
       bp_columns_three_uneven: bp_columns_three_uneven
       bp_columns_two_uneven: bp_columns_two_uneven
@@ -57,37 +59,40 @@ settings:
       bp_accordion:
         enabled: true
         weight: -28
-      bp_columns:
+      bp_column_wrapper:
         enabled: true
         weight: -27
-      bp_columns_three_uneven:
+      bp_columns:
         enabled: true
         weight: -26
-      bp_columns_two_uneven:
+      bp_columns_three_uneven:
         enabled: true
         weight: -25
-      bp_contact:
+      bp_columns_two_uneven:
         enabled: true
         weight: -24
-      bp_block:
+      bp_contact:
         enabled: true
         weight: -23
-      bp_modal:
+      bp_block:
         enabled: true
         weight: -22
-      bp_tabs:
+      bp_modal:
         enabled: true
         weight: -21
-      bp_view:
+      bp_tabs:
         enabled: true
         weight: -20
-      bp_accordion_section:
+      bp_view:
+        enabled: true
         weight: -19
-        enabled: false
-      bp_carousel:
+      bp_accordion_section:
         weight: -18
         enabled: false
-      bp_tab_section:
+      bp_carousel:
         weight: -17
+        enabled: false
+      bp_tab_section:
+        weight: -16
         enabled: false
 field_type: entity_reference_revisions
