@@ -30,9 +30,12 @@
 /* Base Paragraph Styling.                                                    */
 /* -------------------------------------------------------------------------- */
 .paragraph {
+  margin-left: -15px;
+  margin-right: -15px;
   display: table;
   margin-left: 0;
   margin-right: 0;
+  width: 100%;
 }
 .paragraph > .paragraph__column {
   position: relative;
@@ -957,17 +960,12 @@
 /* -------------------------------------------------------------------------- */
 /* Here we add Colors.                                                        */
 /* -------------------------------------------------------------------------- */
-/* Add display so color shows */
-.paragraph.paragraph--color {
-  display: table;
-  width: 100%;
-}
 /* Adds padding to fill in color. */
 .paragraph.paragraph--color > .paragraph__column {
   padding-top: 30px;
   padding-bottom: 30px;
 }
-/* Fills color on colorless .paragraph__column after color .paragraph__column. */
+/* Fills color on colorless paragraph after color paragraph. */
 .paragraph.paragraph--color + .paragraph > .paragraph__column {
   padding-top: 30px;
 }

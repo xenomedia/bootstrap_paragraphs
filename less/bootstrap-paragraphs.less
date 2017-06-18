@@ -209,6 +209,7 @@
   display: table;
   margin-left: 0;
   margin-right: 0;
+  width: 100%;
 }
 
 .paragraph > .paragraph__column {
@@ -616,20 +617,13 @@
 /* -------------------------------------------------------------------------- */
 /* Here we add Colors.                                                        */
 /* -------------------------------------------------------------------------- */
-
-/* Add display so color shows */
-.paragraph.paragraph--color {
-  display: table;
-  width: 100%;
-}
-
 /* Adds padding to fill in color. */
 .paragraph.paragraph--color > .paragraph__column {
   padding-top: @jumbotron-padding;
   padding-bottom: @jumbotron-padding;
 }
 
-/* Fills color on colorless .paragraph__column after color .paragraph__column. */
+/* Fills color on colorless paragraph after color paragraph. */
 .paragraph.paragraph--color + .paragraph > .paragraph__column {
   padding-top: @jumbotron-padding;
 }
