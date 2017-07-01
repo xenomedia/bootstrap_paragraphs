@@ -153,7 +153,7 @@ view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
       {% for key, item in content.bp_accordion_section if key|first != '#' %}
         <div class="card-header panel-heading" role="tab" id="heading-{{ paragraph_id }}-{{ key + 1 }}">
           <div class="panel-title">
-            <a data-toggle="collapse" data-parent="{{ paragraph_id }}" href="#collapse-{{ paragraph_id }}-{{ key + 1 }}" aria-expanded="true" aria-controls="collapse-{{ paragraph_id }}-{{ key + 1 }}">
+            <a data-toggle="collapse" data-parent="{{ paragraph_id }}" href="#collapse-{{ paragraph_id }}-{{ key + 1 }}" aria-expanded="false" aria-controls="collapse-{{ paragraph_id }}-{{ key + 1 }}">
               {# Print the accordion section title. #}
               {{ item['#paragraph'].bp_accordion_section_title.value }}
             </a>
