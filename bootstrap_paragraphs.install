@@ -5,7 +5,6 @@
  * Install, uninstall and update hooks for Boostrap Paragraphs module.
  */
 
-use Drupal\Core\Config\FileStorage;
 use Drupal\field\Entity\FieldConfig;
 use Drupal\field\Entity\FieldStorageConfig;
 use Symfony\Component\Yaml\Yaml;
