@@ -5,13 +5,13 @@
 
 ----------------------------------------------------------------------------- */
 //** Padding between columns. Gets divided in half for the left and right.
-@grid-gutter-width:         30px;
+@grid-gutter-width: 30px;
 
-@jumbotron-padding:         30px;
+@jumbotron-padding: 30px;
 
 // Creates a wrapper for a series of columns
 .make-row(@gutter: @grid-gutter-width) {
-  margin-left:  ceil((@gutter / -2));
+  margin-left: ceil((@gutter / -2));
   margin-right: floor((@gutter / -2));
   &:extend(.clearfix all);
 }
@@ -22,49 +22,49 @@
 
 // Extra small screen / phone
 //** Deprecated `@screen-xs` as of v3.0.1
-@screen-xs:                  480px;
+@screen-xs: 480px;
 //** Deprecated `@screen-xs-min` as of v3.2.0
-@screen-xs-min:              @screen-xs;
+@screen-xs-min: @screen-xs;
 //** Deprecated `@screen-phone` as of v3.0.1
-@screen-phone:               @screen-xs-min;
+@screen-phone: @screen-xs-min;
 
 // Small screen / tablet
 //** Deprecated `@screen-sm` as of v3.0.1
-@screen-sm:                  768px;
-@screen-sm-min:              @screen-sm;
+@screen-sm: 768px;
+@screen-sm-min: @screen-sm;
 //** Deprecated `@screen-tablet` as of v3.0.1
-@screen-tablet:              @screen-sm-min;
+@screen-tablet: @screen-sm-min;
 
 // Medium screen / desktop
 //** Deprecated `@screen-md` as of v3.0.1
-@screen-md:                  992px;
-@screen-md-min:              @screen-md;
+@screen-md: 992px;
+@screen-md-min: @screen-md;
 //** Deprecated `@screen-desktop` as of v3.0.1
-@screen-desktop:             @screen-md-min;
+@screen-desktop: @screen-md-min;
 
 // Large screen / wide desktop
 //** Deprecated `@screen-lg` as of v3.0.1
-@screen-lg:                  1200px;
-@screen-lg-min:              @screen-lg;
+@screen-lg: 1200px;
+@screen-lg-min: @screen-lg;
 //** Deprecated `@screen-lg-desktop` as of v3.0.1
-@screen-lg-desktop:          @screen-lg-min;
+@screen-lg-desktop: @screen-lg-min;
 
 // So media queries don't overlap when required, provide a maximum
-@screen-xs-max:              (@screen-sm-min - 1);
-@screen-sm-max:              (@screen-md-min - 1);
-@screen-md-max:              (@screen-lg-min - 1);
+@screen-xs-max: (@screen-sm-min - 1);
+@screen-sm-max: (@screen-md-min - 1);
+@screen-md-max: (@screen-lg-min - 1);
 
 //== Grid system
 //
 //## Define your custom responsive grid.
 
 //** Number of columns in the grid.
-@grid-columns:              12;
+@grid-columns: 12;
 //** Padding between columns. Gets divided in half for the left and right.
-@grid-gutter-width:         30px;
+@grid-gutter-width: 30px;
 // Navbar collapse
 //** Point at which the navbar becomes uncollapsed.
-@grid-float-breakpoint:     @screen-sm-min;
+@grid-float-breakpoint: @screen-sm-min;
 //** Point at which the navbar begins collapsing.
 @grid-float-breakpoint-max: (@grid-float-breakpoint - 1);
 
@@ -74,7 +74,7 @@
   float: left;
   width: percentage((@columns / @grid-columns));
   min-height: 1px;
-  padding-left:  (@gutter / 2);
+  padding-left: (@gutter / 2);
   padding-right: (@gutter / 2);
 }
 .make-xs-column-offset(@columns) {
@@ -91,7 +91,7 @@
 .make-sm-column(@columns; @gutter: @grid-gutter-width) {
   position: relative;
   min-height: 1px;
-  padding-left:  (@gutter / 2);
+  padding-left: (@gutter / 2);
   padding-right: (@gutter / 2);
 
   @media (min-width: @screen-sm-min) {
@@ -119,7 +119,7 @@
 .make-md-column(@columns; @gutter: @grid-gutter-width) {
   position: relative;
   min-height: 1px;
-  padding-left:  (@gutter / 2);
+  padding-left: (@gutter / 2);
   padding-right: (@gutter / 2);
 
   @media (min-width: @screen-md-min) {
@@ -147,7 +147,7 @@
 .make-lg-column(@columns; @gutter: @grid-gutter-width) {
   position: relative;
   min-height: 1px;
-  padding-left:  (@gutter / 2);
+  padding-left: (@gutter / 2);
   padding-right: (@gutter / 2);
 
   @media (min-width: @screen-lg-min) {
@@ -221,8 +221,10 @@
 
 .paragraph--type--bp-carousel .paragraph:last-of-type > .paragraph__column,
 .paragraph--type--bp-columns .paragraph:last-of-type > .paragraph__column,
-.paragraph--type--bp-columns-three-uneven .paragraph:last-of-type > .paragraph__column,
-.paragraph--type--bp-columns-two-uneven .paragraph:last-of-type > .paragraph__column,
+.paragraph--type--bp-columns-three-uneven .paragraph:last-of-type
+  > .paragraph__column,
+.paragraph--type--bp-columns-two-uneven .paragraph:last-of-type
+  > .paragraph__column,
 .paragraph--type--bp-tabs .paragraph:last-of-type > .paragraph__column {
   padding-bottom: 0;
 }
@@ -244,7 +246,8 @@
 
 /* Adds Width Element -- Narrow. */
 .paragraph.paragraph--width--narrow > .paragraph__column,
-.paragraph.paragraph--width--narrow.paragraph--type--bp-carousel > .carousel-inner {
+.paragraph.paragraph--width--narrow.paragraph--type--bp-carousel
+  > .carousel-inner {
   .make-sm-column(6);
   .make-sm-column-offset(3);
   .make-md-column(6);
@@ -255,7 +258,8 @@
 
 /* Adds Width Element -- Medium. */
 .paragraph.paragraph--width--medium > .paragraph__column,
-.paragraph.paragraph--width--medium.paragraph--type--bp-carousel > .carousel-inner {
+.paragraph.paragraph--width--medium.paragraph--type--bp-carousel
+  > .carousel-inner {
   .make-sm-column(8);
   .make-sm-column-offset(2);
   .make-md-column(8);
@@ -266,7 +270,8 @@
 
 /* Adds Width Element -- Wide. */
 .paragraph.paragraph--width--wide > .paragraph__column,
-.paragraph.paragraph--width--wide.paragraph--type--bp-carousel > .carousel-inner {
+.paragraph.paragraph--width--wide.paragraph--type--bp-carousel
+  > .carousel-inner {
   .make-sm-column(10);
   .make-sm-column-offset(1);
   .make-md-column(10);
@@ -276,8 +281,9 @@
 }
 
 /* Adds Width Element -- Full. */
-.paragraph.paragraph--width--full > .paragraph__column ,
-.paragraph.paragraph--width--full.paragraph--type--bp-carousel > .carousel-inner {
+.paragraph.paragraph--width--full > .paragraph__column,
+.paragraph.paragraph--width--full.paragraph--type--bp-carousel
+  > .carousel-inner {
   .make-sm-column(12);
   .make-md-column(12);
   .make-lg-column(12);
@@ -295,7 +301,10 @@
 }
 
 .paragraph > .paragraph__column .paragraph > .paragraph__column,
-.paragraph > .paragraph__column .paragraph > .paragraph__column .paragraph > .paragraph__column {
+.paragraph
+  > .paragraph__column .paragraph
+  > .paragraph__column .paragraph
+  > .paragraph__column {
   float: none;
   margin-left: 0;
   padding-left: 0;
@@ -312,9 +321,7 @@
 /* Adds margin and padding to paragraphs in accordion Section bodies. */
 
 .paragraph.paragraph--type--bp-accordion {
-
   .panel-collapse {
-
     > .paragraph {
       padding-left: 15px;
       padding-right: 15px;
@@ -346,11 +353,16 @@
 }
 
 /* Removes padding-left/padding-right added by column widths. */
-.paragraph.paragraph--width--tiny.paragraph--type--bp-carousel > .carousel-inner,
-.paragraph.paragraph--width--narrow.paragraph--type--bp-carousel > .carousel-inner,
-.paragraph.paragraph--width--medium.paragraph--type--bp-carousel > .carousel-inner,
-.paragraph.paragraph--width--wide.paragraph--type--bp-carousel > .carousel-inner,
-.paragraph.paragraph--width--full.paragraph--type--bp-carousel > .carousel-inner {
+.paragraph.paragraph--width--tiny.paragraph--type--bp-carousel
+  > .carousel-inner,
+.paragraph.paragraph--width--narrow.paragraph--type--bp-carousel
+  > .carousel-inner,
+.paragraph.paragraph--width--medium.paragraph--type--bp-carousel
+  > .carousel-inner,
+.paragraph.paragraph--width--wide.paragraph--type--bp-carousel
+  > .carousel-inner,
+.paragraph.paragraph--width--full.paragraph--type--bp-carousel
+  > .carousel-inner {
   padding-left: 0;
   padding-right: 0;
 }
@@ -398,7 +410,8 @@
 }
 
 /* These allow us to change the width on a single paragraph in a Multicolumn. */
-.paragraph--type--bp-columns__1col .paragraph.paragraph--width--tiny > .paragraph__column {
+.paragraph--type--bp-columns__1col .paragraph.paragraph--width--tiny
+  > .paragraph__column {
   .make-sm-column(4);
   .make-sm-column-offset(4);
   .make-md-column(4);
@@ -407,7 +420,8 @@
   .make-lg-column-offset(4);
 }
 
-.paragraph--type--bp-columns__1col .paragraph.paragraph--width--narrow > .paragraph__column {
+.paragraph--type--bp-columns__1col .paragraph.paragraph--width--narrow
+  > .paragraph__column {
   .make-sm-column(6);
   .make-sm-column-offset(3);
   .make-md-column(6);
@@ -416,7 +430,8 @@
   .make-lg-column-offset(3);
 }
 
-.paragraph--type--bp-columns__1col .paragraph.paragraph--width--medium > .paragraph__column {
+.paragraph--type--bp-columns__1col .paragraph.paragraph--width--medium
+  > .paragraph__column {
   .make-sm-column(8);
   .make-sm-column-offset(2);
   .make-md-column(8);
@@ -425,7 +440,8 @@
   .make-lg-column-offset(2);
 }
 
-.paragraph--type--bp-columns__1col .paragraph.paragraph--width--wide > .paragraph__column {
+.paragraph--type--bp-columns__1col .paragraph.paragraph--width--wide
+  > .paragraph__column {
   .make-sm-column(10);
   .make-sm-column-offset(1);
   .make-md-column(10);
@@ -434,7 +450,8 @@
   .make-lg-column-offset(1);
 }
 
-.paragraph--type--bp-columns__1col .paragraph.paragraph--width--full > .paragraph__column {
+.paragraph--type--bp-columns__1col .paragraph.paragraph--width--full
+  > .paragraph__column {
   .make-sm-column(12);
   .make-md-column(12);
   .make-lg-column(12);
@@ -443,7 +460,6 @@
 /* Two Uneven Columns Paragraph. */
 /* .paragraph--bp-columns-two-uneven.html.twig */
 .paragraph--type--bp-columns-two-uneven {
-
   &.paragraph--style--75-25 {
     .paragraph--type--bp-columns__2col:nth-of-type(1) {
       .make-sm-column(9);
@@ -484,7 +500,6 @@
 /* Three Uneven Columns Paragraph. */
 /* .paragraph--bp-columns-three-uneven.html.twig */
 .paragraph--type--bp-columns-three-uneven {
-
   &.paragraph--style--25-50-25 {
     .paragraph--type--bp-columns__3col:nth-of-type(1) {
       .make-sm-column(3);
@@ -580,7 +595,6 @@
 }
 
 .modal {
-
   .modal-header {
     padding: 15px 30px;
   }
