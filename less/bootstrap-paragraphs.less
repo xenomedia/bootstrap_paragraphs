@@ -20,39 +20,12 @@
 //
 //## Define the breakpoints at which your layout will change, adapting to different screen sizes.
 
-// Extra small screen / phone
-//** Deprecated `@screen-xs` as of v3.0.1
-@screen-xs: 480px;
-//** Deprecated `@screen-xs-min` as of v3.2.0
-@screen-xs-min: @screen-xs;
-//** Deprecated `@screen-phone` as of v3.0.1
-@screen-phone: @screen-xs-min;
-
 // Small screen / tablet
 //** Deprecated `@screen-sm` as of v3.0.1
 @screen-sm: 768px;
 @screen-sm-min: @screen-sm;
 //** Deprecated `@screen-tablet` as of v3.0.1
 @screen-tablet: @screen-sm-min;
-
-// Medium screen / desktop
-//** Deprecated `@screen-md` as of v3.0.1
-@screen-md: 992px;
-@screen-md-min: @screen-md;
-//** Deprecated `@screen-desktop` as of v3.0.1
-@screen-desktop: @screen-md-min;
-
-// Large screen / wide desktop
-//** Deprecated `@screen-lg` as of v3.0.1
-@screen-lg: 1200px;
-@screen-lg-min: @screen-lg;
-//** Deprecated `@screen-lg-desktop` as of v3.0.1
-@screen-lg-desktop: @screen-lg-min;
-
-// So media queries don't overlap when required, provide a maximum
-@screen-xs-max: (@screen-sm-min - 1);
-@screen-sm-max: (@screen-md-min - 1);
-@screen-md-max: (@screen-lg-min - 1);
 
 //== Grid system
 //
@@ -67,25 +40,6 @@
 @grid-float-breakpoint: @screen-sm-min;
 //** Point at which the navbar begins collapsing.
 @grid-float-breakpoint-max: (@grid-float-breakpoint - 1);
-
-// Generate the extra small columns
-.make-xs-column(@columns; @gutter: @grid-gutter-width) {
-  position: relative;
-  float: left;
-  width: percentage((@columns / @grid-columns));
-  min-height: 1px;
-  padding-left: (@gutter / 2);
-  padding-right: (@gutter / 2);
-}
-.make-xs-column-offset(@columns) {
-  margin-left: percentage((@columns / @grid-columns));
-}
-.make-xs-column-push(@columns) {
-  left: percentage((@columns / @grid-columns));
-}
-.make-xs-column-pull(@columns) {
-  right: percentage((@columns / @grid-columns));
-}
 
 // Generate the small columns
 .make-sm-column(@columns; @gutter: @grid-gutter-width) {
@@ -111,62 +65,6 @@
 }
 .make-sm-column-pull(@columns) {
   @media (min-width: @screen-sm-min) {
-    right: percentage((@columns / @grid-columns));
-  }
-}
-
-// Generate the medium columns
-.make-md-column(@columns; @gutter: @grid-gutter-width) {
-  position: relative;
-  min-height: 1px;
-  padding-left: (@gutter / 2);
-  padding-right: (@gutter / 2);
-
-  @media (min-width: @screen-md-min) {
-    float: left;
-    width: percentage((@columns / @grid-columns));
-  }
-}
-.make-md-column-offset(@columns) {
-  @media (min-width: @screen-md-min) {
-    margin-left: percentage((@columns / @grid-columns));
-  }
-}
-.make-md-column-push(@columns) {
-  @media (min-width: @screen-md-min) {
-    left: percentage((@columns / @grid-columns));
-  }
-}
-.make-md-column-pull(@columns) {
-  @media (min-width: @screen-md-min) {
-    right: percentage((@columns / @grid-columns));
-  }
-}
-
-// Generate the large columns
-.make-lg-column(@columns; @gutter: @grid-gutter-width) {
-  position: relative;
-  min-height: 1px;
-  padding-left: (@gutter / 2);
-  padding-right: (@gutter / 2);
-
-  @media (min-width: @screen-lg-min) {
-    float: left;
-    width: percentage((@columns / @grid-columns));
-  }
-}
-.make-lg-column-offset(@columns) {
-  @media (min-width: @screen-lg-min) {
-    margin-left: percentage((@columns / @grid-columns));
-  }
-}
-.make-lg-column-push(@columns) {
-  @media (min-width: @screen-lg-min) {
-    left: percentage((@columns / @grid-columns));
-  }
-}
-.make-lg-column-pull(@columns) {
-  @media (min-width: @screen-lg-min) {
     right: percentage((@columns / @grid-columns));
   }
 }
@@ -214,8 +112,6 @@
 
 .paragraph > .paragraph__column {
   .make-sm-column(12);
-  .make-md-column(12);
-  .make-lg-column(12);
   padding-bottom: @jumbotron-padding;
 }
 
@@ -238,10 +134,6 @@
 .paragraph.paragraph--width--tiny.paragraph--type--carousel > .carousel-inner {
   .make-sm-column(4);
   .make-sm-column-offset(4);
-  .make-md-column(4);
-  .make-md-column-offset(4);
-  .make-lg-column(4);
-  .make-lg-column-offset(4);
 }
 
 /* Adds Width Element -- Narrow. */
@@ -250,10 +142,6 @@
   > .carousel-inner {
   .make-sm-column(6);
   .make-sm-column-offset(3);
-  .make-md-column(6);
-  .make-md-column-offset(3);
-  .make-lg-column(6);
-  .make-lg-column-offset(3);
 }
 
 /* Adds Width Element -- Medium. */
@@ -262,10 +150,6 @@
   > .carousel-inner {
   .make-sm-column(8);
   .make-sm-column-offset(2);
-  .make-md-column(8);
-  .make-md-column-offset(2);
-  .make-lg-column(8);
-  .make-lg-column-offset(2);
 }
 
 /* Adds Width Element -- Wide. */
@@ -274,10 +158,6 @@
   > .carousel-inner {
   .make-sm-column(10);
   .make-sm-column-offset(1);
-  .make-md-column(10);
-  .make-md-column-offset(1);
-  .make-lg-column(10);
-  .make-lg-column-offset(1);
 }
 
 /* Adds Width Element -- Full. */
@@ -285,8 +165,6 @@
 .paragraph.paragraph--width--full.paragraph--type--bp-carousel
   > .carousel-inner {
   .make-sm-column(12);
-  .make-md-column(12);
-  .make-lg-column(12);
 }
 
 /* -------------------------------------------------------------------------- */
@@ -363,6 +241,17 @@
   > .carousel-inner,
 .paragraph.paragraph--width--full.paragraph--type--bp-carousel
   > .carousel-inner {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* Removes padding-left/padding-right added by columns in a carousel. */
+.paragraph.paragraph--type--bp-carousel .paragraph--type--bp-columns
+  > .paragraph__column,
+.paragraph.paragraph--type--bp-carousel .paragraph--type--bp-columns-two-uneven
+  > .paragraph__column,
+.paragraph.paragraph--type--bp-carousel .paragraph--type--bp-columns-three-uneven
+  > .paragraph__column {
   padding-left: 0;
   padding-right: 0;
 }
@@ -414,47 +303,29 @@
   > .paragraph__column {
   .make-sm-column(4);
   .make-sm-column-offset(4);
-  .make-md-column(4);
-  .make-md-column-offset(4);
-  .make-lg-column(4);
-  .make-lg-column-offset(4);
 }
 
 .paragraph--type--bp-columns__1col .paragraph.paragraph--width--narrow
   > .paragraph__column {
   .make-sm-column(6);
   .make-sm-column-offset(3);
-  .make-md-column(6);
-  .make-md-column-offset(3);
-  .make-lg-column(6);
-  .make-lg-column-offset(3);
 }
 
 .paragraph--type--bp-columns__1col .paragraph.paragraph--width--medium
   > .paragraph__column {
   .make-sm-column(8);
   .make-sm-column-offset(2);
-  .make-md-column(8);
-  .make-md-column-offset(2);
-  .make-lg-column(8);
-  .make-lg-column-offset(2);
 }
 
 .paragraph--type--bp-columns__1col .paragraph.paragraph--width--wide
   > .paragraph__column {
   .make-sm-column(10);
   .make-sm-column-offset(1);
-  .make-md-column(10);
-  .make-md-column-offset(1);
-  .make-lg-column(10);
-  .make-lg-column-offset(1);
 }
 
 .paragraph--type--bp-columns__1col .paragraph.paragraph--width--full
   > .paragraph__column {
   .make-sm-column(12);
-  .make-md-column(12);
-  .make-lg-column(12);
 }
 
 /* Two Uneven Columns Paragraph. */

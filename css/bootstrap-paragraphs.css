@@ -50,18 +50,6 @@
     width: 100%;
   }
 }
-@media (min-width: 992px) {
-  .paragraph > .paragraph__column {
-    float: left;
-    width: 100%;
-  }
-}
-@media (min-width: 1200px) {
-  .paragraph > .paragraph__column {
-    float: left;
-    width: 100%;
-  }
-}
 .paragraph--type--bp-carousel .paragraph:last-of-type > .paragraph__column,
 .paragraph--type--bp-columns .paragraph:last-of-type > .paragraph__column,
 .paragraph--type--bp-columns-three-uneven .paragraph:last-of-type > .paragraph__column,
@@ -93,32 +81,6 @@
     margin-left: 33.33333333%;
   }
 }
-@media (min-width: 992px) {
-  .paragraph.paragraph--width--tiny > .paragraph__column,
-  .paragraph.paragraph--width--tiny.paragraph--type--carousel > .carousel-inner {
-    float: left;
-    width: 33.33333333%;
-  }
-}
-@media (min-width: 992px) {
-  .paragraph.paragraph--width--tiny > .paragraph__column,
-  .paragraph.paragraph--width--tiny.paragraph--type--carousel > .carousel-inner {
-    margin-left: 33.33333333%;
-  }
-}
-@media (min-width: 1200px) {
-  .paragraph.paragraph--width--tiny > .paragraph__column,
-  .paragraph.paragraph--width--tiny.paragraph--type--carousel > .carousel-inner {
-    float: left;
-    width: 33.33333333%;
-  }
-}
-@media (min-width: 1200px) {
-  .paragraph.paragraph--width--tiny > .paragraph__column,
-  .paragraph.paragraph--width--tiny.paragraph--type--carousel > .carousel-inner {
-    margin-left: 33.33333333%;
-  }
-}
 /* Adds Width Element -- Narrow. */
 .paragraph.paragraph--width--narrow > .paragraph__column,
 .paragraph.paragraph--width--narrow.paragraph--type--bp-carousel > .carousel-inner {
@@ -135,32 +97,6 @@
   }
 }
 @media (min-width: 768px) {
-  .paragraph.paragraph--width--narrow > .paragraph__column,
-  .paragraph.paragraph--width--narrow.paragraph--type--bp-carousel > .carousel-inner {
-    margin-left: 25%;
-  }
-}
-@media (min-width: 992px) {
-  .paragraph.paragraph--width--narrow > .paragraph__column,
-  .paragraph.paragraph--width--narrow.paragraph--type--bp-carousel > .carousel-inner {
-    float: left;
-    width: 50%;
-  }
-}
-@media (min-width: 992px) {
-  .paragraph.paragraph--width--narrow > .paragraph__column,
-  .paragraph.paragraph--width--narrow.paragraph--type--bp-carousel > .carousel-inner {
-    margin-left: 25%;
-  }
-}
-@media (min-width: 1200px) {
-  .paragraph.paragraph--width--narrow > .paragraph__column,
-  .paragraph.paragraph--width--narrow.paragraph--type--bp-carousel > .carousel-inner {
-    float: left;
-    width: 50%;
-  }
-}
-@media (min-width: 1200px) {
   .paragraph.paragraph--width--narrow > .paragraph__column,
   .paragraph.paragraph--width--narrow.paragraph--type--bp-carousel > .carousel-inner {
     margin-left: 25%;
@@ -187,32 +123,6 @@
     margin-left: 16.66666667%;
   }
 }
-@media (min-width: 992px) {
-  .paragraph.paragraph--width--medium > .paragraph__column,
-  .paragraph.paragraph--width--medium.paragraph--type--bp-carousel > .carousel-inner {
-    float: left;
-    width: 66.66666667%;
-  }
-}
-@media (min-width: 992px) {
-  .paragraph.paragraph--width--medium > .paragraph__column,
-  .paragraph.paragraph--width--medium.paragraph--type--bp-carousel > .carousel-inner {
-    margin-left: 16.66666667%;
-  }
-}
-@media (min-width: 1200px) {
-  .paragraph.paragraph--width--medium > .paragraph__column,
-  .paragraph.paragraph--width--medium.paragraph--type--bp-carousel > .carousel-inner {
-    float: left;
-    width: 66.66666667%;
-  }
-}
-@media (min-width: 1200px) {
-  .paragraph.paragraph--width--medium > .paragraph__column,
-  .paragraph.paragraph--width--medium.paragraph--type--bp-carousel > .carousel-inner {
-    margin-left: 16.66666667%;
-  }
-}
 /* Adds Width Element -- Wide. */
 .paragraph.paragraph--width--wide > .paragraph__column,
 .paragraph.paragraph--width--wide.paragraph--type--bp-carousel > .carousel-inner {
@@ -234,32 +144,6 @@
     margin-left: 8.33333333%;
   }
 }
-@media (min-width: 992px) {
-  .paragraph.paragraph--width--wide > .paragraph__column,
-  .paragraph.paragraph--width--wide.paragraph--type--bp-carousel > .carousel-inner {
-    float: left;
-    width: 83.33333333%;
-  }
-}
-@media (min-width: 992px) {
-  .paragraph.paragraph--width--wide > .paragraph__column,
-  .paragraph.paragraph--width--wide.paragraph--type--bp-carousel > .carousel-inner {
-    margin-left: 8.33333333%;
-  }
-}
-@media (min-width: 1200px) {
-  .paragraph.paragraph--width--wide > .paragraph__column,
-  .paragraph.paragraph--width--wide.paragraph--type--bp-carousel > .carousel-inner {
-    float: left;
-    width: 83.33333333%;
-  }
-}
-@media (min-width: 1200px) {
-  .paragraph.paragraph--width--wide > .paragraph__column,
-  .paragraph.paragraph--width--wide.paragraph--type--bp-carousel > .carousel-inner {
-    margin-left: 8.33333333%;
-  }
-}
 /* Adds Width Element -- Full. */
 .paragraph.paragraph--width--full > .paragraph__column,
 .paragraph.paragraph--width--full.paragraph--type--bp-carousel > .carousel-inner {
@@ -269,20 +153,6 @@
   padding-right: 15px;
 }
 @media (min-width: 768px) {
-  .paragraph.paragraph--width--full > .paragraph__column,
-  .paragraph.paragraph--width--full.paragraph--type--bp-carousel > .carousel-inner {
-    float: left;
-    width: 100%;
-  }
-}
-@media (min-width: 992px) {
-  .paragraph.paragraph--width--full > .paragraph__column,
-  .paragraph.paragraph--width--full.paragraph--type--bp-carousel > .carousel-inner {
-    float: left;
-    width: 100%;
-  }
-}
-@media (min-width: 1200px) {
   .paragraph.paragraph--width--full > .paragraph__column,
   .paragraph.paragraph--width--full.paragraph--type--bp-carousel > .carousel-inner {
     float: left;
@@ -339,6 +209,13 @@
 .paragraph.paragraph--width--medium.paragraph--type--bp-carousel > .carousel-inner,
 .paragraph.paragraph--width--wide.paragraph--type--bp-carousel > .carousel-inner,
 .paragraph.paragraph--width--full.paragraph--type--bp-carousel > .carousel-inner {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+/* Removes padding-left/padding-right added by columns in a carousel. */
+.paragraph.paragraph--type--bp-carousel .paragraph--type--bp-columns > .paragraph__column,
+.paragraph.paragraph--type--bp-carousel .paragraph--type--bp-columns-two-uneven > .paragraph__column,
+.paragraph.paragraph--type--bp-carousel .paragraph--type--bp-columns-three-uneven > .paragraph__column {
   padding-left: 0;
   padding-right: 0;
 }
@@ -441,28 +318,6 @@
     margin-left: 33.33333333%;
   }
 }
-@media (min-width: 992px) {
-  .paragraph--type--bp-columns__1col .paragraph.paragraph--width--tiny > .paragraph__column {
-    float: left;
-    width: 33.33333333%;
-  }
-}
-@media (min-width: 992px) {
-  .paragraph--type--bp-columns__1col .paragraph.paragraph--width--tiny > .paragraph__column {
-    margin-left: 33.33333333%;
-  }
-}
-@media (min-width: 1200px) {
-  .paragraph--type--bp-columns__1col .paragraph.paragraph--width--tiny > .paragraph__column {
-    float: left;
-    width: 33.33333333%;
-  }
-}
-@media (min-width: 1200px) {
-  .paragraph--type--bp-columns__1col .paragraph.paragraph--width--tiny > .paragraph__column {
-    margin-left: 33.33333333%;
-  }
-}
 .paragraph--type--bp-columns__1col .paragraph.paragraph--width--narrow > .paragraph__column {
   position: relative;
   min-height: 1px;
@@ -476,28 +331,6 @@
   }
 }
 @media (min-width: 768px) {
-  .paragraph--type--bp-columns__1col .paragraph.paragraph--width--narrow > .paragraph__column {
-    margin-left: 25%;
-  }
-}
-@media (min-width: 992px) {
-  .paragraph--type--bp-columns__1col .paragraph.paragraph--width--narrow > .paragraph__column {
-    float: left;
-    width: 50%;
-  }
-}
-@media (min-width: 992px) {
-  .paragraph--type--bp-columns__1col .paragraph.paragraph--width--narrow > .paragraph__column {
-    margin-left: 25%;
-  }
-}
-@media (min-width: 1200px) {
-  .paragraph--type--bp-columns__1col .paragraph.paragraph--width--narrow > .paragraph__column {
-    float: left;
-    width: 50%;
-  }
-}
-@media (min-width: 1200px) {
   .paragraph--type--bp-columns__1col .paragraph.paragraph--width--narrow > .paragraph__column {
     margin-left: 25%;
   }
@@ -519,28 +352,6 @@
     margin-left: 16.66666667%;
   }
 }
-@media (min-width: 992px) {
-  .paragraph--type--bp-columns__1col .paragraph.paragraph--width--medium > .paragraph__column {
-    float: left;
-    width: 66.66666667%;
-  }
-}
-@media (min-width: 992px) {
-  .paragraph--type--bp-columns__1col .paragraph.paragraph--width--medium > .paragraph__column {
-    margin-left: 16.66666667%;
-  }
-}
-@media (min-width: 1200px) {
-  .paragraph--type--bp-columns__1col .paragraph.paragraph--width--medium > .paragraph__column {
-    float: left;
-    width: 66.66666667%;
-  }
-}
-@media (min-width: 1200px) {
-  .paragraph--type--bp-columns__1col .paragraph.paragraph--width--medium > .paragraph__column {
-    margin-left: 16.66666667%;
-  }
-}
 .paragraph--type--bp-columns__1col .paragraph.paragraph--width--wide > .paragraph__column {
   position: relative;
   min-height: 1px;
@@ -558,28 +369,6 @@
     margin-left: 8.33333333%;
   }
 }
-@media (min-width: 992px) {
-  .paragraph--type--bp-columns__1col .paragraph.paragraph--width--wide > .paragraph__column {
-    float: left;
-    width: 83.33333333%;
-  }
-}
-@media (min-width: 992px) {
-  .paragraph--type--bp-columns__1col .paragraph.paragraph--width--wide > .paragraph__column {
-    margin-left: 8.33333333%;
-  }
-}
-@media (min-width: 1200px) {
-  .paragraph--type--bp-columns__1col .paragraph.paragraph--width--wide > .paragraph__column {
-    float: left;
-    width: 83.33333333%;
-  }
-}
-@media (min-width: 1200px) {
-  .paragraph--type--bp-columns__1col .paragraph.paragraph--width--wide > .paragraph__column {
-    margin-left: 8.33333333%;
-  }
-}
 .paragraph--type--bp-columns__1col .paragraph.paragraph--width--full > .paragraph__column {
   position: relative;
   min-height: 1px;
@@ -587,18 +376,6 @@
   padding-right: 15px;
 }
 @media (min-width: 768px) {
-  .paragraph--type--bp-columns__1col .paragraph.paragraph--width--full > .paragraph__column {
-    float: left;
-    width: 100%;
-  }
-}
-@media (min-width: 992px) {
-  .paragraph--type--bp-columns__1col .paragraph.paragraph--width--full > .paragraph__column {
-    float: left;
-    width: 100%;
-  }
-}
-@media (min-width: 1200px) {
   .paragraph--type--bp-columns__1col .paragraph.paragraph--width--full > .paragraph__column {
     float: left;
     width: 100%;
