@@ -1,47 +1,42 @@
 bp-base:
   css:
     component:
-      css/bootstrap-paragraphs.css: { preprocess: false }
-      css/bootstrap-paragraphs-colors.css: { preprocess: false }
+      css/bootstrap-paragraphs.css: {}
+      css/bootstrap-paragraphs-colors.css: {}
+      css/bootstrap-paragraphs-columns.css: {}
 bp-accordion:
   css:
     component:
-      css/bp-accordion.css: { preprocess: false }
+      css/bootstrap-paragraphs-accordion.css: { preprocess: false }
   dependencies:
     - core/jquery
 bp-carousel:
   css:
     component:
-      css/bp-carousel.css: { preprocess: false }
+      css/bootstrap-paragraphs-carousel.css: { preprocess: false }
   dependencies:
     - core/jquery
-bp-columns:
-  css:
-    component:
-      css/bp-columns.css: { preprocess: false }
 bp-columns-two:
   css:
     component:
-      css/bp-columns.css: { preprocess: false }
-      css/bp-columns-two.css: { preprocess: false }
+      css/bootstrap-paragraphs-columns-two.css: { preprocess: false }
 bp-columns-three:
   css:
     component:
-      css/bp-columns.css: { preprocess: false }
-      css/bp-columns-three.css: { preprocess: false }
+      css/bootstrap-paragraphs-columns-three.css: { preprocess: false }
 bp-image:
   css:
     component:
-      css/bp-image.css: { preprocess: false }
+      css/bootstrap-paragraphs-image.css: { preprocess: false }
 bp-modal:
   css:
     component:
-      css/bp-modal.css: { preprocess: false }
+      css/bootstrap-paragraphs-modal.css: { preprocess: false }
   dependencies:
     - core/jquery
 bp-tabs:
   css:
     component:
-      css/bp-tabs.css: { preprocess: false }
+      css/bootstrap-paragraphs-tabs.css: { preprocess: false }
   dependencies:
     - core/jquery
