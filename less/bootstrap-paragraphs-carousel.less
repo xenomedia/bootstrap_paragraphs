@@ -1,0 +1,37 @@
+/**
+ * @file
+ * The less file for Bootstrap Paragraphs Carousel.
+ *
+ * Can be quickly compiled to CSS at http://less2css.org/.
+ */
+
+/* Adds float so it behaves like the rest of the Paragraphs. */
+.paragraph--type--bp-carousel {
+  float: left;
+}
+
+/* Removes padding-left/padding-right added by column widths. */
+.paragraph.paragraph--width--tiny.paragraph--type--bp-carousel
+  > .carousel-inner,
+.paragraph.paragraph--width--narrow.paragraph--type--bp-carousel
+  > .carousel-inner,
+.paragraph.paragraph--width--medium.paragraph--type--bp-carousel
+  > .carousel-inner,
+.paragraph.paragraph--width--wide.paragraph--type--bp-carousel
+  > .carousel-inner,
+.paragraph.paragraph--width--full.paragraph--type--bp-carousel
+  > .carousel-inner {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* Removes padding-left/padding-right added by columns in a carousel. */
+.paragraph.paragraph--type--bp-carousel .paragraph--type--bp-columns
+  > .paragraph__column,
+.paragraph.paragraph--type--bp-carousel .paragraph--type--bp-columns-two-uneven
+  > .paragraph__column,
+.paragraph.paragraph--type--bp-carousel .paragraph--type--bp-columns-three-uneven
+  > .paragraph__column {
+  padding-left: 0;
+  padding-right: 0;
+}

@@ -1,48 +1,21 @@
-/* -----------------------------------------------------------------------------
+/**
+ * @file
+ * The base less file for Bootstrap Paragraphs.
+ *
+ * Can be quickly compiled to CSS at http://less2css.org/.
+ */
 
-  Bootstrap 3 Variables and Mixins Needed
-  Can be quickly compiled to CSS at http://less2css.org/
-
------------------------------------------------------------------------------ */
-//** Padding between columns. Gets divided in half for the left and right.
-@grid-gutter-width: 30px;
-
-@jumbotron-padding: 30px;
-
-// Creates a wrapper for a series of columns
-.make-row(@gutter: @grid-gutter-width) {
-  margin-left: ceil((@gutter / -2));
-  margin-right: floor((@gutter / -2));
-  &:extend(.clearfix all);
-}
-
-//== Media queries breakpoints
-//
-//## Define the breakpoints at which your layout will change, adapting to different screen sizes.
-
-// Small screen / tablet
-//** Deprecated `@screen-sm` as of v3.0.1
-@screen-sm: 768px;
-@screen-sm-min: @screen-sm;
-//** Deprecated `@screen-tablet` as of v3.0.1
-@screen-tablet: @screen-sm-min;
-
-//== Grid system
-//
-//## Define your custom responsive grid.
-
-//** Number of columns in the grid.
+/**
+ * Bootstrap 3 Variables and Mixins Needed.
+ *
+ * Includes so we can compile the CSS.
+ */
+@screen-sm-min: 768px;
 @grid-columns: 12;
-//** Padding between columns. Gets divided in half for the left and right.
 @grid-gutter-width: 30px;
-// Navbar collapse
-//** Point at which the navbar becomes uncollapsed.
-@grid-float-breakpoint: @screen-sm-min;
-//** Point at which the navbar begins collapsing.
-@grid-float-breakpoint-max: (@grid-float-breakpoint - 1);
 
 // Generate the small columns
-.make-sm-column(@columns; @gutter: @grid-gutter-width) {
+.make-sm-column(@columns; @gutter: 30px) {
   position: relative;
   min-height: 1px;
   padding-left: (@gutter / 2);
@@ -69,41 +42,48 @@
   }
 }
 
-/* -----------------------------------------------------------------------------
+/**
+ * Paragraph Section CSS.
+ *
+ * Table of Contents:
+ *   Base Paragraph Styling
+ *   Widths
+ *   Nesting
+ *
+ * The following classes are available if the different Paragraph types need
+ * their own individual styling.
+ *
+ * .paragraph.paragraph--type--bp-accordion
+ * .paragraph.paragraph--type--bp-blank
+ * .paragraph.paragraph--type--bp-carousel
+ * .paragraph.paragraph--type--bp-columns
+ * .paragraph.paragraph--type--bp-columns-three-uneven
+ * .paragraph.paragraph--type--bp-columns-two-uneven
+ * .paragraph.paragraph--type--bp-contact
+ * .paragraph.paragraph--type--bp-image
+ * .paragraph.paragraph--type--bp-modal
+ * .paragraph.paragraph--type--bp-simple
+ * .paragraph.paragraph--type--bp-tabs
+ * .paragraph.paragraph--type--bp-view
+ */
 
-  Paragraph Section CSS.
-
-  Table of Contents:
-    Base Paragraph Styling
-    Widths
-    Nesting
-    Paragraph Types
-    Colors
-
-      The following classes are available if the different Paragraph types
-      need their own individual styling.
-
-      .paragraph.paragraph--type--bp-accordion {} -- Is used below
-      .paragraph.paragraph--type--bp-blank {}
-      .paragraph.paragraph--type--bp-carousel {} -- Is used below
-      .paragraph.paragraph--type--bp-columns {} -- Is used below
-      .paragraph.paragraph--type--bp-columns-three-uneven {} -- Is used below
-      .paragraph.paragraph--type--bp-columns-two-uneven {} -- Is used below
-      .paragraph.paragraph--type--bp-contact {}
-      .paragraph.paragraph--type--bp-image {} -- Is used below
-      .paragraph.paragraph--type--bp-modal {} -- Is used below
-      .paragraph.paragraph--type--bp-simple {}
-      .paragraph.paragraph--type--bp-tabs {} -- Is used below
-      .paragraph.paragraph--type--bp-view {}
-
------------------------------------------------------------------------------ */
-
-/* -------------------------------------------------------------------------- */
-/* Base Paragraph Styling.                                                    */
-/* -------------------------------------------------------------------------- */
-
+/**
+ * Base Paragraph Styling.
+ *
+ * Here we style the .paragraph as a Bootstrap .row and .paragraph__column as a
+ * full width column.  We also add padding to the top/bottom.
+ */
 .paragraph {
-  .make-row();
+  &:before,
+  &:after {
+    content: " "; // 1
+    display: table; // 2
+  }
+
+  &:after {
+    clear: both;
+  }
+
   display: table;
   margin-left: 0;
   margin-right: 0;
@@ -112,7 +92,7 @@
 
 .paragraph > .paragraph__column {
   .make-sm-column(12);
-  padding-bottom: @jumbotron-padding;
+  padding-bottom: 30px;
 }
 
 .paragraph--type--bp-carousel .paragraph:last-of-type > .paragraph__column,
@@ -125,10 +105,11 @@
   padding-bottom: 0;
 }
 
-/* -------------------------------------------------------------------------- */
-/* Here we add Widths.                                                        */
-/* -------------------------------------------------------------------------- */
-
+/**
+ * Widths.
+ *
+ * Here we style the widths for each paragraph.
+ */
 /* Adds Width Element -- Tiny. */
 .paragraph.paragraph--width--tiny > .paragraph__column,
 .paragraph.paragraph--width--tiny.paragraph--type--carousel > .carousel-inner {
@@ -167,10 +148,11 @@
   .make-sm-column(12);
 }
 
-/* -------------------------------------------------------------------------- */
-/* Nesting paragraphs helpers.                                                */
-/* -------------------------------------------------------------------------- */
-
+/**
+ * Nesting Paragraphs.
+ *
+ * Here are some helpers for temove margin/padding when nesting bundles.
+ */
 /* Resets Base Paragraph Styling for Nested Paragraphs. */
 .paragraph .paragraph,
 .paragraph .paragraph .paragraph {
@@ -188,314 +170,4 @@
   padding-left: 0;
   padding-right: 0;
   width: auto;
-}
-
-/* -------------------------------------------------------------------------- */
-/* Here we can customize the different Paragraph types.                       */
-/* -------------------------------------------------------------------------- */
-
-/* Accordion Paragraph. */
-/* paragraph--bp-accordion.html.twig */
-/* Adds margin and padding to paragraphs in accordion Section bodies. */
-
-.paragraph.paragraph--type--bp-accordion {
-  .panel-collapse {
-    > .paragraph {
-      padding-left: 15px;
-      padding-right: 15px;
-
-      > .paragraph__column {
-        padding-bottom: 15px;
-        padding-top: 15px;
-      }
-    }
-
-    .paragraph:last-of-type > .paragraph__column {
-      padding-bottom: 15px;
-    }
-
-    .paragraph + .paragraph,
-    .paragraph + .paragraph + .paragraph {
-      > .paragraph__column {
-        padding-bottom: 30px;
-      }
-    }
-  }
-}
-
-/* Carousel Paragraph. */
-/* paragraph--bp-carousel.html.twig */
-/* Adds float so it behaves like the rest of the Paragraphs. */
-.paragraph--type--bp-carousel {
-  float: left;
-}
-
-/* Removes padding-left/padding-right added by column widths. */
-.paragraph.paragraph--width--tiny.paragraph--type--bp-carousel
-  > .carousel-inner,
-.paragraph.paragraph--width--narrow.paragraph--type--bp-carousel
-  > .carousel-inner,
-.paragraph.paragraph--width--medium.paragraph--type--bp-carousel
-  > .carousel-inner,
-.paragraph.paragraph--width--wide.paragraph--type--bp-carousel
-  > .carousel-inner,
-.paragraph.paragraph--width--full.paragraph--type--bp-carousel
-  > .carousel-inner {
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-}
-
-/* Removes padding-left/padding-right added by columns in a carousel. */
-.paragraph.paragraph--type--bp-carousel .paragraph--type--bp-columns
-  > .paragraph__column,
-.paragraph.paragraph--type--bp-carousel .paragraph--type--bp-columns-two-uneven
-  > .paragraph__column,
-.paragraph.paragraph--type--bp-carousel .paragraph--type--bp-columns-three-uneven
-  > .paragraph__column {
-  padding-left: 0;
-  padding-right: 0;
-}
-
-/* Columns Paragraph. */
-/* .field--paragraph--bp-column-content.html.twig */
-/* Removes Padding on Columns (Padding is on columns inside). */
-.paragraph.paragraph--type--bp-columns > .paragraph__column,
-.paragraph.paragraph--type--bp-columns-two-uneven > .paragraph__column,
-.paragraph.paragraph--type--bp-columns-three-uneven > .paragraph__column {
-  padding: 0;
-}
-
-/* Columns Modifiers inside of Columns Element  */
-.paragraph.paragraph--type--bp-columns .paragraph--type--bp-columns__6col {
-  .make-sm-column(2);
-}
-
-.paragraph.paragraph--type--bp-columns .paragraph--type--bp-columns__5col {
-  position: relative;
-  min-height: 1px;
-  padding-left: 15px;
-  padding-right: 15px;
-
-  @media (min-width: 768px) {
-    float: left;
-    width: 20%;
-  }
-}
-
-.paragraph.paragraph--type--bp-columns .paragraph--type--bp-columns__4col {
-  .make-sm-column(3);
-}
-
-.paragraph.paragraph--type--bp-columns .paragraph--type--bp-columns__3col {
-  .make-sm-column(4);
-}
-
-.paragraph.paragraph--type--bp-columns .paragraph--type--bp-columns__2col {
-  .make-sm-column(6);
-}
-
-.paragraph.paragraph--type--bp-columns .paragraph--type--bp-columns__1col {
-  .make-sm-column(12);
-}
-
-/* These allow us to change the width on a single paragraph in a Multicolumn. */
-.paragraph--type--bp-columns__1col .paragraph.paragraph--width--tiny
-  > .paragraph__column {
-  .make-sm-column(4);
-  .make-sm-column-offset(4);
-}
-
-.paragraph--type--bp-columns__1col .paragraph.paragraph--width--narrow
-  > .paragraph__column {
-  .make-sm-column(6);
-  .make-sm-column-offset(3);
-}
-
-.paragraph--type--bp-columns__1col .paragraph.paragraph--width--medium
-  > .paragraph__column {
-  .make-sm-column(8);
-  .make-sm-column-offset(2);
-}
-
-.paragraph--type--bp-columns__1col .paragraph.paragraph--width--wide
-  > .paragraph__column {
-  .make-sm-column(10);
-  .make-sm-column-offset(1);
-}
-
-.paragraph--type--bp-columns__1col .paragraph.paragraph--width--full
-  > .paragraph__column {
-  .make-sm-column(12);
-}
-
-/* Two Uneven Columns Paragraph. */
-/* .paragraph--bp-columns-two-uneven.html.twig */
-.paragraph.paragraph--type--bp-columns-two-uneven {
-  &.paragraph--style--75-25 {
-    .paragraph--type--bp-columns-two-uneven__2col-column1 {
-      .make-sm-column(9);
-    }
-    .paragraph--type--bp-columns-two-uneven__2col-column2 {
-      .make-sm-column(3);
-    }
-  }
-
-  &.paragraph--style--66-33 {
-    .paragraph--type--bp-columns-two-uneven__2col-column1 {
-      .make-sm-column(8);
-    }
-    .paragraph--type--bp-columns-two-uneven__2col-column2 {
-      .make-sm-column(4);
-    }
-  }
-
-  &.paragraph--style--25-75 {
-    .paragraph--type--bp-columns-two-uneven__2col-column1 {
-      .make-sm-column(3);
-    }
-    .paragraph--type--bp-columns-two-uneven__2col-column2 {
-      .make-sm-column(9);
-    }
-  }
-
-  &.paragraph--style--33-66 {
-    .paragraph--type--bp-columns-two-uneven__2col-column1 {
-      .make-sm-column(4);
-    }
-    .paragraph--type--bp-columns-two-uneven__2col-column2 {
-      .make-sm-column(8);
-    }
-  }
-}
-
-/* Three Uneven Columns Paragraph. */
-/* .paragraph--bp-columns-three-uneven.html.twig */
-.paragraph--type--bp-columns-three-uneven {
-  &.paragraph--style--25-50-25 {
-    .paragraph--type--bp-columns-three-uneven__3col-column1,
-    .paragraph--type--bp-columns-three-uneven__3col-column3 {
-      .make-sm-column(3);
-    }
-    .paragraph--type--bp-columns-three-uneven__3col-column2 {
-      .make-sm-column(6);
-    }
-  }
-
-  &.paragraph--style--50-25-25 {
-    .paragraph--type--bp-columns-three-uneven__3col-column1 {
-      .make-sm-column(6);
-    }
-    .paragraph--type--bp-columns-three-uneven__3col-column2,
-    .paragraph--type--bp-columns-three-uneven__3col-column3 {
-      .make-sm-column(3);
-    }
-  }
-
-  &.paragraph--style--25-25-50 {
-    .paragraph--type--bp-columns-three-uneven__3col-column1,
-    .paragraph--type--bp-columns-three-uneven__3col-column2 {
-      .make-sm-column(3);
-    }
-    .paragraph--type--bp-columns-three-uneven__3col-column3 {
-      .make-sm-column(6);
-    }
-  }
-
-  &.paragraph--style--16-66-16 {
-    .paragraph--type--bp-columns-three-uneven__3col-column1,
-    .paragraph--type--bp-columns-three-uneven__3col-column3 {
-      .make-sm-column(2);
-    }
-    .paragraph--type--bp-columns-three-uneven__3col-column2 {
-      .make-sm-column(8);
-    }
-  }
-
-  &.paragraph--style--66-16-16 {
-    .paragraph--type--bp-columns-three-uneven__3col-column1 {
-      .make-sm-column(8);
-    }
-    .paragraph--type--bp-columns-three-uneven__3col-column2,
-    .paragraph--type--bp-columns-three-uneven__3col-column3 {
-      .make-sm-column(2);
-    }
-  }
-
-  &.paragraph--style--16-16-66 {
-    .paragraph--type--bp-columns-three-uneven__3col-column1,
-    .paragraph--type--bp-columns-three-uneven__3col-column2 {
-      .make-sm-column(2);
-    }
-    .paragraph--type--bp-columns-three-uneven__3col-column3 {
-      .make-sm-column(8);
-    }
-  }
-}
-
-/* Image Paragraph. */
-/* .paragraph--bp-image.html.twig */
-.paragraph--type--bp-image {
-  &.paragraph--width--full {
-    .paragraph__column {
-      padding-left: 0;
-      padding-right: 0;
-    }
-  }
-}
-
-/* Modal Paragraph. */
-/* .paragraph--bp-modal.html.twig */
-.paragraph--type--bp-modal {
-  .btn.btn-modal {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
-
-.modal {
-  .modal-header {
-    padding: 15px 30px;
-  }
-
-  .modal-body,
-  .modal-footer {
-    padding: 15px 30px 0 30px;
-  }
-
-  .modal-title {
-    font-weight: bold;
-  }
-
-  .modal-footer {
-    text-align: left;
-  }
-
-  .modal-body .paragraph,
-  .modal-footer .paragraph {
-    display: table;
-    width: 100%;
-  }
-}
-
-/* Tabs Paragraph. */
-/* .paragraph--bp-tabs.html.twig */
-.paragraph.paragraph--type--bp-tabs {
-  .tab-content .paragraph > .paragraph__column {
-    padding-top: 15px;
-  }
-}
-
-/* -------------------------------------------------------------------------- */
-/* Here we add Colors.                                                        */
-/* -------------------------------------------------------------------------- */
-/* Adds padding to fill in color. */
-.paragraph.paragraph--color > .paragraph__column {
-  padding-top: @jumbotron-padding;
-  padding-bottom: @jumbotron-padding;
-}
-
-/* Fills color on colorless paragraph after color paragraph. */
-.paragraph.paragraph--color + .paragraph > .paragraph__column {
-  padding-top: @jumbotron-padding;
 }
