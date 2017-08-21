@@ -1,9 +1,47 @@
-bootstrap-paragraphs:
+bp-base:
   css:
     component:
-      css/bootstrap-paragraphs.css:
-        minified: false
-      css/bootstrap-paragraphs-colors.css:
-        minified: false
+      css/bootstrap-paragraphs.css: { preprocess: false }
+      css/bootstrap-paragraphs-colors.css: { preprocess: false }
+bp-accordion:
+  css:
+    component:
+      css/bp-accordion.css: { preprocess: false }
+  dependencies:
+    - core/jquery
+bp-carousel:
+  css:
+    component:
+      css/bp-carousel.css: { preprocess: false }
+  dependencies:
+    - core/jquery
+bp-columns:
+  css:
+    component:
+      css/bp-columns.css: { preprocess: false }
+bp-columns-two:
+  css:
+    component:
+      css/bp-columns.css: { preprocess: false }
+      css/bp-columns-two.css: { preprocess: false }
+bp-columns-three:
+  css:
+    component:
+      css/bp-columns.css: { preprocess: false }
+      css/bp-columns-three.css: { preprocess: false }
+bp-image:
+  css:
+    component:
+      css/bp-image.css: { preprocess: false }
+bp-modal:
+  css:
+    component:
+      css/bp-modal.css: { preprocess: false }
+  dependencies:
+    - core/jquery
+bp-tabs:
+  css:
+    component:
+      css/bp-tabs.css: { preprocess: false }
   dependencies:
     - core/jquery
