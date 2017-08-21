@@ -1,0 +1,7 @@
+/**
+ * @file
+ * The css file for Bootstrap Paragraphs Carousel.
+ *
+ * Compiled from bootstrap-paragraphs-carousel.less.
+ */
+.paragraph--type--bp-carousel{float:left}.paragraph.paragraph--width--full.paragraph--type--bp-carousel>.carousel-inner,.paragraph.paragraph--width--medium.paragraph--type--bp-carousel>.carousel-inner,.paragraph.paragraph--width--narrow.paragraph--type--bp-carousel>.carousel-inner,.paragraph.paragraph--width--tiny.paragraph--type--bp-carousel>.carousel-inner,.paragraph.paragraph--width--wide.paragraph--type--bp-carousel>.carousel-inner{padding-left:0!important;padding-right:0!important}.paragraph.paragraph--type--bp-carousel .paragraph--type--bp-columns-three-uneven>.paragraph__column,.paragraph.paragraph--type--bp-carousel .paragraph--type--bp-columns-two-uneven>.paragraph__column,.paragraph.paragraph--type--bp-carousel .paragraph--type--bp-columns>.paragraph__column{padding-left:0;padding-right:0}
