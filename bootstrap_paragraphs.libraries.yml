@@ -1,4 +1,4 @@
-bp-base:
+bootstrap-paragraphs:
   css:
     component:
       css/bootstrap-paragraphs.css: {}
