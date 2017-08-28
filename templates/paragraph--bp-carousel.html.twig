@@ -173,9 +173,9 @@ view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
       <li class="{% if loop.first %}active{% endif %}" data-slide-to="{{ key }}" data-target="#{{ paragraph_id }}"></li>
     {% endfor %}
   </ol>
-  <div class="carousel-inner" role="listbox">
+  <div class="carousel-inner" role="list">
     {% for key, item in content.bp_slide_content if key|first != '#' %}
-      <div class="paragraph--layout-slideshow__slide-{{ key + 1 }} item carousel-item{% if loop.first %} active{% endif %}">{{ item }}</div>
+      <div class="paragraph--layout-slideshow__slide-{{ key + 1 }} item carousel-item{% if loop.first %} active{% endif %}" role="listitem">{{ item }}</div>
     {% endfor %}
   </div>
   <a class="left carousel-control" href="#{{ paragraph_id }}" role="button" data-slide="prev">
