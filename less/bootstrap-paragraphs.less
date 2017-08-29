@@ -71,7 +71,7 @@
  * Base Paragraph Styling.
  *
  * Here we style the .paragraph as a Bootstrap .row and .paragraph__column as a
- * full width column.  We also add padding to the top/bottom.
+ * full width column.  We also add padding to the bottom.
  */
 .paragraph {
   &:before,
@@ -95,6 +95,7 @@
   padding-bottom: 30px;
 }
 
+/* Remove bottom padding on nested paragraphs. */
 .paragraph--type--bp-carousel .paragraph:last-of-type > .paragraph__column,
 .paragraph--type--bp-columns .paragraph:last-of-type > .paragraph__column,
 .paragraph--type--bp-columns-three-uneven .paragraph:last-of-type
@@ -111,40 +112,31 @@
  * Here we style the widths for each paragraph.
  */
 /* Adds Width Element -- Tiny. */
-.paragraph.paragraph--width--tiny > .paragraph__column,
-.paragraph.paragraph--width--tiny.paragraph--type--carousel > .carousel-inner {
+.paragraph.paragraph--width--tiny > .paragraph__column {
   .make-sm-column(4);
   .make-sm-column-offset(4);
 }
 
 /* Adds Width Element -- Narrow. */
-.paragraph.paragraph--width--narrow > .paragraph__column,
-.paragraph.paragraph--width--narrow.paragraph--type--bp-carousel
-  > .carousel-inner {
+.paragraph.paragraph--width--narrow > .paragraph__column {
   .make-sm-column(6);
   .make-sm-column-offset(3);
 }
 
 /* Adds Width Element -- Medium. */
-.paragraph.paragraph--width--medium > .paragraph__column,
-.paragraph.paragraph--width--medium.paragraph--type--bp-carousel
-  > .carousel-inner {
+.paragraph.paragraph--width--medium > .paragraph__column {
   .make-sm-column(8);
   .make-sm-column-offset(2);
 }
 
 /* Adds Width Element -- Wide. */
-.paragraph.paragraph--width--wide > .paragraph__column,
-.paragraph.paragraph--width--wide.paragraph--type--bp-carousel
-  > .carousel-inner {
+.paragraph.paragraph--width--wide > .paragraph__column {
   .make-sm-column(10);
   .make-sm-column-offset(1);
 }
 
 /* Adds Width Element -- Full. */
-.paragraph.paragraph--width--full > .paragraph__column,
-.paragraph.paragraph--width--full.paragraph--type--bp-carousel
-  > .carousel-inner {
+.paragraph.paragraph--width--full > .paragraph__column {
   .make-sm-column(12);
 }
 

@@ -4,4 +4,7 @@
  *
  * Compiled from bootstrap-paragraphs-tabs.less.
  */
-.paragraph.paragraph--type--bp-tabs .tab-content .paragraph>.paragraph__column{padding-top:15px}
+/* Adds padding top to tabs. */
+.paragraph.paragraph--type--bp-tabs .tab-content .paragraph > .paragraph__column {
+  padding-top: 15px;
+}
