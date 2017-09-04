@@ -16,6 +16,10 @@ bp-carousel:
       css/bootstrap-paragraphs-carousel.min.css: { preprocess: false, minified: true }
   dependencies:
     - core/jquery
+bp-columns:
+  css:
+    component:
+      css/bootstrap-paragraphs-columns.min.css: { preprocess: false, minified: true }
 bp-columns-two:
   css:
     component:
