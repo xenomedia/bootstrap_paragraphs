@@ -1,0 +1,9 @@
+name: Bootstrap Paragraphs Webform
+type: module
+description: A reusable Webform Paragraph bundle.
+core: 8.x
+package: Paragraphs
+dependencies:
+  - paragraphs
+  - bootstrap_paragraphs
+  - webform
