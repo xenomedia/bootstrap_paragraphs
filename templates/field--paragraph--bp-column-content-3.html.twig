@@ -38,7 +38,7 @@
 #}
 
 {%- for item in items -%}
-  <div class="paragraph--type--bp-columns-three-uneven__{{ loop.length }}col{% if loop.index == 1 %}-column1{% elseif loop.index == 2 %}-column2{% elseif loop.index == 3 %}-column3{% endif %}">
-    {{ item.content }}
+  <div class="paragraph--type--bp-columns-three-uneven__{{ loop.length }}col-column{{ loop.index }}">
+    <div{{ item.attributes }}>{{ item.content }}</div>
   </div>
 {%- endfor -%}

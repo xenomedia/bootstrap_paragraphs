@@ -47,11 +47,11 @@
 
 {% if label_hidden %}
   {% for item in items %}
-    {{ item.content }}
+    <div{{ item.attributes }}>{{ item.content }}</div>
   {% endfor %}
 {% else %}
   <div{{ title_attributes.addClass(title_classes) }}>{{ label }}</div>
   {% for item in items %}
-    {{ item.content }}
+    <div{{ item.attributes }}>{{ item.content }}</div>
   {% endfor %}
 {% endif %}
