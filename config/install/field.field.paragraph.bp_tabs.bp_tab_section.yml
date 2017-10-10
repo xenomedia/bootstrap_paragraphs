@@ -50,22 +50,19 @@ settings:
       bp_columns_two_uneven:
         weight: 24
         enabled: false
-      bp_contact:
+      bp_image:
         weight: 25
         enabled: false
-      bp_image:
+      bp_modal:
         weight: 26
         enabled: false
-      bp_modal:
+      bp_simple:
         weight: 27
         enabled: false
-      bp_simple:
+      bp_tabs:
         weight: 28
         enabled: false
-      bp_tabs:
-        weight: 29
-        enabled: false
       bp_view:
-        weight: 30
+        weight: 29
         enabled: false
 field_type: entity_reference_revisions

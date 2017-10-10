@@ -9,7 +9,6 @@ dependencies:
     - paragraphs.paragraphs_type.bp_columns
     - paragraphs.paragraphs_type.bp_columns_three_uneven
     - paragraphs.paragraphs_type.bp_columns_two_uneven
-    - paragraphs.paragraphs_type.bp_contact
     - paragraphs.paragraphs_type.bp_image
     - paragraphs.paragraphs_type.bp_modal
     - paragraphs.paragraphs_type.bp_simple
@@ -36,7 +35,6 @@ settings:
       bp_columns: bp_columns
       bp_columns_three_uneven: bp_columns_three_uneven
       bp_columns_two_uneven: bp_columns_two_uneven
-      bp_contact: bp_contact
       bp_block: bp_block
       bp_modal: bp_modal
       bp_view: bp_view
@@ -59,31 +57,28 @@ settings:
       bp_columns_two_uneven:
         enabled: true
         weight: -26
-      bp_contact:
-        enabled: true
-        weight: -25
       bp_block:
         enabled: true
-        weight: -24
+        weight: -25
       bp_modal:
         enabled: true
-        weight: -23
+        weight: -24
       bp_view:
         enabled: true
-        weight: -22
+        weight: -23
       bp_accordion:
-        weight: -21
+        weight: -22
         enabled: false
       bp_accordion_section:
-        weight: -20
+        weight: -21
         enabled: false
       bp_carousel:
-        weight: -19
+        weight: -20
         enabled: false
       bp_tabs:
-        weight: -18
+        weight: -19
         enabled: false
       bp_tab_section:
-        weight: -17
+        weight: -18
         enabled: false
 field_type: entity_reference_revisions

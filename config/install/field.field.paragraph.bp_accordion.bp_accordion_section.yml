@@ -38,16 +38,13 @@ settings:
       bp_columns:
         weight: 14
         enabled: false
-      bp_contact:
+      bp_image:
         weight: 15
         enabled: false
-      bp_image:
+      bp_simple:
         weight: 16
         enabled: false
-      bp_simple:
-        weight: 17
-        enabled: false
       bp_view:
-        weight: 18
+        weight: 17
         enabled: false
 field_type: entity_reference_revisions
