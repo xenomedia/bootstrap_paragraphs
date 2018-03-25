@@ -4,7 +4,7 @@ description: A reusable Contact Form Paragraph bundle.
 core: 8.x
 package: Paragraphs
 dependencies:
-  - paragraphs
-  - bootstrap_paragraphs
-  - contact
-  - contact_formatter
+  - drupal:paragraphs
+  - drupal:bootstrap_paragraphs
+  - drupal:contact
+  - drupal:contact_formatter
